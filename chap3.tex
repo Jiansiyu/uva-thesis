@@ -1,5 +1,27 @@
   \chapter{The High Resolution Spectrometer Optimization(30)}
 
+PRex-II Experiment was operated on Jefferson Lab High-Resolution Spectrometer(JLab). The kinematics of the scattered electrons have to be measured on the Vertical Drift Chambers which are installed after the magnetic chains. All the measurements have to be converted back to the target coordination system in order to get the result. This chapter will discuss the detail of JLab HRS calibration, the calculation of the 4-momentum transfer square, and the GEM detector analysis. 
+
+
+\section{High-Resolution Spectrometer Optics Calibration}
+
+(a more detailed apparatus could/will be found in another chapter describing the detailed experiment configuration)
+
+The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized in three steps:
+
+\begin{itemize}
+    \item VDC drift time $t_0$ calibration
+    \item VDC geometry constant calibration 
+    \item spatial and angular calibration
+    \item momentum calibration
+\end{itemize}
+
+Vertical Drift Chamber measures the spatial position by measuring the particle drift time. $t_0$ serves as the starting time of the VDC counter. Carefully calibrated $t_0$ is critical to the spatial and angular resolution of the VDC. To simplify the regression model and easily converge, the spatial, angular, and momentum parameters are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. Before going into the detail of the calibration, here first introduce the coordination system used in the following contest. 
+
+\subsection{coordination system}
+
+
+
 Introduction:
 \begin{itemize}
     \item apparatus
@@ -10,7 +32,7 @@ Introduction:
 
 
 % \lipsum[1-20]
-\section{Apparatus}
+\subsection{Apparatus}
 
 \begin{itemize}
     \item Overview of the HRS structure
@@ -24,49 +46,53 @@ Introduction:
 \end{itemize}
 
 
-\section{HRS model}
+\subsection{HRS model}
 
 \begin{itemize}
-    \item mathematic model of the HRS
+    \item mathematical model of the HRS
     \item constant parameter optimization
-    \item VDC drift time optimization
+    \item Vertical Drift Chamber time optimization
     \item carbon calibration(dashed lines in the VDC spectrometer)
     \item math why higher order contribute, a discussion notes
-    \item feature selection technics
+    \item feature selection techniques
     \item linear regression
     \item result validation
     \item result and discussion
 \end{itemize}
 
-\subsection{Linear Regression and mathematics approximation}
+\subsection{VDC constant calibration}
+\subsection{}
+\subsection{beam calibration??}
+
+% \subsubsection{Linear Regression and mathematics approximation}
 
 
 
 
-\section{feature selection}
+% \subsection{}section{feature selection}
 
-\subsection{general consideration in regression}
+% \subsubsection{general consideration in regression}
 
-\subsection{features in regression}
+% \subsubsection{features in regression}
 
-\subsection{LASSO feature reduction regression}
+% \subsubsection{LASSO feature reduction regression}
 
-\subsection{ridge feature reduction regression}
+% \subsubsection{ridge feature reduction regression}
 
-\subsection{autoML and more}
+% \subsection{autoML and more}
 
-\section{Momentum optimization}
+% \section{Momentum optimization}
 
-\section{Regression Result validation}
+% \section{Regression Result validation}
 
-\subsection{carbon result check}
+% \subsection{carbon result check}
 
-\subsubsection{first, second, third momentum check}
+% \subsubsection{first, second, third momentum check}
 
-\section{momentum reconstruction}
+% \section{momentum reconstruction}
 
-\section{scattered angle reconstruction and correction}
+% \section{scattered angle reconstruction and correction}
 
-\section{a second thought/attempt on the regression}
+% \section{a second thought/attempt on the regression}
 
-\subsection{another more complicated model}
+% \subsection{another more complicated model}
