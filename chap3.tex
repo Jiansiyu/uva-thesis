@@ -161,13 +161,30 @@ After the particle trespass into the chamber, normally it will fire a cluster th
     \label{fig:vdc_wire_ionization_cluster}
 \end{figure}
 
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/vdc_t0_before_correction.png}
+    \caption{vdc $x$ vs $y$ on vdc detector plane before T_0 correction}
+    \label{fig:vdc_t0_before_correction}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/vdc_t0_after_correction.png}
+    \caption{vdc $x$ vs $y$ on vdc detector plane after T_0 correction}
+    \label{fig:vdc_t0_after_correction}
+\end{figure}
+
 The $t_0$ could be calibrated by adjusting the time offset of each TDC channel. In order to calibrate the TDC for all the VDC range, the data should be white spectrum runs that covers all focal plane range with high statistics. 
 
 Here is a procedure of calibration of the TDC $T_0$: [need to check again.]
 \begin{enumerate}
     \item Fit the failing tail of the spectrum. 
-    \item take the 1.2 $\sigma$ of the peak to the right to be the threshold
+    \item take the 1.4 $\sigma$ before the peak time
 \end{enumerate}
+
+
 
 \subsubsection{convert to the transport coordinate system}
 As it definition says. The focal plane should pass (0,0) for central beam runs. 
