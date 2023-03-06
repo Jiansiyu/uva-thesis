@@ -7,7 +7,7 @@ PRex-II Experiment was operated on Jefferson Lab High-Resolution Spectrometer(JL
 
 (a more detailed apparatus could/will be found in another chapter describing the detailed experiment configuration)
 
-The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized in three steps:
+The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized into three steps:
 
 \begin{itemize}
     \item VDC drift time $t_0$ calibration
@@ -50,10 +50,10 @@ Let's take $p_{vdc,n}$ (where ${n=1-4}$)to be the cross position of a particle w
 
 For ideal experimental configurations, we take the following assumptions:
 \begin{enumerate}
-    \item All the VDC wires are positioned on 2D vdc plane
+    \item All the VDC wires are positioned on a 2D VDC plane
     \item All the VDC wires are oriented in $45\circ$ angle
     \item there is no distortion with the VDC wires
-    \item all the VDC frame a perfect parallel to each other 
+    \item all the VDC frames a perfect parallel to each other 
     \item the center of each VDC plane is known with no error
 \end{enumerate}
 
@@ -150,16 +150,28 @@ the code used for calibration of the focal plane constant can be found on this G
 \subsubsection{correction the initial drift time}
 Each HRS spectrometer is equipped with a package of four Vertical Drift Chambers (VDCs) that are oriented in the UV direction. The VDCs are filled with Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas filling is routed and delivered using the Hall A Gas System. Each wire in the VDCs is connected to a 3.5 kV high-voltage source.
 
-When a charged particle passes through the VDC chamber, it ionizes the gas atoms, creating a trail of ionized electrons along its path. The ionized electrons drift along the electric field lines due to the high voltage between the high voltage plane and signal wires. This ionization produces a pulse on the signal wires. Each VDC chamber contains 384 wires, and each wire is connected to a pre-amplifier. The amplified pulse signal is then passed through a discriminator and used to trigger the Time-Digital Converter (TDC). The TDC is stopped by the Hall overall event trigger.
+When a charged particle passes through the VDC chamber, it ionizes the gas atoms, creating a trail of ionized electrons along its path. The ionized electrons drift along the electric field lines due to the high voltage between the high voltage plane and signal wires. This ionization produces a pulse on the signal wires. Each VDC chamber contains 368 wires, and each wire is connected to a pre-amplifier. The amplified pulse signal is then passed through a discriminator and used to trigger the Time-Digital Converter (TDC). The TDC is stopped by the Hall overall event trigger.
 
-Setting a proper discriminator threshold is crucial since it determines the start time of the counter. If the threshold is set too high or too low, the VDC measurement with time will be biased. An example of an improper setting of $T_0$ is shown in the plot, where a large number of 'wire shadows' can be observed. These shadows are caused by measurement bias.
+After the particle trespass into the chamber, normally it will fire a cluster that contains 4-6 wires. As shown in Fig \ref{fig:vdc_wire_ionization_cluster}, the cross point between the trajectory of the particle and the VDC plane could be measured by measuring the drift distance between each wire. The drift distance is measured with the drift time that gets from the Time-Digital-converter. An accurate start time would be critical to get an accurate drift distance to get an accurate position on VDC.  If the threshold is set too high or too low, the VDC drift distance would be biased. An example of an improper setting of $T_0$ is shown in the plot, where a large number of 'wire shadows' can be observed. These shadows are caused by measurement bias.
 
-[image]
+\begin{figure}
+    \centering
+    \includegraphics[scale = 0.25]{images/chap3/vdc_wire_ionize.png}
+    \caption{Vertical Drift Chamber Ionization (need to redraw)}
+    \label{fig:vdc_wire_ionization_cluster}
+\end{figure}
 
-Here is a precudure of calibrate the TDC $T_0$:
+The $t_0$ could be calibrated by adjusting the time offset of each TDC channel. In order to calibrate the TDC for all the VDC range, the data should be white spectrum runs that covers all focal plane range with high statistics. 
 
-\subsubsection{convert to the detector coordinate system}
+Here is a procedure of calibration of the TDC $T_0$: [need to check again.]
+\begin{enumerate}
+    \item Fit the failing tail of the spectrum. 
+    \item take the 1.2 $\sigma$ of the peak to the right to be the threshold
+\end{enumerate}
+
 \subsubsection{convert to the transport coordinate system}
+As it definition says. The focal plane should pass (0,0) for central beam runs. 
+
 \subsubsection{convert to the focal plane coordinate system}
 
 [check the sides] 
