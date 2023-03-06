@@ -75,9 +75,10 @@ Given the above assumption, The trajectory position and vertex angles in the det
     y_{det} =
 \end{equation}
 
-Even though there VDC could not be idea, but the the distortions would be very small and through HRS Optics, those un-idea error could be corrected. 
+Even though the VDC could not be ideal, the distortions would be very small and through HRS Optics, those un-idea errors could be corrected. 
 
-In Hall A analyzer, the VDC result will given in detector plane coordinate system.
+In Hall A analyzer, the VDC result will be given in the detector plane coordinate system.
+
 [add vdc, DCS plot]
 
 \subsubsection{Transport Rotation Coordinate System at the focal plane}
@@ -102,8 +103,9 @@ Given the particle position at the detector coordinate system, the transport rot
 \end{equation}
 
 
-[optimization the TRCS]
-[derive of the TRCS]
+[optimization the TRCS ??]
+
+
 [add the plot of the transport coordinate system plot]
 
 
@@ -113,12 +115,49 @@ The focal plane coordinate system used for HRS analysis is a rotated coordinate 
 
 To ensure easy convergence, the HRS Optics Tensor is calibrated with respect to the angles $\theta$ and $\phi$, the vertical position $y$, and the relative momentum $dp$ on the Focal Plane Coordinate System.
 
+\begin{equation}
+    x_fp = x_{tra}    
+\end{equation}
+
+\begin{equation}
+    y_{fp} = y_{tra} - \sum y_{i000}x^i_{fp}  
+\end{equation}
+
+\begin{equation}
+\theta_{fp} = \frac{\theta_{det} + \tan\rho}{1 - \theta_{det}\tan\rho}
+\end{equation}
+
+
+\begin{equation}
+    \phi_{fp} = \frac{\phi_{det} - \sum p_{i000}x^i_{fp}}{cos \rho - \theta_{det} sin\rho}
+\end{equation}
+
+here  in the equation:
+
+\begin{equation}
+    \tan\rho  = \sum t_{i000}x^i_{fp}
+\end{equation}
+
+
+the code used for calibration of the focal plane constant can be found on this GitHub repository: https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt
+
+[need to add the derivation of the above equations]
+
 [need to add the Focal plane coordination system plot]
 
 \subsection{the calculation of the coordinate system (merge with the prev sub-section?)}
 
-\subsubsection{initial measurement from the VDC wires}
 \subsubsection{correction the initial drift time}
+Each HRS spectrometer is equipped with a package of four Vertical Drift Chambers (VDCs) that are oriented in the UV direction. The VDCs are filled with Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas filling is routed and delivered using the Hall A Gas System. Each wire in the VDCs is connected to a 3.5 kV high-voltage source.
+
+When a charged particle passes through the VDC chamber, it ionizes the gas atoms, creating a trail of ionized electrons along its path. The ionized electrons drift along the electric field lines due to the high voltage between the high voltage plane and signal wires. This ionization produces a pulse on the signal wires. Each VDC chamber contains 384 wires, and each wire is connected to a pre-amplifier. The amplified pulse signal is then passed through a discriminator and used to trigger the Time-Digital Converter (TDC). The TDC is stopped by the Hall overall event trigger.
+
+Setting a proper discriminator threshold is crucial since it determines the start time of the counter. If the threshold is set too high or too low, the VDC measurement with time will be biased. An example of an improper setting of $T_0$ is shown in the plot, where a large number of 'wire shadows' can be observed. These shadows are caused by measurement bias.
+
+[image]
+
+Here is a precudure of calibrate the TDC $T_0$:
+
 \subsubsection{convert to the detector coordinate system}
 \subsubsection{convert to the transport coordinate system}
 \subsubsection{convert to the focal plane coordinate system}
