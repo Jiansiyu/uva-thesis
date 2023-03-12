@@ -8,20 +8,24 @@ PRex-II Experiment was operated on Jefferson Lab High-Resolution Spectrometer(JL
 
 Each HRS spectrometer is equipped with a package of four Vertical Drift Chambers (VDCs) that are oriented in the UV direction. The VDCs are filled with Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas filling is routed and delivered using the Hall A Gas System. Each wire in the VDCs is connected to a 3.5 kV high-voltage source.
 
+[The electronics of the VDC, TO BE ADDED]
+
 When a charged particle passes through the VDC chamber, it ionizes the gas atoms, creating a trail of ionized electrons along its path. The ionized electrons drift along the electric field lines due to the high voltage between the high voltage plane and signal wires. This ionization produces a pulse on the signal wires. Each VDC chamber contains 368 wires, and each wire is connected to a pre-amplifier. The amplified pulse signal is then passed through a discriminator and used to trigger the Time-Digital Converter (TDC). The TDC is stopped by the Hall overall event trigger.
 
 After the particle trespass into the chamber, normally it will fire a cluster that contains 4-6 wires. As shown in Fig \ref{fig:vdc_wire_ionization_cluster}, the cross point between the trajectory of the particle and the VDC plane could be measured by measuring the drift distance between each wire. The drift distance is measured with the drift time that gets from the Time-Digital-converter. An accurate start time would be critical to get an accurate drift distance to get an accurate position on VDC.  If the threshold is set too high or too low, the VDC drift distance would be biased. An example of an improper setting of $T_0$ is shown in the plot, where a large number of 'wire shadows' can be observed. These shadows are caused by measurement bias.
 
+[add more detail of the the ADC plot]
+
 \begin{figure}
     \centering
-    \includegraphics[scale = 0.25]{images/chap3/vdc_wire_ionize.png}
+    \includegraphics[scale = 0.25]{images/chap4/vdc_wire_ionize.png}
     \caption{Vertical Drift Chamber Ionization (need to redraw)}
     \label{fig:vdc_wire_ionization_cluster}
 \end{figure}
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{images/chap3/vdc_t0_before_correction.png}
+    \includegraphics[width=\textwidth]{images/chap4/vdc_t0_before_correction.png}
     \caption{vdc $x$ vs $y$ on vdc detector plane before $T_0$ correction}
     \label{fig:vdc_t0_before_correction}
 \end{figure}
@@ -29,7 +33,7 @@ After the particle trespass into the chamber, normally it will fire a cluster th
 
 \begin{figure}
     \centering
-    \includegraphics[width=\textwidth]{images/chap3/vdc_t0_after_correction.png}
+    \includegraphics[width=\textwidth]{images/chap4/vdc_t0_after_correction.png}
     \caption{vdc $x$ vs $y$ on vdc detector plane after $T_0$ correction}
     \label{fig:vdc_t0_after_correction}
 \end{figure}
@@ -51,15 +55,12 @@ The calibration code can be found in this \hyperlink{https://github.com/Jiansiyu
 The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized into three steps:
 
 \begin{itemize}
-    \item VDC drift time $t_0$ calibration
     \item VDC geometry constant calibration 
     \item spatial and angular calibration
     \item momentum calibration
 \end{itemize}
 
 Vertical Drift Chamber measures the spatial position by measuring the particle drift time. $t_0$ serves as the starting time of the VDC counter. Carefully calibrated $t_0$ is critical to the spatial and angular resolution of the VDC. To simplify the regression model and easily converge, the spatial, angular, and momentum parameters are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. Before going into the detail of the calibration, here first introduce the coordination system used in the following contest. 
-\subsection{Vertical Drift Chamber}
-[into to vertical drift chamber and calibration of the $T_0$]
 
 \subsection{coordinate system}
 
@@ -146,9 +147,6 @@ Given the particle position at the detector coordinate system, the transport rot
 \end{equation}
 
 
-[optimization the TRCS ??]
-
-
 [add the plot of the transport coordinate system plot]
 
 
@@ -178,80 +176,127 @@ To ensure easy convergence, the HRS Optics Tensor is calibrated with respect to 
 here  in the equation:
 
 \begin{equation}
-    \tan\rho  = \sum t_{i000}x^i_{fp}
+    \tan\rho  = \sum t_{i000}x^i_{fp} \label{eq:cpt3_fps_5}
 \end{equation}
 
 
-the code used for calibration of the focal plane constant can be found on this GitHub repository: 
+the code used for calibration of the focal plane constant can be found on this GitHub repository: \hyperlink{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{GitHub Repository Link}
 
-\hyperlink{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{GitHub Repo Link}
-
-[need to add the derivation of the above equations]
 
 [need to add the Focal plane coordination system plot]
 
-\subsection{the calculation of the coordinate system (merge with the prev sub-section?)}
+\section{focal plane constant calibration}
+
+The HRS Spectrometer Focal Plane Coordinate System is a rotated system, with the Z-axis being the projection of the local central ray on the x-z plane. The origin of this coordinate system is shared with the detector coordinate system. To correct the coordinate system, we use a criterion based on the ideal case of the central beam passing through the central sieve hole, where the beam position is (0,0). Specifically, we look at the equation of the focal plane coordinate system, where a parameter is used to project the coordinate system. To achieve high accuracy, each parameter is optimized to the 3rd order.
+
+In the Hall A analyzer, the correction constant can be found in the first three rows of the x.vdc.matrixelem variable:
+
+\begin{center}
+    \begin{tabular}{c c c c c c c c}
+        t & 0 & 0 & 0 & -1.001135e+00 & -3.313373e-01 & -4.290819e-02 & 4.470852e-03 \\
+        y & 0 & 0 & 0 & -8.060915e-03 & 1.071977e-03 & 9.019102e-04 & -3.239615e-04 \\
+        p & 0 & 0 & 0 & -2.861912e-03 & -2.469069e-03 & 8.427172e-03 & 2.274635e-03
+    \end{tabular}
+\end{center}
+
+Here, the first column indicates the parameter name, followed by the orders of $\theta$, $\phi$, and $dp$ (all 0s in this case), and the constant factors of $x^0$, $x^1$, $x^2$, $x^3$.
+
+According to the focal plane coordinate system definition, for the central beam passing through the central sieve hole, we have $\theta_{focal}=0$, $\phi_{focal}=0$, and $y_{focal}=0$.
+
+To optimize the correction constant, we follow these steps:
+
+\begin{enumerate}
+    \item Gather as many runs as possible at any central P runs.
+    \item Select the events that pass through the central sieve hole.
+    \item Calculate the detector plane parameters for all the events.
+    \item Define the loss function as the square residual of the focal plane calculated using the detector coordinate variables (given by equations \ref{eq:cpt3_fps_1} to \ref{eq:cpt3_fps_5}) and the theoretical value of 0.
+    \item Optimize the loss using a linear regression model, and obtain the constants $t_{i000}$, $y_{i000}$, and $p_{i000}$.
+\end{enumerate}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/vdcconstant_focal_bpmx.png}
+    \caption{$\phi_{focal}$ vs. $x_{bpm}$ before and after focal plane constant correction [to be replaced]}
+    \label{fig:focal_ph_bpm_x_constant_correction_plt}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/vdcconstant_focal_th_bpmy.png}
+    \caption{$\theta_{focal}$ vs. $y_{bpm}$ before and after focal plane constant correction [to be replaced]}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/vdcconstant_focaly_bpmy.png}
+    \caption{$y_{focal}$ vs. $x_{bpm}$ before and after focal plane constant correction [to be replaced]}
+    \label{fig:my_label}
+\end{figure}
+
+From the plot we could see, after the optimization, with the new constant $t_{i000}$,$y_{i000}$,$p_{i000}$, the central sieve $\theta_{focal}$,$\phi_{focal}$,$y_{focal}$ are set to $(0,0,0)$.
+
 
 \section{High-Resolution Spectrometer Calibration}
 
+In the previous select, the calibration of from the detector coordinate system to the focal plane coordinate system have been introduced. This section will cover the The HRS Optics from the focal plane to the target coordinate system. 
 
-\subsection{focal plane constant calibration}
+\subsection{Approach}
+
 \subsection{Angular variable calibration}
 \subsection{Dp calibration}
 \subsection{Goodness of the calibration}
+\subsubsection{check with H20}
+\subsubsection{check with C run}
 
 \section{$Q^2$ measurement}
 
-\section{$\theta_0$ measurement}
+\section{Spectrometer $\theta_0$ measurement}
 
-\subsection{Calibration of the HRS focal plane constant}
-
-The HRS Spectrometer Focal Plane Coordinate System is a rotated system. The Z-axis is defined as the projection of the local central ray on the x-z plane. The origin of the focal plane coordinate system is shared with the detector coordinate system. In the ideal case, for the central beam(beam position at (0,0)) that passes the central sieve hole,  should be, we use this criterion to correct the coordinate system. Look at the equation of the focal plane coordinate system. In the equation, the parameter is used to project the coordination system. In order to get high accuracy, each parameter is optimized to the 4 order. 
-
-\subsection{Calibration of the HRS}
-
-\subsubsection{convert to the focal plane coordinate system}
+\subsection{How to calculate the spectrometer}
+\subsection{How it is calculated}
+\subsection{Correction of the beam position shift}
 
 
-\subsubsection{feature engineering} 
-\subsubsection{feature selection}
-% \lipsum[1-20]
-\subsection{Apparatus[deprecated]}
-
-Move to a separate chapter describing the apparatus and experiment details
-
-\begin{itemize}
-    \item Overview of the HRS structure
-    \item septum magnet 
-    \item Vertical drift chamber 
-    \item GEM detector
-    \item supporting equipment used for optimization only sieve slide
-
-    \item coordination system of the Jefferson Lab Hall A
-    \item coordination system of the HRS
-\end{itemize}
 
 
-\subsection{HRS model}
 
-\begin{itemize}
-    \item mathematical model of the HRS
-    \item constant parameter optimization
-    \item Vertical Drift Chamber time optimization
-    \item carbon calibration(dashed lines in the VDC spectrometer)
-    \item math why higher order contribute, a discussion notes
-    \item feature selection techniques
-    \item linear regression
-    \item result validation
-    \item result and discussion
-\end{itemize}
-\subsubsection{supervised linear regression}
-\subsubsection{feature selection technics}
-\subsubsection{mathematics about the linear regression, LASSO and ridge regression}
+% Move to a separate chapter describing the apparatus and experiment details
 
-\subsection{VDC geo-constant calibration}
+% \begin{itemize}
+%     \item Overview of the HRS structure
+%     \item septum magnet 
+%     \item Vertical drift chamber 
+%     \item GEM detector
+%     \item supporting equipment used for optimization only sieve slide
+
+%     \item coordination system of the Jefferson Lab Hall A
+%     \item coordination system of the HRS
+% \end{itemize}
+
+
+% \subsection{HRS model}
+
+% \begin{itemize}
+%     \item mathematical model of the HRS
+%     \item constant parameter optimization
+%     \item Vertical Drift Chamber time optimization
+%     \item carbon calibration(dashed lines in the VDC spectrometer)
+%     \item math why higher order contribute, a discussion notes
+%     \item feature selection techniques
+%     \item linear regression
+%     \item result validation
+%     \item result and discussion
+% \end{itemize}
+% \subsubsection{supervised linear regression}
+% \subsubsection{feature selection technics}
+% \subsubsection{mathematics about the linear regression, LASSO and ridge regression}
+
 \subsection{Raster calibration}
 
+\section{GEM Data Analysis}
 % \subsubsection{Linear Regression and mathematics approximation}
 
 
