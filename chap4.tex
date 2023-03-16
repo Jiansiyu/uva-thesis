@@ -192,11 +192,13 @@ The HRS Spectrometer Focal Plane Coordinate System is a rotated system, with the
 In the Hall A analyzer, the correction constant can be found in the first three rows of the x.vdc.matrixelem variable:
 
 \begin{center}
+    \captionof{focal plane correction constant}
     \begin{tabular}{c c c c c c c c}
         t & 0 & 0 & 0 & -1.001135e+00 & -3.313373e-01 & -4.290819e-02 & 4.470852e-03 \\
         y & 0 & 0 & 0 & -8.060915e-03 & 1.071977e-03 & 9.019102e-04 & -3.239615e-04 \\
         p & 0 & 0 & 0 & -2.861912e-03 & -2.469069e-03 & 8.427172e-03 & 2.274635e-03
     \end{tabular}
+    
 \end{center}
 
 Here, the first column indicates the parameter name, followed by the orders of $\theta$, $\phi$, and $dp$ (all 0s in this case), and the constant factors of $x^0$, $x^1$, $x^2$, $x^3$.
@@ -241,9 +243,100 @@ From the plot we could see, after the optimization, with the new constant $t_{i0
 
 \section{High-Resolution Spectrometer Calibration}
 
-In the previous select, the calibration of from the detector coordinate system to the focal plane coordinate system have been introduced. This section will cover the The HRS Optics from the focal plane to the target coordinate system. 
+In the preceding section, we introduced the calibration process used to map the detector coordinate system onto the focal plane coordinate system. In this section, we will delve into HRS Optics, specifically focusing on the transformation from the focal plane coordinate system to the target coordinate system.
 
 \subsection{Approach}
+
+With the previous introduction, the direct measurement the position on the 4 vertical drift chambers $p_{vdc,i}$ together with the displacement of the chambers $d$ are converted to the focal plane coordinate system, $x_{fp}$,$y_{fp}$,$\theta_{fp}$,$\phi_{fp}$. Those observables are used to calculate $\theta_{tg}$,$\phi_{tg}$,$y_{tg}$, and $\delta_{tg}$ on the target which we used for further physics analysis. 
+
+The conversion from the focal plane coordinate system to the target coordinate system is with the transport tensors. In first-order approximation, the relation between the two coordinate systems can be written as:
+
+\begin{equation}
+\begin{bmatrix}
+\delta_{tg} \\
+\theta_{tg} \\
+y_{tg} \\
+\phi_{tg}
+\end{bmatrix} = \begin{bmatrix}
+    <x_{fp}|x_{fp}> & <x_{fp}|\theta_{fp}> & 0 & 0 \\
+    <\theta_{fp}|x_{fp}> & <\theta_{fp}|\theta_{fp}> & 0 & 0 \\
+    0 & 0 & <y_{fp}|y_{fp}> & <y_{fp}|\phi_{fp}>  \\
+    0 & 0 & <\phi_{fp}|y_{fp}> & <\phi_{fp}|\phi_{fp}>  
+\end{bmatrix} * \begin{bmatrix}
+    x_{fp} \\
+    \theta_{fp} \\
+    y_{fp} \\
+    \phi_{fp}
+\end{bmatrix}
+\end{equation}
+
+Because of the mid-plane symmetry of the spectrometer, 8 of the reverse corner element are $0$.'
+
+% explain why it is to $$x^n$$ order? what is the physics meaning of 
+
+In practice, the expansion of the focal plane coordinates is performed up to the fifth order and use the polynomial production of the four observables as features in modeling the spectrum. 
+
+\begin{equation}
+    y_{tg} = \sum_{jkl}Y_{jkl}\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \theta_{tg} = \sum_{jkl}T_{jkl}\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \phi_{tg} = \sum_{jkl}P_{jkl}\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \delta_{tg} = \sum_{jkl}D_{jkl}\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+Where in the above equations, tensors $Y_{jkl}$, $T_{jkl}$, $P_{jkl}$, $D_{jkl}$ are are polynomial of $x_fp$ for example, $Y_{ijk}$ can be write as:
+
+\begin{equation}
+    Y_{jkl} = \sum^m_{i=1}C_i^{Y_{jkl}}x^i_{fp}
+\end{equation}
+
+In the equation, $C^i_{jkl}$ is the $x^i$ correction constant for $Y_{jkl}$. The final equation can be written as:
+
+\begin{equation}
+    y_{tg} = \sum_{jkl} (\sum^m_{i=1}C_i^{Y_{jkl}}x^i_{fp}) \theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \theta_{tg} = \sum_{jkl}(\sum^m_{i=1}C_i^{T_{jkl}}x^i_{fp})\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \phi_{tg} = \sum_{jkl}(\sum^m_{i=1}P_i^{Y_{jkl}}x^i_{fp})\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+
+\begin{equation}
+    \delta_{tg} = \sum_{jkl}(\sum^m_{i=1}D_i^{Y_{jkl}}x^i_{fp})\theta^j_{fp}y^k_{fp}\phi^l_{fp}
+\end{equation}
+
+Here is an example of Y in the vertical drift chamber database:
+
+\begin{center}
+    % \captionof{focal plane correction constant}
+    \begin{tabular}{c c c c c c c }
+        D& 0& 0& 0&  8.851691E-04& 7.570314E-02& 1.116963E-02\\
+        D& 0& 0& 1&  4.667677E-02& 9.485094E-02&
+    \end{tabular}    
+\end{center}
+
+In the first row, $D$ indicates this is the tensor for the $\delta_{tg}$, the following three integers is corresponding to the power of $\theta$,$y$,$\phi$, which is $jkl$ in the equation. The following float number is the $i=1$ constant, $i=2$ constant and etc. 
+
+
+To achieve high optics accuracy, each element is optimized up to the fifth order. Because of the overfitting issue if there are too many features present in the model, not all the orders are kept for each tensor. In the training process, each feature is carefully tested to make sure it will not cause serious overfitting and get the best test result on the holdout dataset. 
+
 
 \subsection{Angular variable calibration}
 \subsection{Dp calibration}
