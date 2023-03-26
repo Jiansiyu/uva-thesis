@@ -335,7 +335,86 @@ Here is an example of Y in the vertical drift chamber database:
 In the first row, $D$ indicates this is the tensor for the $\delta_{tg}$, the following three integers is corresponding to the power of $\theta$,$y$,$\phi$, which is $jkl$ in the equation. The following float number is the $i=1$ constant, $i=2$ constant and etc. 
 
 
-To achieve high optics accuracy, each element is optimized up to the fifth order. Because of the overfitting issue if there are too many features present in the model, not all the orders are kept for each tensor. In the training process, each feature is carefully tested to make sure it will not cause serious overfitting and get the best test result on the holdout dataset. 
+To achieve high optics accuracy, each element is optimized up to the fifth order. Because of the overfitting issue if there are too many features present in the model, in the optimization practice, not all the orders are kept for each tensor. In the training process, each feature is carefully tested to make sure it will not cause serious overfitting and get the best test result on the holdout dataset. 
+
+[add how to select the features that most suitable for the model??]
+
+\subsection{Ground Truth data set}
+
+In order to construct a precise regression model for the HRS spectrometer, a highly accurate ground truth dataset is essential. This ground truth is derived from a meticulously crafted CNC-made sieve plate, which is a 5 mm thick iron plate featuring an array of minuscule holes. These holes are created using highly precise machinery, ensuring their positions are well-known and the size of the holes negligible.
+
+The sieve plate is strategically positioned in front of the septum magnet, with its location carefully surveyed to ensure a positional accuracy of up to 100 micrometers. As electrons scatter from the target, only those that pass through the holes on the sieve plate are allowed to enter the spectrometer and ultimately reach the vertical drift chamber. All other electrons are effectively blocked by the sieve plate.
+
+Upon reaching the vertical drift chamber, particles that have passed through the same hole on the sieve plate will form a distinct cluster. By categorizing events based on these clusters and considering the relative positions of the clusters on the sieve plate, it is possible to determine which holes the particles have originated from. With this information, the ground truth values can be calculated for each sieve hole.
+
+In the following sections, we will delve into the details of calculating the ground truth values used to calibrate the HRS spectrometer, ensuring the highest level of accuracy and precision in the model.
+
+\subsubsection{apparatus}
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/sieve_cnc_draw.png}
+    \caption{PRex-II sieve slit used for Optics Calibration, three big holes are used for identifying the orientation of the reconstructed data}
+    \label{fig:sieve_cnc_draw}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/sieve_in_hrs.jpg}
+    \caption{PRex-II/CRex Sieve slit in the High-resolution spectrometer}
+    \label{fig:labeled_sieve_in_hrs}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/target_coordinate_system.png}
+    \caption{Target Coordinate System}
+    \label{fig:target_coordinate_system_plot}
+\end{figure}
+
+
+Fig \ref{fig:sieve_cnc_draw} shows the drawing of the sieve plate. The Hall A survey is in the Hall A coordinate system and measured relative to the center of the sieve plate. In the target coordinate system, the origin of the target coordinate system and the origin of the hall coordinate system are the same. BUt in reality, the origin of the target coordinate system center deviates from the hall coordinate system. The deviates is surveyed given by $D_y$ and $D_x$ in the horizontal and vertical directions.  
+
+
+\begin{equation}
+    \phi_{tg} = \frac{y_{sieve} + D_y - x_{beam}\cos{\theta_0} + z_{react}\sin{\theta_0}}{L - z_{react}\cos{\theta_0 - x_{beam}\sin{\theta_0}}}
+\end{equation}
+
+\begin{equation}
+    \theta_{tg} = \frac{x_{sieve} + D_x + y_{beam}}{L - z_{react}\cos{\theta_0} - x_{beam}\sin{\theta_0}}
+\end{equation}
+
+
+\begin{equation}
+    y_{tg} = y_{sieve}  - L \phi_{tg}
+\end{equation}
+
+\begin{equation}
+x_{tg} = x_{sieve} - L \theta_{tg}
+\end{equation}
+
+
+Here in the equation, scattered angle and reaction point can be calculated with the help pf the beam variables measured in the hall coordinate system given by:
+
+\begin{equation}
+    \theta_{scatter} = arccos(\frac{\cos{\theta_0 - \phi_{tg}\sin{\theta_0}}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}})
+\end{equation}
+
+
+\begin{equation}
+    z_{react} = \frac{-(z_{tg} + D_y) + x_{beam}(\cos{\theta_0} - \phi_{tg}\sin{\theta_0})}{\cos{\theta_0\phi_{tg} +  \sin{\theta_0}}}
+\end{equation}
+
+
+For PRex-II experiment, only one target foil was used. $z_{react}$ and $x_{react}$ are 0.
+
+\subsubsection{cut the sieve hole pattern}
+
+
+
+\subsubsection{derive the target coordination system ground truth}
 
 
 \subsection{Angular variable calibration}
