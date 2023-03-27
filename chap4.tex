@@ -349,7 +349,7 @@ Upon reaching the vertical drift chamber, particles that have passed through the
 
 In the following sections, we will delve into the details of calculating the ground truth values used to calibrate the HRS spectrometer, ensuring the highest level of accuracy and precision in the model.
 
-\subsubsection{apparatus}
+\subsubsection{apparatus [need to rewrite]}
 
 \begin{figure}
     \centering
@@ -374,50 +374,47 @@ In the following sections, we will delve into the details of calculating the gro
     \label{fig:target_coordinate_system_plot}
 \end{figure}
 
-
-Fig \ref{fig:sieve_cnc_draw} shows the drawing of the sieve plate. The Hall A survey is in the Hall A coordinate system and measured relative to the center of the sieve plate. In the target coordinate system, the origin of the target coordinate system and the origin of the hall coordinate system are the same. BUt in reality, the origin of the target coordinate system center deviates from the hall coordinate system. The deviates is surveyed given by $D_y$ and $D_x$ in the horizontal and vertical directions.  
-
+Figure \ref{fig:sieve_cnc_draw} displays the schematic of the sieve plate. The Hall A survey is conducted in the Hall A coordinate system and measured relative to the center of the sieve plate. In the target coordinate system, the origins of both the target and hall coordinate systems are assumed to be identical. However, in practice, the center of the target coordinate system deviates from that of the hall coordinate system. These deviations in the horizontal and vertical directions are denoted by $D_y$ and $D_x$, respectively. The ground truth result in the target coordinate system can be computed using the following equations:
 
 \begin{equation}
-    \phi_{tg} = \frac{y_{sieve} + D_y - x_{beam}\cos{\theta_0} + z_{react}\sin{\theta_0}}{L - z_{react}\cos{\theta_0 - x_{beam}\sin{\theta_0}}}
+\phi_{tg} = \frac{y_{sieve} + D_y - x_{beam}\cos{\theta_0} + z_{react}\sin{\theta_0}}{L - z_{react}\cos{\theta_0 - x_{beam}\sin{\theta_0}}}
 \end{equation}
 
 \begin{equation}
-    \theta_{tg} = \frac{x_{sieve} + D_x + y_{beam}}{L - z_{react}\cos{\theta_0} - x_{beam}\sin{\theta_0}}
+\theta_{tg} = \frac{x_{sieve} + D_x + y_{beam}}{L - z_{react}\cos{\theta_0} - x_{beam}\sin{\theta_0}}
 \end{equation}
 
-
 \begin{equation}
-    y_{tg} = y_{sieve}  - L \phi_{tg}
+y_{tg} = y_{sieve} - L \phi_{tg}
 \end{equation}
 
 \begin{equation}
 x_{tg} = x_{sieve} - L \theta_{tg}
 \end{equation}
 
-
-Here in the equation, scattered angle and reaction point can be calculated with the help pf the beam variables measured in the hall coordinate system given by:
-
-\begin{equation}
-    \theta_{scatter} = arccos(\frac{\cos{\theta_0 - \phi_{tg}\sin{\theta_0}}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}})
-\end{equation}
-
+Using these equations, the scattered angle and reaction point can be determined with the help of the beam variables measured in the hall coordinate system, as given by:
 
 \begin{equation}
-    z_{react} = \frac{-(z_{tg} + D_y) + x_{beam}(\cos{\theta_0} - \phi_{tg}\sin{\theta_0})}{\cos{\theta_0\phi_{tg} +  \sin{\theta_0}}}
+\theta_{scatter} = \arccos\left(\frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}\right)
 \end{equation}
 
+\begin{equation}
+z_{react} = \frac{-(z_{tg} + D_y) + x_{beam}(\cos{\theta_0} - \phi_{tg}\sin{\theta_0})}{\cos{(\theta_0\phi_{tg} + \sin{\theta_0})}}
+\end{equation}
 
-For PRex-II experiment, only one target foil was used. $z_{react}$ and $x_{react}$ are 0.
+For the PRex-II experiment, only one target foil was employed. As a result, $z_{react}$ and $x_{react}$ are both 0. The constant spectrometer length $L$ and the central sieve angle in the Hall Coordinate System (HCS) are calculated using the survey results.
 
-\subsubsection{cut the sieve hole pattern}
+\subsubsection{Labeling the Ground Truth Dataset}
 
+Before computing the ground truth values on the target using the previously discussed equations, it is crucial to know which sieve hole the event originates from. This information is necessary because the calculation involves determining parameters based on the geometric position of the sieve hole from which the particle comes. To obtain this data, an initial calibration tensor should be provided, and all events should be plotted on the target coordinate system. In this system, events are manually selected based on their patterns, and identical labels are assigned to all events within the same cluster.
 
+The sample plot demonstrates the cut boundaries for the cluster on the target coordinate system, where the red circle represents the boundary. All events within this boundary are considered to have originated from the same sieve hole and, consequently, share similar properties such as scattered angle, $\theta_{tg}$, $\phi_{tg}$, four-momentum transfer, and so on.
 
-\subsubsection{derive the target coordination system ground truth}
-
+Determining the sieve pattern can be challenging, and different individuals may have varying criteria for the boundaries. To minimize errors caused by inconsistent criteria, a newly developed method was employed in practice. After identifying the rough center of a given cluster, the code places a large circle around the clicked center. Within this circle, event density contour lines are drawn, and the chosen contour line serves as the cut boundary for the event. This approach helps ensure more accurate and consistent boundary determination.
 
 \subsection{Angular variable calibration}
+
+
 \subsection{Dp calibration}
 \subsection{Goodness of the calibration}
 \subsubsection{check with H20}
