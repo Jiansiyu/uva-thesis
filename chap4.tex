@@ -152,7 +152,12 @@ Given the particle position at the detector coordinate system, the transport rot
 
 \subsubsection{Focal plane Coordinate System}
 
-The focal plane coordinate system used for HRS analysis is a rotated coordinate system, obtained by rotating the Detector Coordinate System (DCS) around its y-axis by an angle. This angle is determined by the angle between the local central ray and the z-axis of the DCS, and as a result, the z-axis of the Focal Plane Coordinate System (FCS) rotates as a function of the relative momentum p.
+The focal plane coordinate system used for HRS analysis is a rotated coordinate system, obtained by rotating the Detector Coordinate System (DCS) around its y-axis by an angle. This angle is determined by the angle between the local central ray and the z-axis of the DCS, and as a result, the z-axis of the Focal Plane Coordinate System (FCS) rotates as a function of the relative momentum p. Because of the focusing of HRS magnet system,  particle from different scattering angles with same momentum will be focused at the focal plane. therefore, the relative momentum to the central momentum of the spectrometer which defined as 
+\begin{equation}
+    \delta = \frac{p-p_0}{p_0}
+\end{equation}
+
+this factor approximately only depends on $x_{tra}$ and $p_0$.
 
 To ensure easy convergence, the HRS Optics Tensor is calibrated with respect to the angles $\theta$ and $\phi$, the vertical position $y$, and the relative momentum $dp$ on the Focal Plane Coordinate System.
 
@@ -341,7 +346,7 @@ To achieve high optics accuracy, each element is optimized up to the fifth order
 
 \subsection{Ground Truth data set}
 
-In order to construct a precise regression model for the HRS spectrometer, a highly accurate ground truth dataset is essential. This ground truth is derived from a meticulously crafted CNC-made sieve plate, which is a 5 mm thick iron plate featuring an array of minuscule holes. These holes are created using highly precise machinery, ensuring their positions are well-known and the size of the holes negligible.
+In order to construct a precise regression model for the HRS spectrometer, a highly accurate ground truth dataset is essential. This ground truth is derived from a meticulously crafted CNC-made sieve plate. It is a stainless steel plane with holes in the grid. Every hole is manufactured with a high accurate cnc machine. With the given position of each sieve hole, we can calculate the theoretical value for the scattering angle as well as the momentum for each sieve hole. Those sieve holes provide us with an accurate calibration point for the HRS. 
 
 The sieve plate is strategically positioned in front of the septum magnet, with its location carefully surveyed to ensure a positional accuracy of up to 100 micrometers. As electrons scatter from the target, only those that pass through the holes on the sieve plate are allowed to enter the spectrometer and ultimately reach the vertical drift chamber. All other electrons are effectively blocked by the sieve plate.
 
@@ -392,7 +397,7 @@ y_{tg} = y_{sieve} - L \phi_{tg}
 x_{tg} = x_{sieve} - L \theta_{tg}
 \end{equation}
 
-Using these equations, the scattered angle and reaction point can be determined with the help of the beam variables measured in the hall coordinate system, as given by:
+Where in the equation $\theta_0$ is the spectrometer central angle measured by the angle of the beam down direction and the central sieve hole. $L$ is the distance from the target location to the central sieve slit hole. Using these equations, the scattered angle and reaction point can be determined with the help of the beam variables measured in the hall coordinate system, as given by:
 
 \begin{equation}
 \theta_{scatter} = \arccos\left(\frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}\right)
@@ -402,7 +407,22 @@ Using these equations, the scattered angle and reaction point can be determined 
 z_{react} = \frac{-(z_{tg} + D_y) + x_{beam}(\cos{\theta_0} - \phi_{tg}\sin{\theta_0})}{\cos{(\theta_0\phi_{tg} + \sin{\theta_0})}}
 \end{equation}
 
-For the PRex-II experiment, only one target foil was employed. As a result, $z_{react}$ and $x_{react}$ are both 0. The constant spectrometer length $L$ and the central sieve angle in the Hall Coordinate System (HCS) are calculated using the survey results.
+For the PRex-II experiment, only one target foil was employed. As a result, $z_{react}$ and $x_{react}$ are both 0. The constant spectrometer length $L$ and the central sieve angle in the Hall Coordinate System (HCS) are calculated using the survey results. For PRex-II experiment, the equations can be rewritten as:
+
+\begin{equation}
+    \theta_{tg} = \arctan{\frac{x_{sieve}}{L}}
+\end{equation}
+
+\begin{equation}
+    \phi_{tg} = \arctan{\frac{y_{sieve} - x_{beam}\cos{\theta_0} + D}{L - x_{beam}\sin{\theta_0}}}
+\end{equation}
+
+\begin{equation}
+    y_{tg} = y_{sieve} - L \frac{y_{sieve}-x_{sieve}\cos{\theta_0} + D}{L - x_{sieve}\sin{\theta_0}}
+\end{equation}
+
+After getting the ground truth values, with the help of the spectrometer tensor, we can project the measurement from the focal plane coordinate system to the target system, which is considered to be the predicted value in the optimization procedure. The loss function takes L2 loss, which is the square error between the predicted value and the ground truth. 
+
 
 \subsubsection{Labeling the Ground Truth Dataset}
 
@@ -410,28 +430,121 @@ Before computing the ground truth values on the target using the previously disc
 
 The sample plot demonstrates the cut boundaries for the cluster on the target coordinate system, where the red circle represents the boundary. All events within this boundary are considered to have originated from the same sieve hole and, consequently, share similar properties such as scattered angle, $\theta_{tg}$, $\phi_{tg}$, four-momentum transfer, and so on.
 
-Determining the sieve pattern can be challenging, and different individuals may have varying criteria for the boundaries. To minimize errors caused by inconsistent criteria, a newly developed method was employed in practice. After identifying the rough center of a given cluster, the code places a large circle around the clicked center. Within this circle, event density contour lines are drawn, and the chosen contour line serves as the cut boundary for the event. This approach helps ensure more accurate and consistent boundary determination.
+Determining the sieve pattern can be challenging, and different individuals may have varying boundary criteria. To minimize errors caused by inconsistent criteria, a newly developed method was employed in practice. After identifying the rough center of a given cluster, the code places a large circle around the clicked center. Within this circle, event density contour lines are drawn, and the chosen contour line serves as the cut boundary for the event. This approach helps ensure more accurate and consistent boundary determination. The code for labeling the ground truth dataset can be found in this \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/OptCut/CRexCut/cutPro.C}{GitHub repository}.
+
 
 \subsection{Angular variable calibration}
 
+The ground truth dataset is obtained from various beam positions and central momenta to cover a larger area of the vertical drift chamber. Figure \ref{fig:lhrs_tg_theta_phi_postopt} and \ref{fig:rhrs_tg_theta_phi_postopt} display the sieve patterns after the optics optimization. Each circle represents a cluster of events, while the green grid indicates the expected position for the sieve pattern.
 
-\subsection{Dp calibration}
-\subsection{Goodness of the calibration}
-\subsubsection{check with H20}
-\subsubsection{check with C run}
+Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_residual} show the residuals of the sieve events, grouped by events that pass through the same sieve hole. The green line represents the ideal case, which is the residual between the predicted and theoretical values. In practice, the residual cannot equal zero. The error bars represent the standard error of all events passing through the same sieve hole. The following table shows the optimization error for the PRex-II experiment (here takes the largest residual as the error).
 
-\section{$Q^2$ measurement}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/LHRS_tg_theta_phi_after_opt.png}
+    \caption{LHRS Target $\theta_{tg}$ vs. $\phi_{tg}$ on target coordinate system}
+    \label{fig:lhrs_tg_theta_phi_postopt}
+\end{figure}
 
-\section{Spectrometer $\theta_0$ measurement}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/rhrs_tg_theta_phi_after_opt.png}
+    \caption{RHRS Target $\theta_{tg}$ vs. $\phi_{tg}$ on target coordinate system}
+    \label{fig:rhrs_tg_theta_phi_postopt}
+\end{figure}
 
-\subsection{How to calculate the spectrometer}
-\subsection{How it is calculated}
-\subsection{Correction of the beam position shift}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/lhrs_tg_residual_plot.png}
+    \caption{LHRS Target $\theta_{tg}$ and $\phi_{tg}$ Optimization Residual on Target Coordinate System}
+    \label{fig:lhrs_tg_theta_phi_residual}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/rhrs_residual_theta_phi.png}
+    \caption{RHRS Target $\theta_{tg}$ and $\phi_{tg}$ Optimization Residual on Target Coordinate System}
+    \label{fig:rhrs_tg_theta_phi_residual}
+\end{figure}
+
+\begin{center}
+    \begin{tabular}{|c || c | c|}
+        \hline
+        \multicolumn{3}{|c|}{Angular Variable Calibration Accuracy} \\
+        \hline
+            HRS & $\theta$ & $\phi$ \\
+        \hline
+            RHRS & -1.57 mrad & 0.32 mrad \\
+        \hline
+            LHRS & 0.732 mrad & -0.492 mrad \\
+            \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Momentum Calibration}
+\subsubsection{Momentum Ground truth}
+
+The scattering angle represents the angle between the direction of the scattered electrons and the direction of the electron beam. Standard survey procedures do not directly measure the scattering angle; instead, they measure the spectrometer central angle and the geometric positions of the sieve plate. The scattering angle can be calculated using the spectrometer central angle and the $\theta_{tg}$ and $\phi_{tg}$, which are determined based on the geometric position of the sieve hole relative to the central sieve hole. Given these parameters, the scattering angle can be calculated as:
+
+\begin{equation}
+\theta = \frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}
+\end{equation}
+
+With the scattering angle, the ground truth scattered electron momentum can be calculated as:
+
+\begin{equation}
+ p = \frac{E}{1 + \frac{2E}{M_c}(1 - \cos{\theta})}
+\end{equation}
+
+
+\subsubsection{Momentum Calibration result}
+As stated in the equations, to simplify the complexity and facilitate model conversion, the momentum calibration is optimized using $\delta = \frac{p - p_0}{p_0}$. Similar to $\theta$ and $\phi$, the optimization needs to be performed separately for the LHRS and RHRS. The ground truth value incorporates the central sieve angle and the angle of the sieve hole in the target coordinate system within the sieve plate. The L2 loss function is employed, which calculates the sum of squared residuals between the ground truth $\delta p$ and the $\delta p$ computed using the projected momentum with the HRS tensor.
+
+To cover a broader momentum range, data are taken with central momenta at $-1\%$, $0\%$, and $1\%$ of the standard central sieve momentum. Figures \ref{fig:lhrs_dp_residual} and \ref{fig:rhrs_dp_residual} display the residuals for LHRS and RHRS. Similar to the sieve $\theta$ and $\phi$ residual plots, data are grouped by the sieve hole. The beam energy of the accelerator is $952.9 MeV$.
+
+The table below presents the error bars for the momentum optimization. The error is considered to be the largest residual difference compared to the theoretical value.
+
+\begin{center}
+    \begin{tabular}{|c || c |}
+        \hline
+        \multicolumn{2}{|c|}{Momentum Calibration Accuracy} \\
+        \hline
+            HRS & Momentum Error \\
+        \hline
+            RHRS & $\pm 0.5MeV$ \\
+        \hline
+            LHRS & $\pm 0.3MeV$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/lhrs_dp_residual.png}
+    \caption{Caption}
+    \label{fig:lhrs_dp_residual}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/rhrs_dp_residual.png}
+    \caption{Caption}
+    \label{fig:rhrs_dp_residual}
+\end{figure}
+
+\section{Spectrometer central $\theta_0$ measurement}
 
 
 
+HRS pointing angle is a critical parameter for scattered angle measurement. We did a survey with a laser before the experiment. But it only gives about 0.06 accuracy. 
+
+The point measure is the electron scattered over the water target. For the oxygen and hydrogen targets, we will have the same scattered angle. We can measure the scattered electron energy difference between H and O, and with the knowledge of H O mass, and the beamE. The pointing angle can be calculated. 
 
 
+\subsection{CRex experiment calibration}
+\subsection{a second thought on the optics optimization}
 % Move to a separate chapter describing the apparatus and experiment details
 
 % \begin{itemize}
@@ -463,9 +576,6 @@ Determining the sieve pattern can be challenging, and different individuals may 
 % \subsubsection{feature selection technics}
 % \subsubsection{mathematics about the linear regression, LASSO and ridge regression}
 
-\subsection{Raster calibration}
-
-\section{GEM Data Analysis}
 % \subsubsection{Linear Regression and mathematics approximation}
 
 
