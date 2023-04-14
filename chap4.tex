@@ -439,28 +439,28 @@ The ground truth dataset is obtained from various beam positions and central mom
 
 Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_residual} show the residuals of the sieve events, grouped by events that pass through the same sieve hole. The green line represents the ideal case, which is the residual between the predicted and theoretical values. In practice, the residual cannot equal zero. The error bars represent the standard error of all events passing through the same sieve hole. The following table shows the optimization error for the PRex-II experiment (here takes the largest residual as the error).
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/LHRS_tg_theta_phi_after_opt.png}
     \caption{LHRS Target $\theta_{tg}$ vs. $\phi_{tg}$ on target coordinate system}
     \label{fig:lhrs_tg_theta_phi_postopt}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/rhrs_tg_theta_phi_after_opt.png}
     \caption{RHRS Target $\theta_{tg}$ vs. $\phi_{tg}$ on target coordinate system}
     \label{fig:rhrs_tg_theta_phi_postopt}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/lhrs_tg_residual_plot.png}
     \caption{LHRS Target $\theta_{tg}$ and $\phi_{tg}$ Optimization Residual on Target Coordinate System}
     \label{fig:lhrs_tg_theta_phi_residual}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/rhrs_residual_theta_phi.png}
     \caption{RHRS Target $\theta_{tg}$ and $\phi_{tg}$ Optimization Residual on Target Coordinate System}
@@ -486,7 +486,7 @@ Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_resi
 
 The scattering angle represents the angle between the direction of the scattered electrons and the direction of the electron beam. Standard survey procedures do not directly measure the scattering angle; instead, they measure the spectrometer central angle and the geometric positions of the sieve plate. The scattering angle can be calculated using the spectrometer central angle and the $\theta_{tg}$ and $\phi_{tg}$, which are determined based on the geometric position of the sieve hole relative to the central sieve hole. Given these parameters, the scattering angle can be calculated as:
 
-\begin{equation}
+\begin{equation} \label{eq:chapter4_scattered_angle_from_central_angle}
 \theta = \frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}
 \end{equation}
 
@@ -536,17 +536,187 @@ The table below presents the error bars for the momentum optimization. The error
 
 \section{Spectrometer central angle $\theta_0$ measurement}
 
-[TO BE CHANGED]
- 
-The spectrometer central angle $\theta_0$ is defined as the angle between the beam down direction and the central spectrometer axis. Spectrometer's central angle is given by the laser survey. θ0 can be measured using a survey, which measures the angle between two imaginary lines. The first line is along the ideal spectrometer axis and the second line is along the ideal electron beam direction. A survey uses special equipment from the Stanford Industrial Measurement System (SIMS) (Bell, 1989) to locate positions of the target center and the ideal spectrometer center. 
+The spectrometer central angle $\theta_0$ is defined as the angle between the beam down direction and the central spectrometer axis. As described in equation \ref{eq:chapter4_scattered_angle_from_central_angle}, the spectrometer's central angle plays a basic input in calculating the particle scattered angle. The laser survey gives Spectrometer's central angle. $\theta_0$ can be measured using a survey measuring the angle between two imaginary lines. The first line is along the ideal spectrometer axis and the second line is along the ideal electron beam direction. 
 
-However, multiple transformations required to relate the ideal spectrometer angle to the actual spectrometer angle could increase the uncertainty of θ0 measurement to be as much as 0.06o or
-$~1\%$, which could lead to $2\%$ uncertainty in Q2 measurement in the case of PREX. However, PREX used a new technique in addition to a survey. This technique (called pointing measurement) makes use of the idea of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. The accuracy achieved from pointing measurement is usually better than a survey since pointing measurement does not require multiple transformations as in the case of a survey. Moreover, the accuracy of
-pointing measurement can be greatly enhanced by considering differential nuclear recoil off different target nuclei that are in the same target such as water (H2O). The benefit of this method is that all uncertainties from estimating energy losses that occurred before and after the scattering are suppressed. Also, this method eliminates the problem of possible beam position shifting during the run. The main uncertainty that contributed to the uncertainty of a pointing measurement is from the ability to measure the energy difference between two different peaks, which, in the case of PREX, had an accuracy at the level of ~30 keV. Procedures for the pointing measurement are described in Saenboonruang.
+However, multiple transformations required to relate the ideal spectrometer angle to the actual spectrometer angle could increase the uncertainty of $\theta_0$ measurement to be as much as 0.06 or $~1\%$, which could lead to $2\%$ uncertainty in Q2 measurement in the case of PREX. However, PREX used a new technique in addition to a survey. This technique (called pointing measurement) makes use of the idea of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. The accuracy achieved from pointing measurement is usually better than a survey since pointing measurement does not require multiple transformations as in the case of a survey. Moreover, the accuracy of pointing measurement can be greatly enhanced by considering differential nuclear recoil off different target nuclei that are in the same target such as water (H2O). The benefit of this method is that all uncertainties from estimating energy losses that occurred before and after the scattering are suppressed. Also, this method eliminates the problem of possible beam position shifting during the run. The main uncertainty that contributed to the uncertainty of a pointing measurement is from the ability to measure the energy difference between two different peaks, which, in the case of PREX, had an accuracy at the level of ~30 keV.  
+
+Consider an electron scattered on target with mass $M$, the scattered electron momentum can be written as:
+
+\begin{equation}
+    E' = \frac{E - E_{loss1}}{1 + \frac{2(E-E_{loss1})\sin^2{\frac{\theta}{2}}}{M}} - E_{loss2}
+\end{equation}
+
+Here in the equation, $E$ is the initial energy of the electrons, $\theta$ is the scattered angle, $E_{loss1}$ is the energy loss that occurred before the scattering, and $E_{loss2}$ is the energy loss occurred after the scattering. 
+
+The water target contains $^{1}H$ and $^{16}O$, which made it possible to scatter two targets with exactly the same beam energy, scattered angle, and even energy loss. The energy loss would be canceled out, and increase the measurement accuracy. The scattered electron energy difference between oxygen and hydrogen can be given by:
+
+\begin{equation}
+    \Delta{E'} = E'_O - E'_H = E (\frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_O}} - \frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_H}}) + corrections
+\end{equation}
+
+Where in the equation, the correction is negligible. Both the beam energy and the mass of the  oxygen and hydrogen are measured with high accuracy. and with the scattered momentum reconstructed from the vertical drift chamber. put in the above equation, the scattered angle can be measured. 
 
 
-\subsection{CRex experiment calibration}
-\subsection{a second thought on the optics optimization}
+CRex experiment uses exactly the same configuration of the spectrometer, but the beam energy is at 2.18GeV, which gives a much clean energy spectrum. In the data analysis, the CRex data instead of PRex data are used in order to get higher accuracy measurements. 
+
+The pointing measurement was done with a sieve in, and the event passes the central sieve hole is used in the pointing calculation with beam position along the center of the Hall A Coordinate System. This will eliminate the errors caused by the HRS optics reconstruction errors. \ref{fig:pointing_h2o_spectrum} is an example of the waterfall target spectrum for CRex RHRS run 21737. The first peak on the left and the first peak on the right is the ground state energy of the $^{1}H$ and $^{16}O$ respectively. The energy difference is $\Delta E = 16.126 \pm 0.024 MeV$. In order to get a highly accurate central angle, the pointing measure is carried out with different central momentum. With different central momentum, the scattered electrons will end in different VDC area. Each central momentum run will able to provide independent energy difference between hydrogen and oxygen spectrum energy difference.With accurate optics reconstruction, different central momentum gives different energy differences between the hydrogen and oxygen targets, but it should give the same spectrum angles. This will help us verify the calibration accuracy. To avoid drift during the experiment, the pointing measurement also did three times, one at an early stage of the experiment, one during the experiment, and another verification pointing measurement after the experiment. The final pointing measurement are the average of those runs. In table list all the runs used in the pointing measurement. 
+
+
+In the pointing, although the beam position is set to (0,0), because of the control errors, it can not really reach $(0,0)$. To avoid the errors caused by the beam position, the final angle is corrected by $\frac{X_{bpm}}{Z_0}$, where $Z_0$ is the distance from the target center to the sieve slide along the spectrum central ray [check?], and $X_{bpm}$. is the beam position on $X$ direction in Hall A coordinate system.  
+
+\begin{table}[!ht]
+    \caption{LHRS Dec-16-2019 Pointing measurement}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & LHRS & Initial\_L & bpmX & Correct Angle & Corrected HRS \\ \hline
+       \multirow{5}{5em}{Dp $0\%$} &  2671 & 4.771 & 1.070 & -0.062 & 4.833 \\  
+        ~ & 2672 & 4.831 & 0.083 & -0.005 & 4.836 \\ 
+        ~ & 2673 & 4.725 & 2.011 & -0.116 & 4.841 \\ 
+        ~ & 2674 & 4.763 & 1.081 & -0.062 & 4.825 \\  
+        ~ & 2675 & 4.787 & 1.008 & -0.058 & 4.845 \\ \hline
+        \multirow{3}{5em}{ Dp $+1\%$} & 2709 & 4.749 & 0.936 & -0.054 & 4.803 \\ 
+        ~ & 2710 & 4.806 & 0.094 & -0.005 & 4.811 \\  
+        ~ & 2711 & 4.691 & 2.049 & -0.118 & 4.809 \\ \hline
+        \multirow{5}{5em}{ Dp $-1\%$} & 2723 & 4.755 & 0.950 & -0.055 & 4.810 \\   
+        ~ & 2724 & 4.808 & -0.029 & 0.002 & 4.806 \\  
+        ~ & 2725 & 4.702 & 2.055 & -0.119 & 4.821 \\ 
+        ~ & 2726 & 4.756 & 1.093 & -0.063 & 4.819 \\  
+        ~ & 2727 & 4.771 & 1.017 & -0.059 & 4.830 \\ \hline
+    \end{tabular}
+    \label{table:crex_1_pointing_lhrs}
+\end{table}
+
+
+\begin{table}[!ht]
+    \caption{RHRS Dec-16-2019 Pointing measurement}
+    \centering
+
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RHRS & Initial\_R & bpmX & Correct Angle & Corrected HRS \\ \hline
+        \multirow{5}{5em}{Dp $0\%$} & 21736 & 4.771 & 1.070 & 0.062 & 4.709 \\
+        ~ & 21737 & 4.722 & 0.083 & 0.005 & 4.717 \\
+        ~ & 21738 & 4.827 & 2.011 & 0.116 & 4.711 \\
+        ~ & 21739 & 4.78 & 1.081 & 0.062 & 4.718 \\
+        ~ & 21740 & 4.78 & 1.008 & 0.058 & 4.722 \\ \hline
+        \multirow{3}{5em}{ Dp $+1\%$} & 21774 & 4.749 & 0.936 & 0.054 & 4.695 \\
+        ~ & 21775 & 4.706 & 0.094 & 0.005 & 4.701 \\
+        ~ & 21776 & 4.813 & 2.049 & 0.118 & 4.695 \\ \hline
+        \multirow{5}{5em}{ Dp $-1\%$} & 21786 & 4.757 & 0.950 & 0.055 & 4.702 \\ 
+        ~ & 21787 & 4.692 & -0.029 & -0.002 & 4.694 \\ 
+        ~ & 21788 & 4.806 & 2.055 & 0.119 & 4.687 \\
+        ~ & 21789 & 4.752 & 1.093 & 0.063 & 4.689 \\ 
+        ~ & 21790 & 4.75 & 1.017 & 0.059 & 4.691 \\ \hline
+    \end{tabular}
+    \label{table:crex_1_pointing_lhrs}
+\end{table}
+
+
+\begin{table}[!ht]
+    \caption{LHRS Aug-9-2020 Pointing measurement}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & LHRS & Initial\_L & bpmX & corrected\_A & Corrected HRS \\ \hline
+        \multirow{5}{5em}{Dp $0\%$} & 3108 & 4.716 & 1.981 & -0.1143 & 4.8303 \\  
+        ~ & 3109 & 4.832 & 0.045 & -0.0026 & 4.8346 \\ 
+        ~ & 3110 & 4.832 & 0.006 & -0.0003 & 4.8323 \\  
+        ~ & 3111 & 4.713 & 1.896 & -0.1094 & 4.8224 \\  
+        ~ & 3112 & 4.785 & 0.963 & -0.0555 & 4.8405 \\  \hline
+        \multirow{2}{5em}{Dp $-1\%$} & 3113 & 4.758 & 0.980 & -0.0565 & 4.8145 \\ 
+        ~ & 3114 & 4.754 & 0.989 & -0.0571 & 4.8111 \\ \hline
+    \end{tabular}
+    \label{table:crex_2_pointing_lhrs}
+\end{table}
+
+\begin{table}[!ht]
+    \caption{RHRS Aug-9-2020 Pointing measurement}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RHRS & Initial\_R & bpmX & Correct Angle & Corrected HRS \\ \hline
+        \multirow{5}{5em}{Dp $0\%$} & 22114 & 4.842 & 1.981 & 0.114 & 4.728 \\ 
+        ~ & 22115 & 4.734 & 0.045 & 0.003 & 4.731 \\  
+        ~ & 22116 & 4.743 & 0.006 & 0.000 & 4.743 \\  
+        ~ & 22117 & 4.853 & 1.896 & 0.109 & 4.744 \\  
+        ~ & 22118 & 4.788 & 0.963 & 0.056 & 4.732 \\ \hline
+        \multirow{2}{5em}{Dp $-1\%$} & 22119 & 4.769 & 0.980 & 0.057 & 4.712 \\ 
+        ~ & 22120 & 4.767 & 0.989 & 0.057 & 4.710 \\ \hline
+    \end{tabular}
+    \label{table:crex_2_pointing_rhrs}
+\end{table}
+
+\begin{table}[!ht]
+    \caption{LHRS Sep-13-2020 Pointing measurement}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & LHRS & Initial\_L & bpmX & corrected\_A & Corrected HRS \\ \hline
+        \multirow{5}{5em}{Dp $0\%$} & 3278 & 4.773 & 0.985 & -0.057 & 4.830 \\  
+        ~ & 3279 & 4.83 & 0.069 & -0.004 & 4.834 \\  
+        ~ & 3284 & 4.721 & 2.007 & -0.116 & 4.837 \\  
+        ~ & 3286 & 4.771 & 1.057 & -0.061 & 4.832 \\ 
+        ~ & 3291 & 4.776 & 1.006 & -0.058 & 4.834 \\ \hline
+        \multirow{2}{5em}{Dp $+1\%$}  & 3292 & 4.8 & 1.035 & -0.060 & 4.860 \\  
+        ~ & 3299 & 4.802 & 1.049 & -0.060 & 4.862 \\ \hline
+        \multirow{1}{5em}{Dp $-1.7\%$} & 3302 & 4.738 & 1.052 & -0.061 & 4.799 \\ \hline
+    \end{tabular}
+    \label{table:crex_3_pointing_lhrs}
+\end{table}
+
+
+\begin{table}[!ht]
+    \caption{RHRS Sep-13-2020 Pointing measurement}
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|}
+    \hline
+        ~ & RHRS & Initial\_R & bpmX & Correct Angle & Corrected HRS \\ \hline
+        \multirow{5}{5em}{Dp $0\%$} & 22234 & 4.789 & 0.985 & 0.057 & 4.732 \\ 
+        ~ & 22235 & 4.741 & 0.069 & 0.004 & 4.737 \\ 
+        ~ & 22240 & 4.849 & 2.007 & 0.116 & 4.733 \\ 
+        ~ & 22242 & 4.812 & 1.057 & 0.061 & 4.751 \\  
+        ~ & 22247 & 4.793 & 1.006 & 0.058 & 4.735 \\ \hline
+        \multirow{2}{5em}{Dp $+1\%$} & 22248 & 4.791 & 1.035 & 0.060 & 4.731 \\ 
+        ~ & 22255 & 4.786 & 1.049 & 0.060 & 4.726 \\ \hline
+        \multirow{1}{5em}{Dp $-1.7\%$} & 22256 & 4.743 & 1.052 & 0.061 & 4.682 \\ \hline
+    \end{tabular}
+    \label{table:crex_3_pointing_rhrs}
+\end{table}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/pointing_h20_spectrum.png}
+    \caption{Caption}
+    \label{fig:pointing_h2o_spectrum}
+\end{figure}
+
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/lhrs_pointing_summary.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width =\textwidth]{images/chap4/rhrs_pointing_summary.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+\hyperlink{https://docs.google.com/spreadsheets/d/12B7BL0aG4ZT-L9QYeQnX1PDxArS75PFv40Hdc3eRv4k/edit?usp=sharing}{data source, need to add that information}
+
+\hyperlink{https://github.com/Jiansiyu/GeneralScripts/blob/master/PointingCheck/crex_pointing.csv}{Pointing measurement final result csv}
+
+
+% \subsubsection{beam position correction}
+
+% \subsection{CRex experiment calibration}
+% \subsection{a second thought on the optics optimization}
+
+
 % Move to a separate chapter describing the apparatus and experiment details
 
 % \begin{itemize}
