@@ -519,7 +519,7 @@ The table below presents the error bars for the momentum optimization. The error
 \end{center}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/lhrs_dp_residual.png}
     \caption{Caption}
@@ -527,42 +527,42 @@ The table below presents the error bars for the momentum optimization. The error
 \end{figure}
 
 
-\begin{figure}[H]
+\begin{figure}[h]
     \centering
     \includegraphics[width =\textwidth]{images/chap4/rhrs_dp_residual.png}
     \caption{Caption}
     \label{fig:rhrs_dp_residual}
 \end{figure}
 
-\section{Spectrometer central angle $\theta_0$ measurement}
+\section{Spectrometer central angle $\theta_0$ measurement }
 
-The spectrometer central angle $\theta_0$ is defined as the angle between the beam down direction and the central spectrometer axis. As described in equation \ref{eq:chapter4_scattered_angle_from_central_angle}, the spectrometer's central angle plays a basic input in calculating the particle scattered angle. The laser survey gives Spectrometer's central angle. $\theta_0$ can be measured using a survey measuring the angle between two imaginary lines. The first line is along the ideal spectrometer axis and the second line is along the ideal electron beam direction. 
+The spectrometer central angle, $\theta_0$, is defined as the angle between the beam down direction and the central spectrometer axis. As shown in equation \ref{eq:chapter4_scattered_angle_from_central_angle}, the spectrometer's central angle serves as a fundamental input for calculating the particle scattered angle. The laser survey provides the spectrometer's central angle. $\theta_0$ can be measured using a survey that measures the angle between two imaginary lines: the first line runs along the ideal spectrometer axis, and the second line runs along the ideal electron beam direction.
 
-However, multiple transformations required to relate the ideal spectrometer angle to the actual spectrometer angle could increase the uncertainty of $\theta_0$ measurement to be as much as 0.06 or $~1\%$, which could lead to $2\%$ uncertainty in Q2 measurement in the case of PREX. However, PREX used a new technique in addition to a survey. This technique (called pointing measurement) makes use of the idea of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. The accuracy achieved from pointing measurement is usually better than a survey since pointing measurement does not require multiple transformations as in the case of a survey. Moreover, the accuracy of pointing measurement can be greatly enhanced by considering differential nuclear recoil off different target nuclei that are in the same target such as water (H2O). The benefit of this method is that all uncertainties from estimating energy losses that occurred before and after the scattering are suppressed. Also, this method eliminates the problem of possible beam position shifting during the run. The main uncertainty that contributed to the uncertainty of a pointing measurement is from the ability to measure the energy difference between two different peaks, which, in the case of PREX, had an accuracy at the level of ~30 keV.  
+However, multiple transformations are required to relate the ideal spectrometer angle to the actual spectrometer angle, which could increase the uncertainty of the $\theta_0$ measurement to as much as 0.06 or approximately $1\%$. This could, in turn, lead to a $2\%$ uncertainty in Q2 measurement in the case of the PREX experiment. In PRex Experiment, the measurement is through pointing measurement. This technique utilizes the concept of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. Pointing measurements are generally more accurate than surveys, as they do not require multiple transformations like surveys. Furthermore, the accuracy of pointing measurements can be significantly improved by considering differential nuclear recoils off different target nuclei present in the same target, such as water (H2O). This method has the advantages of suppressing uncertainties from estimating energy losses occurring before and after scattering and eliminating the issue of potential beam position shifting during the run. The primary uncertainty that contributes to the pointing measurement uncertainty arises from the ability to measure the energy difference between two different peaks. In the case of PREX, the accuracy was at the level of ~30 keV. [change needed]
 
-Consider an electron scattered on target with mass $M$, the scattered electron momentum can be written as:
-
-\begin{equation}
-    E' = \frac{E - E_{loss1}}{1 + \frac{2(E-E_{loss1})\sin^2{\frac{\theta}{2}}}{M}} - E_{loss2}
-\end{equation}
-
-Here in the equation, $E$ is the initial energy of the electrons, $\theta$ is the scattered angle, $E_{loss1}$ is the energy loss that occurred before the scattering, and $E_{loss2}$ is the energy loss occurred after the scattering. 
-
-The water target contains $^{1}H$ and $^{16}O$, which made it possible to scatter two targets with exactly the same beam energy, scattered angle, and even energy loss. The energy loss would be canceled out, and increase the measurement accuracy. The scattered electron energy difference between oxygen and hydrogen can be given by:
+Consider an electron scattered on a target with mass $M$. The scattered electron momentum can be written as:
 
 \begin{equation}
-    \Delta{E'} = E'_O - E'_H = E (\frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_O}} - \frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_H}}) + corrections
+E' = \frac{E - E_{loss1}}{1 + \frac{2(E-E_{loss1})\sin^2{\frac{\theta}{2}}}{M}} - E_{loss2}
 \end{equation}
 
-Where in the equation, the correction is negligible. Both the beam energy and the mass of the  oxygen and hydrogen are measured with high accuracy. and with the scattered momentum reconstructed from the vertical drift chamber. put in the above equation, the scattered angle can be measured. 
+In this equation, $E$ represents the initial energy of the electrons, $\theta$ is the scattered angle, $E_{loss1}$ is the energy loss occurring before scattering, and $E_{loss2}$ is the energy loss occurring after scattering.
 
+The water target contains both $^{1}H$ and $^{16}O$, enabling the scattering of two targets with precisely the same beam energy, scattered angle, and energy loss. The energy loss is canceled out, thus increasing the measurement accuracy. The scattered electron energy difference between oxygen and hydrogen can be given by:
 
-CRex experiment uses exactly the same configuration of the spectrometer, but the beam energy is at 2.18GeV, which gives a much clean energy spectrum. In the data analysis, the CRex data instead of PRex data are used in order to get higher accuracy measurements. 
+\begin{equation}
+\Delta{E'} = E'_O - E'_H = E (\frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_O}} - \frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_H}}) + corrections
+\end{equation}
 
-The pointing measurement was done with a sieve in, and the event passes the central sieve hole is used in the pointing calculation with beam position along the center of the Hall A Coordinate System. This will eliminate the errors caused by the HRS optics reconstruction errors. \ref{fig:pointing_h2o_spectrum} is an example of the waterfall target spectrum for CRex RHRS run 21737. The first peak on the left and the first peak on the right is the ground state energy of the $^{1}H$ and $^{16}O$ respectively. The energy difference is $\Delta E = 16.126 \pm 0.024 MeV$. In order to get a highly accurate central angle, the pointing measure is carried out with different central momentum. With different central momentum, the scattered electrons will end in different VDC area. Each central momentum run will able to provide independent energy difference between hydrogen and oxygen spectrum energy difference.With accurate optics reconstruction, different central momentum gives different energy differences between the hydrogen and oxygen targets, but it should give the same spectrum angles. This will help us verify the calibration accuracy. To avoid drift during the experiment, the pointing measurement also did three times, one at an early stage of the experiment, one during the experiment, and another verification pointing measurement after the experiment. The final pointing measurement are the average of those runs. In table list all the runs used in the pointing measurement. 
+In this equation, the corrections are negligible. Both the beam energy and the masses of oxygen and hydrogen are measured with high accuracy. With the scattered momentum reconstructed from the vertical drift chamber and the above equation, the scattered angle can be measured.
 
+The CRex experiment uses the exact same spectrometer configuration, but with a beam energy of 2.18 GeV, yielding a much cleaner energy spectrum. In data analysis, CRex data is used instead of PREX data to achieve higher accuracy measurements.
 
-In the pointing, although the beam position is set to (0,0), because of the control errors, it can not really reach $(0,0)$. To avoid the errors caused by the beam position, the final angle is corrected by $\frac{X_{bpm}}{Z_0}$, where $Z_0$ is the distance from the target center to the sieve slide along the spectrum central ray [check?], and $X_{bpm}$. is the beam position on $X$ direction in Hall A coordinate system.  
+The pointing measurement was conducted with a sieve in place, and events passing through the central sieve hole were used in the pointing calculation with the beam position along the center of the Hall A Coordinate System. This approach eliminates errors caused by HRS optics reconstruction errors. Figure \ref{fig:pointing_h2o_spectrum} displays an example of the waterfall target spectrum for CRex RHRS run 21737. The first peaks on the left and right represent the ground state energies of $^{1}H$ and $^{16}O$, respectively. The energy difference is $\Delta E = 16.126 \pm 0.024 MeV$. In order to obtain a highly accurate central angle, the pointing measurements were performed with different central momenta. The scattered electrons will end up in different VDC areas with different central momenta. Each central momentum run can provide independent energy differences between the hydrogen and oxygen spectra. Accurate optics reconstruction allows different central momenta to yield different energy differences between the hydrogen and oxygen targets while maintaining the same scattering angles. This helps verify the calibration accuracy.
+
+To avoid drift during the experiment, pointing measurements were conducted three times: once at the beginning, once during the experiment, and a final verification pointing measurement after the experiment. The final pointing measurement is the average of these runs. A table listing all the runs used in the pointing measurement is provided.
+
+During the pointing process, although the beam position is set to (0,0), it cannot perfectly reach $(0,0)$ due to control errors. To account for errors caused by beam position, the final angle is corrected by $\frac{X_{bpm}}{Z_0}$, where $Z_0$ represents the distance from the target center to the sieve slide along the spectrometer central ray (verification required), and $X_{bpm}$ is the beam position in the $X$ direction in the Hall A coordinate system.  
 
 \begin{table}[!ht]
     \caption{LHRS Dec-16-2019 Pointing measurement}
@@ -709,6 +709,8 @@ In the pointing, although the beam position is set to (0,0), because of the cont
 \hyperlink{https://docs.google.com/spreadsheets/d/12B7BL0aG4ZT-L9QYeQnX1PDxArS75PFv40Hdc3eRv4k/edit?usp=sharing}{data source, need to add that information}
 
 \hyperlink{https://github.com/Jiansiyu/GeneralScripts/blob/master/PointingCheck/crex_pointing.csv}{Pointing measurement final result csv}
+
+
 
 
 % \subsubsection{beam position correction}
