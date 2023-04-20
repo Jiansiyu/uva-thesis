@@ -1,17 +1,17 @@
-\chapter{GEM detector Data Analysis}
+\chapter{GEM Detector Data Analysis}
 
-Gas Electron Multiplier(GEM) Detectors are gaseous detectors. The key component of the GEM detector is 5um copper-coated polyimide foils. On the foil, there are 70um holes are etched in a regular hexagonal pattern, and the distance between that holes is 140 micrometers. On the top of the GEM foil is the cathode, and under the bottom is the readout board used for collecting the employed electrons. A potential difference applied across the foils generates sharp electric fields in the holes. The electrons created during the ionization process drift toward the foils and are multiplied in the holes. The resulting electron avalanche induces a readout signal on the finely spaced strips. To achieve a higher amplify ability, multiple layers of GEM detector are stacked together, and with those layers of GEM foils, the ionized electron can be amplified multiple times before reaches the readout board. 
+Gas Electron Multiplier (GEM) detector is one kind of gaseous detector. At the heart of these detectors is a 5 µm copper-coated polyimide foil, which is punctured with 70 µm holes in a regular hexagonal pattern, spaced 140 µm apart. The GEM foil features a cathode on top, while a readout board is situated beneath it for collecting the electrons generated during the ionization process. When a potential difference is applied across the foils, it produces sharp electric fields within the holes, which multiply the electrons and result in an electron avalanche. This avalanche electrons travels along the electric field and is eventually collected by the finely spaced strips. To enhance amplification, multiple GEM detector layers are stacked together, allowing ionized electrons to be amplified multiple times before reaching the readout board.
 
-The GEM detectors used for PRex/CRex experiment were designed for Jefferson Lab Super BigBite Spectrometer(SBS) with an area of 50cmx60cm. By the time it was built, it was one of the largest GEM detectors that have ever been built. The PRex/CRex provides a good opportunity to test the GEM detector in a real experiment environment before the start of the SBS experiment. It will provide a good supplement when the event rate is high since VDC efficiency drops or even does not work at high event rate.  In this chapter, we will cover the apparatus and the analysis result of the GEM detectors. 
+The GEM detectors utilized in the PRex/CRex experiment were specifically designed for the Jefferson Lab Super BigBite Spectrometer (SBS) and span an area of 50 cm x 60 cm. At the time of its construction, it was one of the largest GEM detectors ever built. The PRex/CRex experiment offered an excellent opportunity to test the GEM detector in a real experimental environment before initiating the SBS experiment. The detector serves as a valuable supplement in situations where the event rate is high, as the VDC efficiency declines or even fails under such conditions. This chapter delves into the apparatus and the analysis results of the GEM detectors.
 
+\section{GEM Detector Configuration}
 
-\section{GEM detector}
+The SBS GEM detector used in the PRex/CRex experiment comprises three layers of GEM foils. The cathode, situated on top of the GEM foil, features a similar hole structure but is single-side coated instead of double-sided. To prevent polarization due to charge accumulation on the cathode, a thin aluminized gas window layer is applied, which shares the same high voltage as the cathode.
 
-The SBS GEM detector used in PRex/CRex experiment consists of three layers of GEM foils. On top of the GEM foil is the cathode, it has a similar structure as GEM foil with holes on the foil, but instead of double side cooper coated, the cathode is single-side coated. On top of the GEM foil is a thin layer of an aluminized gas window that applies the same high voltage as the cathode to avoid polarization because of the charges on the cathode. 
+A premixed gas containing $75\%$ Argon and $25\%$ Carbon Dioxide is supplied by the Hall A gas system for use in the GEM detector. This mixed gas first enters the chamber between the entrance window and the cathode, then passes through the holes in the foil, ensuring a uniform gas mixture throughout the entire chamber. Exhaust gas exits through exhaust holes located on the frame at the bottom of the GEM chamber.
 
-The gas in the GEM detector is pre-mixed $75\%$ Argon and $25\%$ Carbon Dioxide provided by the Hall A gas system. The mixed gas first comes into the chamber between the entrance window and the cathode and then passes through the hold of the foil which could provide a unified mixture of the gas throughout the whole chamber.  The exhaust gas  comes out from the exhaust holes on the frame from the bottom of the GEM chamber. 
+At the base of the GEM foils, avalanche electrons are collected by 2D readout strips. Each readout strip is connected to a charge-sensitive pre-amplifier electronics channel. To counteract any bending of the readout board due to the mixed gas in the chamber, an additional chamber is designed beneath the readout board and filled with air at the same pressure as the GEM chambers.
 
-On the bottom of the GEM foils, the avalanche electrons are collected with 2d readout strips. Each of the readout strips is connected to one channel of charge-sensitive pre-amplify electronics. To avoid the bend of the readout board because of the mixed gas in the chamber, another chamber is designed under the readout board, and filled with Air with exactly the same pressure as the GEM chambers. 
 
 \begin{figure}[!tbp]
   \centering
@@ -26,19 +26,92 @@ On the bottom of the GEM foils, the avalanche electrons are collected with 2d re
   \end{minipage}
 \end{figure}
 
-\subsection{GEM detector structure}
-\begin{itemize}
-    \item GEM foil
-    \item GEM structure 
-    \item GEM readout board
-    \item GEM readout electronics
-\end{itemize}
-\subsection{GEM detector in apparatus}
-\begin{itemize}
-    \item GEM detector in the shell
-    \item GEM detector in the HRS
-\end{itemize}
+
+\subsection{GEM detector in Hall A High-Resolution Spectrometer}
+
+Each HRS have 3 SBS GEM detectors with the size of $50cm x 60cm$ and 3 smaller sizes GEM detector with the size of $10cm x 20cm$ manufactured by Idaho State University. As shown in the figure, the GEM detectors are parallel to each other, placed after the VDC detectors.  The Idaho GEM detectors are placed in front of the SBS gem detectors. Two quartz detectors are placed in between the first and the second Idaho GEM detectors, and another two AT detectors are placed between the SBS GEM detectors and the Idaho GEM detectors. 
+
+
+\begin{figure}[!htbp]
+  \centering
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{images/chap5/gem_in_apparatus_photo.png}
+    \caption{GEM Chamber 2D structure}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{images/chap5/gem_apparatus_in_hrs_2d.png}
+    \caption{GEM chamber Gas flow}
+  \end{minipage}
+\end{figure}
+
+
+\subsection{Add a more detailed introduction of GEM detector supplement electronics??}
+\begin{enumerate}
+    \item readout electronics (APV, MPD, CPU, coda)
+    \item low voltage for the APV (modular LV, cable selection, LV regulator, cooling fan) 
+    \item High Voltage
+    \item Gas System
+\end{enumerate}
+
+
+\begin{figure}[!htbp]
+  \centering
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{images/chap5/gem_in_hrs.png}
+    \caption{GEM Chamber in HRS}
+  \end{minipage}
+  \hfill
+  \begin{minipage}[b]{0.45\textwidth}
+    \includegraphics[width=\textwidth]{images/chap5/gem_low_voltage.png}
+    \caption{GEM Pre-Amplifier Voltage Supply}
+  \end{minipage}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/gem_signal.png}
+    \caption{Caption}
+    \label{fig:apv_25_pedestal_plot}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/LHRS_pedestal.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/rhrs_pedestal.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/lhrs_fake_hit_rate.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/rhrs_fake_hit_rate.png}
+    \caption{Caption}
+    \label{fig:my_label}
+\end{figure}
+
 \section{GEM detector data analysis}
+The GEM detector readout strips are connected to the APV frontend card, which is a 128-channel pre-amplifier. The signal after APV is sent to Multi-Purpose Digitizer where it converts to digital signals with 12-bit Analog to Digital converter.  Figure \ref{fig:apv_25_pedestal_plot} shows a typic plot after the MPD. The X-axis is the APV channels, while as the Y-axis is the ADC values after the ADC converter which is proportional to the number of charges collected by the given strip. 
+
+
+
 \subsection{the procedure used to get the GEM signals}
 \subsection{pedestal}
 \begin{itemize}
