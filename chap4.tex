@@ -4,17 +4,16 @@ The PRex-II Experiment was conducted using the Jefferson Lab High-Resolution Spe
 
 \section{High-Resolution Spectrometer Coordinate System}
 
-
-The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). Each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized into four steps:
+The Vertical Drift Chamber is essential for achieving the spatial resolution capability of the HRS. Each of the two HRS spectrometers is equipped with two VDCs, and each chamber contains two layers of VDC planes oriented in the UV direction. With 750 wires per chamber and a position resolution of 100 µm per plane, the four layers of VDC chamber wires can provide partial spatial location $x$, $y$, along with particle angles $\theta$ and $\phi$. The kinematic properties, such as scattered angle and momentum, must be derived from the four directly measurable parameters ($x_{det}$, $y_{det}$, $\theta_{det}$, and $\phi_{det}$). The calibration procedure can be divided into four steps:
 
 \begin{itemize}
-    \item VDC Drift time constant calibration
-    \item VDC geometry constant calibration 
-    \item spatial and angular calibration
-    \item momentum calibration
+\item VDC Drift time constant calibration
+\item VDC geometry constant calibration
+\item HRS spatial and angular calibration
+\item HRS momentum calibration
 \end{itemize}
 
-Vertical Drift Chamber measures the spatial position by measuring the particle drift time. $t_0$ serves as the starting time of the VDC counter. Carefully calibrated $t_0$ is critical to the spatial and angular resolution of the VDC. To simplify the regression model and easily converge, the spatial, angular, and momentum parameters are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. Before going into the detail of the calibration, here first introduce the coordination system used in the following contest. 
+The VDC measures the spatial position by recording the particle drift time. $T_0$ represents the starting time of the VDC counter. A carefully calibrated $T_0$ is critical to achieving optimal spatial and angular resolution of the VDC. To simplify the regression model and ensure easy convergence, the spatial, angular, and momentum parameters are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. All parameters used in physics analysis need to be in the target coordinate system. The spatial, angular, and momentum calibration of the HRS aims to construct a model that accurately projects the measurements on the focal plane coordinate system to the target system, which ultimately enables the extraction of physics results. Before delving into the calibration details, we first introduce the coordinate systems used in the following sections.
 
 \subsection{coordinate system}
 
