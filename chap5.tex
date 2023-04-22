@@ -140,37 +140,57 @@ To measure the false positive rate, the GEM signal selection algorithm is applie
 \subsubsection{Multiple GEM detectors alignment algorithm }
 \subsection{GEM detector performance}
 
+GEM detectors in the spectrometer provide a good supplement to the VDC detector used for tracking the scattered electrons. The efficiency of the detector is critical. Both of VDC detector and GEM detector could provide scattered electron tracks. By leveraging the reconstructed track of the scattered electrons, we could project the track to the given detector, and measure the detector efficiency of the GEM detectors.  
+
+GEM foil is a two-layer copper-coated structure, and the avalanche only happened inside the holes in the GEM foil. The ionized ions will be absorbed by the copper layers. The travel distance is at most $70um$, which is significantly reduced compared with  the Drift chamber.  The drift chamber event maximum event rate will be limited by the drift time. The maximum working rate is limited to $~100KHz$, but for the GEM detector, the event rate could reach $MHz$ for each square centimeter. In this selection, we will introduce the detailed measurement of the GEM efficiency with tracking method as well as the high rate performance of the GEM detector and VDC detector. 
+
 \subsubsection{GEM detector efficiency with tracking}
-\subsubsection{GEM detector efficiency over time}
-\subsubsection{GEM detector High Rate Performance and compare with VDC}
+
+Each HRS have four layers of VDC chambers which could provide highly accurate position and angular information of the track. Take the VDC as a reference and project the track reconstructed from the vertical drift chamber to each GEM detector. And search for events within a  $4cm \times 4 cm$ area (add the reason why choose 4x4 instead of small area). If there is an event present within the area, it would be considered as True Positive event. If not, it will be considered as False Negative caused by the efficiency of the GEM detector. \ref{fig:lhrs_efficiency_2d}  and \ref{fig:rhrs_efficiency_2d} shows the GEM detectors efficiency on LHRS and RHRS respectively. 
+
+\begin{table}[]
+    \centering
+    \begin{tabular}{c|c|c|c|c|c|c} \hline
+         ~ & GEM 1 & GEM 2 & GEM 3 & GEM 1 & GEM 2 & GEM 3 \\ \hline 
+         RHRS & $96\%$ & $96\%$ & $96\%$ & $92\%$& $92\%$& $92\%$  \\ \hline
+         LHRS & $86\%$& $84\%$ & $87\%$ & $88\%$ & $66\%$ & $92\%$ \\ \hline
+    \end{tabular}
+    \caption{GEM Detector efficiency}
+    \label{tab:gem_detector_efficiency_table}
+\end{table}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/lhrs_efficiency_2d.png}
-    \caption{Caption}
-    \label{fig:my_label}
+    \caption{LHRS GEM detector efficiency}
+    \label{fig:lhrs_efficiency_2d}
 \end{figure}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/rhrs_efficiency_2d.png}
-    \caption{Caption}
-    \label{fig:my_label}
+    \caption{RHRS GEM detector efficiency}
+    \label{fig:rhrs_efficiency_2d}
 \end{figure}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/lhrs_gem_bin_efficiency.png}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:lhrs_gem_bin_efficiency}
 \end{figure}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/rhrs_gem_bin_efficiency.png}
     \caption{Caption}
-    \label{fig:my_label}
+    \label{fig:rhrs_gem_bin_efficiency}
 \end{figure}
+
+\subsubsection{GEM detector efficiency over time}
+\subsubsection{GEM detector High Rate Performance and compare with VDC}
+
+
 
 
 \begin{figure}[!htbp]
