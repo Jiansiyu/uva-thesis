@@ -173,29 +173,40 @@ Each HRS have four layers of VDC chambers which could provide highly accurate po
     \label{fig:rhrs_efficiency_2d}
 \end{figure}
 
+To get a better understanding of the efficiency difference by each area, the GEM detector is divided by $1cm \times 1cm$ bin. The efficiency of each bin is computed individually. Figure \ref{fig:lhrs_gem_bin_efficiency} and \ref{fig:rhrs_gem_bin_efficiency} is the efficiency distribution.  
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/lhrs_gem_bin_efficiency.png}
-    \caption{Caption}
+    \caption{GEM Efficiency distribution}
     \label{fig:lhrs_gem_bin_efficiency}
 \end{figure}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/rhrs_gem_bin_efficiency.png}
-    \caption{Caption}
+    \caption{GEM Efficiency distribution}
     \label{fig:rhrs_gem_bin_efficiency}
 \end{figure}
 
 \subsubsection{GEM detector efficiency over time}
+
+GEM detector efficiency increase with time [TO BE ADDED]. 
+
 \subsubsection{GEM detector High Rate Performance and compare with VDC}
 
+The GEM detector could reach a higher Event Rate than the drift chamber because of the smaller drift time of ions. In the event rate measurement, both GEM and VDC detectors are used for the tracking. For safety concerns, when the event rate is larger than $500KHz$, only the GEM detector was used. 
+
+Because the VDC detector was not used when the event rate is larger than 500KHz, to get a consistent efficiency, the track reconstructed with the 6 later of GEM detectors was used in the efficiency measurement. The VDC efficiency was measured by projecting the GEM track back to the VDC plane and searching for the fired event on the VDC detector. Similar to the VDC, the calculation of GEM efficiency is computed by projecting the track to each GEM detector and searching for fired events in each GEM detector plane. 
+
+Figure \ref{fig:apv_25_pedestal_plot} show the comparison of the GEM detector and VDC detectors at a different event rate. The blue point is the efficiency of teh VDC detectors, the read pointer is the efficiency of the GEM detectors. Within the test range from 20KHz(?) to 1.5MHz(?) The efficiency of the GEM detector is consistent. VDC detector on the other hand, the efficiency drops as the event rate increase, when the event rate is 500KHz, the efficiency drops to $60\%(?)$.  
+
+[add all the GEM detectors]
 
 
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/gem efficiency over time.png}
-    \caption{Caption}
-    \label{fig:my_label}
+    \caption{GEM and VDC efficiency Over Time}
+    \label{fig:gem_efficiency_over_time}
 \end{figure}
