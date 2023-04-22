@@ -1,60 +1,14 @@
 \chapter{Data Analysis}
 
-PRex-II Experiment was operated on Jefferson Lab High-Resolution Spectrometer(JLab). The kinematics of the scattered electrons have to be measured on the Vertical Drift Chambers which are installed after the magnetic chains. All the measurements have to be converted back to the target coordination system in order to get the result. This chapter will discuss the detail of JLab HRS calibration, the calculation of the 4-momentum transfer square, and the GEM detector analysis. 
-
-\section{Vertical Drift Chamber $T_0$ calibration}
-
-\subsection{correction the initial drift time $T_0$}
-
-Each HRS spectrometer is equipped with a package of four Vertical Drift Chambers (VDCs) that are oriented in the UV direction. The VDCs are filled with Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas filling is routed and delivered using the Hall A Gas System. Each wire in the VDCs is connected to a 3.5 kV high-voltage source.
-
-[The electronics of the VDC, TO BE ADDED]
-
-When a charged particle passes through the VDC chamber, it ionizes the gas atoms, creating a trail of ionized electrons along its path. The ionized electrons drift along the electric field lines due to the high voltage between the high voltage plane and signal wires. This ionization produces a pulse on the signal wires. Each VDC chamber contains 368 wires, and each wire is connected to a pre-amplifier. The amplified pulse signal is then passed through a discriminator and used to trigger the Time-Digital Converter (TDC). The TDC is stopped by the Hall overall event trigger.
-
-After the particle trespass into the chamber, normally it will fire a cluster that contains 4-6 wires. As shown in Fig \ref{fig:vdc_wire_ionization_cluster}, the cross point between the trajectory of the particle and the VDC plane could be measured by measuring the drift distance between each wire. The drift distance is measured with the drift time that gets from the Time-Digital-converter. An accurate start time would be critical to get an accurate drift distance to get an accurate position on VDC.  If the threshold is set too high or too low, the VDC drift distance would be biased. An example of an improper setting of $T_0$ is shown in the plot, where a large number of 'wire shadows' can be observed. These shadows are caused by measurement bias.
-
-[add more detail of the the ADC plot]
-
-\begin{figure}
-    \centering
-    \includegraphics[scale = 0.25]{images/chap4/vdc_wire_ionize.png}
-    \caption{Vertical Drift Chamber Ionization (need to redraw)}
-    \label{fig:vdc_wire_ionization_cluster}
-\end{figure}
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/chap4/vdc_t0_before_correction.png}
-    \caption{vdc $x$ vs $y$ on vdc detector plane before $T_0$ correction}
-    \label{fig:vdc_t0_before_correction}
-\end{figure}
-
-
-\begin{figure}
-    \centering
-    \includegraphics[width=\textwidth]{images/chap4/vdc_t0_after_correction.png}
-    \caption{vdc $x$ vs $y$ on vdc detector plane after $T_0$ correction}
-    \label{fig:vdc_t0_after_correction}
-\end{figure}
-
-The $t_0$ could be calibrated by adjusting the time offset of each TDC channel. In order to calibrate the TDC for all the VDC range, the data should be white spectrum runs that covers all focal plane range with high statistics. 
-
-Here is a procedure of calibration of the TDC $T_0$: [need to check again.]
-\begin{enumerate}
-    \item Fit the failing tail of the spectrum. 
-    \item take the 1.4 $\sigma$ before the peak time
-\end{enumerate}
-
-The calibration code can be found in this \hyperlink{https://github.com/Jiansiyu/GeneralScripts/tree/master/VDC_T0_Cali}{GitHub repository}  
-
+The PRex-II Experiment was conducted using the Jefferson Lab High-Resolution Spectrometer (JLab HRS). In this experiment, the kinematics of scattered electrons were measured using Vertical Drift Chambers (VDCs) positioned after the magnetic elements. It is crucial to transform these measurements back to the target coordinate system in order to obtain accurate results. This chapter delves into the details of JLab HRS calibration and the calculation of the squared four-momentum transfer.
 
 \section{High-Resolution Spectrometer Coordinate System}
 
 
-The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized into three steps:
+The Vertical Drift Chamber provides the HRS spatial resolution capability. Each of the two HRS spectrometers contains two Vertical Drift Chamber(VDC). Each chamber has 750 wires in two (U, V) planes, position resolution of 100 um per plane. Four VDC chamber layers of wires can provide partial spatial location $x$, $y$ together with particle angle $\theta$ and $\phi$. The kinematics, like scattered angle and scattered momentum, need to derive from the four direct measurable parameters(VDC $x$, $y$,$\theta$,$\phi$). The calibration procedure can be categorized into four steps:
 
 \begin{itemize}
+    \item VDC Drift time constant calibration
     \item VDC geometry constant calibration 
     \item spatial and angular calibration
     \item momentum calibration
@@ -104,19 +58,19 @@ For ideal experimental configurations, we take the following assumptions:
 Given the above assumption, The trajectory position and vertex angles in the detector plane coordinate system can be derived with the following equation 
 
 \begin{equation}
-    \theta_{det} = 
+    \theta_{det} = \frac{\tan{\eta_1} + \tan{\eta_2}}{\sqrt{2}}
 \end{equation}
     
 \begin{equation}
-    \phi_{det} = 
+    \phi_{det} =  \frac{-\tan{\eta_1} + \tan{\eta_2}}{\sqrt{2}}
 \end{equation}
 
 \begin{equation}
-    x_{det} =
+    x_{det} = \frac{p_{vdc,1} + (p_{vdc,2} - d_1\tan{\eta_2})}{\sqrt{2}}
 \end{equation}
 
 \begin{equation}
-    y_{det} =
+    y_{det} = \frac{-p_{vdc,1} + (p_{vdc,2} - d_1\tan{\eta_2})}{\sqrt{2}}
 \end{equation}
 
 Even though the VDC could not be ideal, the distortions would be very small and through HRS Optics, those un-idea errors could be corrected. 
@@ -131,19 +85,19 @@ The transport coordinate system at the focal plane is defined as rotating the de
 Given the particle position at the detector coordinate system, the transport rotation coordinate system can be derived as:
 
 \begin{equation}
-    \theta_{tra}  = 
+    \theta_{tra}  = \frac{\theta_{det} + \tan{\rho_0}}{1 - \theta_{det}\tan{\rho_0}} 
 \end{equation}
 
 \begin{equation}
-    \phi_{tra} =
+    \phi_{tra} = \frac{\phi_{det}}{\cos{\rho_0} - \theta_{det}\sin{\rho_0}}
 \end{equation}
 
 \begin{equation}
-    x_{tra} =
+    x_{tra} = x_{det}\cos{\rho_0}(1 + \theta_{det}\sin{\rho_0})
 \end{equation}
 
 \begin{equation}
-    y_{tra} = 
+    y_{tra} = y_{det} + \sin{\rho_0}\phi_{tra}x_{det}
 \end{equation}
 
 
@@ -185,10 +139,69 @@ here  in the equation:
 \end{equation}
 
 
-the code used for calibration of the focal plane constant can be found on this GitHub repository: \hyperlink{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{GitHub Repository Link}
+the code used for calibration of the focal plane constant can be found on this GitHub repository: \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{GitHub Repository Link}
 
 
 [need to add the Focal plane coordination system plot]
+
+
+\section{Vertical Drift Chamber $T_0$ calibration}
+
+Each High-Resolution Spectrometer (HRS) is outfitted with a set of four Vertical Drift Chambers (VDCs) arranged in the UV direction. These VDCs are filled with a mixture of Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas mixture is managed and supplied by the Hall A Gas System. Every wire within the VDCs is connected to a 3.5 kV high-voltage source.
+
+[Explain the VDC electronics and emphasize the importance of an accurate $T_0$]
+
+When a charged particle traverses the VDC chamber, it ionizes the gas atoms, generating a trail of ionized electrons along its trajectory. The ionized electrons drift along the electric field lines due to the high voltage applied between the high voltage plane and the signal wires. This ionization process produces a pulse on the signal wires. Each VDC chamber contains 368 wires, all connected to a pre-amplifier. The amplified pulse signal is subsequently passed through a discriminator and utilized to trigger the Time-Digital Converter (TDC). The TDC is stopped by the overall event trigger from Hall A.
+
+As the particle passes through the chamber, it typically activates a cluster comprising 4-6 wires. The intersection between the particle's trajectory and the VDC plane can be determined by measuring the drift distance between each wire, as illustrated in Fig \ref{fig:vdc_wire_ionization_cluster}. The drift distance is calculated using the drift time obtained from the Time-Digital Converter. An accurate start time is crucial for determining the precise drift distance and, consequently, the exact position on the VDC. If the threshold is set too high or too low, the VDC drift distance will be biased. An example of an improper $T_0$ setting is depicted in the plot, where numerous 'wire shadows' can be seen. These shadows are the result of measurement biases. 
+
+Before the HRS Calibration, the VDC $T_0$ need to calibrate to get a reliable VDC data. 
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[scale = 0.25]{images/chap4/vdc_wire_ionize.png}
+    \caption{Vertical Drift Chamber Ionization (need to redraw)}
+    \label{fig:vdc_wire_ionization_cluster}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap4/vdc_t0_before_correction.png}
+    \caption{vdc $x$ vs $y$ on vdc detector plane before $T_0$ correction}
+    \label{fig:vdc_t0_before_correction}
+\end{figure}
+\subsection{correction the initial drift time $T_0$}
+
+The spatial position of the VDC is determined by measuring the drift time. A typical data frame of a single VDC chamber signal channel is presented below. It features a peak followed by a flat tail, which is caused by the drift time of the ionized ions. In practice, the start time $T_0$ is chosen as the $1.4\sigma$ time of the ionized electron rising peak, and the VDC wires are grouped by 16 wires.
+
+\begin{figure}[!htbp]
+\centering
+\includegraphics[scale = 0.25]{images/chap4/vdc_signals.png}
+\caption{VDC Drift Time Spectrum}
+\label{fig:vdc_dift_time_spectrum}
+\end{figure}
+
+To calibrate the TDC for the entire VDC range, data from white spectrum runs covering the full focal plane range with high statistics are required. In the experiment, a carbon target without a sieve slide was used.
+
+The following is a calibration procedure for the TDC $T_0$: 
+\begin{enumerate}
+\item Fit the falling tail of the spectrum.
+\item Identify the point 1.4 $\sigma$ before the peak time.
+\item Calculate the $1.4\sigma$ time for all events, and use the average as the final $T_0$ for the given channel.
+\end{enumerate}
+
+Figure \ref{fig:vdc_t0_after_correction} shows the sieve slide pattern on the focal coordinate system. After correcting the $T_0$, the 'shadow pattern' is corrected.
+
+\begin{figure}
+\centering
+\includegraphics[width=\textwidth]{images/chap4/vdc_t0_after_correction.png}
+\caption{VDC $x$ vs $y$ on the VDC detector plane after $T_0$ correction}
+\label{fig:vdc_t0_after_correction}
+\end{figure}
+
+
+The calibration code can be found in this \href{https://github.com/Jiansiyu/GeneralScripts/tree/master/VDC_T0_Cali}{GitHub repository}  
+
+
 
 \section{focal plane constant calibration}
 
@@ -197,13 +210,12 @@ The HRS Spectrometer Focal Plane Coordinate System is a rotated system, with the
 In the Hall A analyzer, the correction constant can be found in the first three rows of the x.vdc.matrixelem variable:
 
 \begin{center}
-    \captionof{focal plane correction constant}
-    \begin{tabular}{c c c c c c c c}
+    \begin{tabular}{|c c c c | c c c c|} \hline
         t & 0 & 0 & 0 & -1.001135e+00 & -3.313373e-01 & -4.290819e-02 & 4.470852e-03 \\
         y & 0 & 0 & 0 & -8.060915e-03 & 1.071977e-03 & 9.019102e-04 & -3.239615e-04 \\
-        p & 0 & 0 & 0 & -2.861912e-03 & -2.469069e-03 & 8.427172e-03 & 2.274635e-03
+        p & 0 & 0 & 0 & -2.861912e-03 & -2.469069e-03 & 8.427172e-03 & 2.274635e-03 \\ \hline
     \end{tabular}
-    
+    \caption{focal plane correction constant}
 \end{center}
 
 Here, the first column indicates the parameter name, followed by the orders of $\theta$, $\phi$, and $dp$ (all 0s in this case), and the constant factors of $x^0$, $x^1$, $x^2$, $x^3$.
