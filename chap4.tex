@@ -4,7 +4,7 @@ The PRex-II Experiment was conducted using the Jefferson Lab High-Resolution Spe
 
 \section{High-Resolution Spectrometer Coordinate System}
 
-The Vertical Drift Chamber is essential for achieving the spatial resolution capability of the HRS. Each of the two HRS spectrometers is equipped with two VDCs, and each chamber contains two layers of VDC planes oriented in the UV direction. With 750 wires per chamber and a position resolution of 100 µm per plane, the four layers of VDC chamber wires can provide partial spatial location $x$, $y$, along with particle angles $\theta$ and $\phi$. The kinematic properties, such as scattered angle and momentum, must be derived from the four directly measurable parameters ($x_{det}$, $y_{det}$, $\theta_{det}$, and $\phi_{det}$). The calibration procedure can be divided into four steps:
+The Vertical Drift Chamber is essential for achieving the spatial resolution capability of the HRS. Each of the two HRS spectrometers is equipped with two VDCs, and each chamber contains two layers of VDC planes oriented in the UV direction. With 368 wires per chamber and a position resolution of 100 µm per plane, the four layers of VDC chamber wires can provide partial spatial location $x$, $y$, along with particle angles $\theta$ and $\phi$. The kinematic properties, such as scattered angle and momentum, must be derived from the four directly measurable parameters ($x_{det}$, $y_{det}$, $\theta_{det}$, and $\phi_{det}$). The calibration procedure can be divided into four steps:
 
 \begin{itemize}
 \item VDC Drift time constant calibration
@@ -13,7 +13,7 @@ The Vertical Drift Chamber is essential for achieving the spatial resolution cap
 \item HRS momentum calibration
 \end{itemize}
 
-The VDC measures the spatial position by recording the particle drift time. $T_0$ represents the starting time of the VDC counter. A carefully calibrated $T_0$ is critical to achieving optimal spatial and angular resolution of the VDC. To simplify the regression model and ensure easy convergence, the spatial, angular, and momentum parameters are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. All parameters used in physics analysis need to be in the target coordinate system. The spatial, angular, and momentum calibration of the HRS aims to construct a model that accurately projects the measurements on the focal plane coordinate system to the target system, which ultimately enables the extraction of physics results. Before delving into the calibration details, we first introduce the coordinate systems used in the following sections.
+The VDC measures the spatial position by recording the particle drift time. $T_0$ represents the starting time of the VDC counter. A carefully calibrated $T_0$ is critical to achieving optimal spatial and angular resolution of the VDC. To simplify the regression model and ensure easy convergence, the spatial, angular, and momentum models used to get the target parameter are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. All parameters used in physics analysis must be in the target coordinate system. The spatial, angular, and momentum calibration of the HRS aims to construct a model that accurately projects the measurements on the focal plane coordinate system to the target system, which ultimately enables the extraction of physics results. Before delving into the calibration details, we introduce the coordinate systems used in the following sections.
 
 \subsection{coordinate system}
 
@@ -23,18 +23,28 @@ To simplify the calculation, couples of different coordinate systems are used. I
 \subsubsection{Hall Coordinate System}
 The center of the Hall Coordinate system is defined as the intersection of the electron beam and the vertical symmetry axis of the target system. $z$ is along the beam dump direction. $y$-axis is pointing vertically up against gravity.
 
-[add HCS coordination plot]
+\begin{figure}[!h]
+    \centering
+    \includegraphics[scale = 0.40]{images/chap4/hall_coordinate_system.png}
+    \caption{Hall Coordinate System (need to redraw)}
+    \label{fig:hall_coordinate_system}
+\end{figure}
 
 \subsubsection{Target Coordinate System}
 
-Each High-Resolution Spectrometer(HRS) has its own target coordinate system. Ideally, the center of the target coordinate system coincides with the center of the Hall A coordinate system. The distance from the hall A center to the midpoint of the center of the sieve slit hole is defined as $Z_0$ ($Z^{HRSE}_0 = 1.181 m$, $Z^{HRSH}_0 = 1.178 m$). The center of the target coordinate system is defined as $Z_0$ distance from the sieve slit(ref to chapter xx section xx) with $z$-axis perpendicular to the center of the sieve slit plane pointing to the beam direction. The $x$-axis is parallel to the sieve slit surface with $x$ pointing vertically down. The $\theta$ and $\phi$ angle is defined as $\frac{dx_{tg}}{Z_0}$ and $\frac{dy_{tg}}{Z_0}$ respectively.
+Each High-Resolution Spectrometer (HRS) has its own target coordinate system. Ideally, the center of the target coordinate system aligns with the center of the Hall A coordinate system. The $z$-axis is perpendicular to the center of the sieve slit plane, pointing in the beam direction. The $x$-axis is parallel to the sieve slit surface, with $x$ pointing vertically downward. The distance from the Hall A center to the midpoint of the center of the sieve slit hole is defined as $Z_0$. The $\theta$ and $\phi$ angles are defined as $\frac{dx_{tg}}{Z_0}$ and $\frac{dy_{tg}}{Z_0}$, respectively. During the HRS optics procedures, the direct measurements are transformed into variables in the Target Coordinate System. These variables in the Target coordinate system are then used to calculate the scattered angle, momentum, and reaction point.
 
-[add TCS plot]
+\begin{figure}[!h]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap4/target_coordinate_system.png}
+    \caption{PRex Target Coordinate System  (need redraw)}
+    \label{fig:target_coordinate_system}
+\end{figure}
 
 
 \subsubsection{Detector Coordinate System}
 
-Each of the VDC chambers has 368 wires placed at $\pm 45 ^{\circ} u/v$ direction. The center of the detector coordinate system is defined as the intersection of wire 184 of the VDC1 U1 plane and the perpendicular projection of wire 184 in the VDC1 V1 plane onto the VDC1 U1 plane. $x$-axis is along the long edge of the VDC plane, while y is along the short edge of the VDC plane and $z$ is perpendicular to the VDC plane and pointing upwards. 
+Each of the VDC chambers has 368 wires placed at $\pm 45 ^{\circ}$ UV direction. The center of the detector coordinate system is defined as the intersection of wire 184 of the VDC1 U1 plane and the perpendicular projection of wire 184 in the VDC1 V1 plane onto the VDC1 U1 plane. $x$-axis is along the long edge of the VDC plane, while y is along the short edge of the VDC plane and $z$ is perpendicular to the VDC plane and pointing upwards. 
 
 Let's take $p_{vdc,n}$ (where ${n=1-4}$)to be the cross position of a particle with each VDC plane. The vertex can be calculated with the following equation. 
 
@@ -137,11 +147,7 @@ here  in the equation:
     \tan\rho  = \sum t_{i000}x^i_{fp} \label{eq:cpt3_fps_5}
 \end{equation}
 
-
-the code used for calibration of the focal plane constant can be found on this GitHub repository: \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{GitHub Repository Link}
-
-
-[need to add the Focal plane coordination system plot]
+[add the Focal plane coordination system plot]
 
 
 \section{Vertical Drift Chamber $T_0$ calibration}
@@ -254,7 +260,7 @@ To optimize the correction constant, we follow these steps:
     \label{fig:my_label}
 \end{figure}
 
-From the plot we could see, after the optimization, with the new constant $t_{i000}$,$y_{i000}$,$p_{i000}$, the central sieve $\theta_{focal}$,$\phi_{focal}$,$y_{focal}$ are set to $(0,0,0)$.
+From the plot we could see, after the optimization, with the new constant $t_{i000}$,$y_{i000}$,$p_{i000}$, the central sieve $\theta_{focal}$,$\phi_{focal}$,$y_{focal}$ are set to $(0,0,0)$. the code used for calibration of the focal plane constant can be found on  \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{this GitHub repository}.
 
 
 \section{High-Resolution Spectrometer Calibration}
