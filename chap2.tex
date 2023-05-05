@@ -20,14 +20,31 @@ The RMS radius of the  neutron distribution in a heavy nucleus  $R_N$ provides a
 [ref to Parity Violating Measurements of the Neutron Density, C.J. Horowitz, etc]
 
 \section{Theory background of the PRex experiment}
+[derive Mott cross section]
 
+
+The Charge distribution of nuclei is measured by electron scattering. The cross-section can be written as
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{d\sigma}{d\Omega_{Mott}}|F_p(Q^2)|^2
+\end{equation}
+
+Here is the equation the first part $\frac{d\sigma}{d\Omega_{Mott}}$ is the Mott cross-section with describes the cross-section of electron scattering over a point-like charged particles. The second part is the form factor of the charged particle which contains the structure information of the particle. 
+
+
+\begin{equation}
+    F_n(Q^2) = \frac{1}{4\pi}\int{j_0(qr)\rho_n(r)}d^3r
+\end{equation}
+
+In low $Q^2$ approximation, the form factor can be written as:
+\begin{equation}
+    F(Q^2) = \int{(1-i\Vec{Q}\Vec{r} - \frac{1}{2}(\Vec{Q}\Vec{r})^2)\rho(\Vec{r})}d^3r = Q_e - \frac{1}{6}Q^2<r^2> + ...
+\end{equation}
 
 
 \section{Electromagnetic electron scattering via $\gamma$ exchange}
 \section{Proton density}
 \subsection{form factor}
-\section{electron scattering}
-\subsection{EM interaction with the exchange of photon}
+\section{electron scattering} 
 \subsection{weak interaction with exchange of $Z^0$}
 
 
