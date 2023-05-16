@@ -15,17 +15,64 @@ PRex experiment measures the neutron skin thickness with parity violation asymme
 The RMS radius of the  neutron distribution in a heavy nucleus  $R_N$ provides an important test of nuclear theory. Furthermore,   $R_N$ is used in the determination of  the density dependence of symmetry energy of neutron-rich matter; this dependence is an  important input in   neutron star structure, heavy iron collision, and atomic parity violation experiment calculations. In the past hadron scattering experiments with pion, proton or anti-proton beams have been used to determine the neutron radii of heavy nuclei. However, these measurements suffer from uncertainties associated with the probe particle and the target nucleus. Electron scattering provides a model-independent probe of nuclear radii.  However, in electron scattering, the measurement of neutron distribution in a nucleus  is much harder than the measurement of the proton distribution  since the neutron is uncharged. 
 
 
-\section{Historical measurement}
-\subsection{Pb charged radius measurement and its result}
-\subsubsection{calculate with Coulomb energy differences Phys. Lett 29B 396 (1969)}
-\subsubsection{L. Ray and G.W.Hoffmann Physics Rev C 31. 538 (1985)}
-
-[ref to Parity Violating Measurements of the Neutron Density, C.J. Horowitz, etc]
+\section{Historical measurement[to be added, move to chapter 1]}
+\subsection{Pb charged radius measurement and its result }
+\subsection{calculate with Coulomb energy differences Phys. Lett 29B 396 (1969)}
+\subsection{L. Ray and G.W.Hoffmann Physics Rev C 31. 538 (1985)}
+\subsection{ Parity Violating Measurements of the Neutron Density, C.J. Horowitz, etc}
 
 \section{Theory background of the PRex experiment}
-[Add derive Mott cross section]
 
-The Charge distribution of nuclei is measured by electron scattering. The cross-section can be written as
+content
+\begin{itemize}
+    \item point like particle cross section(Mott cross section)
+    \item charge structure
+    \item neutron structures (hard to measure)
+    \item historical measurement
+\end{itemize}
+
+[to be optimize]
+The cross-section of electrons scattered over charged particles by changing photons can be written as:
+
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{e^4}{4\pi*s}|\frac{M^2}{q^2 - m^2_\gamma + i\epsilon}|^2
+\end{equation}
+
+Here in the equation,  e is the electron charge, $s = (k_1 + p_1)^2$ is the Mandelstam variable, $m_\gamma$ is the mass of the photon, and $\epsilon$ is a positive infinitesimal. 
+
+In point-like particle approximation, the potential is the coulomb potential: 
+\begin{equation}
+    V(r) = \frac{e^2}{r}
+\end{equation}
+
+The scattering amplitude can be written as $f(q) = \frac{e^2}{q^2}$, here in the equation $q$ is the four-momentum transfer.
+
+Put the equation in the Klein-Gordon formula, the cross-section can be written as:
+
+\begin{equation}
+     \frac{d\sigma}{d\Omega} = \frac{e^4}{4\pi*s}|\frac{M^2}{q^2 - m^2_\gamma + i\epsilon}|^2|f(q)|^2
+\end{equation}
+
+In the non-relativistic limit, $s \simeq 4M^2$ and $q^2 = \simeq 4M^2 \sin^2{\theta/2}$, 
+\begin{equation}
+    \frac{d\sigma}{d\Omega} = \frac{e^4}{4\pi*s} \frac{M^4}{q^4}|f(q)|^2
+\end{equation}
+
+\begin{equation}
+    f(q) \simeq \frac{e^2}{q^2} - \frac{e^2\alpha}{2q^4}
+\end{equation}
+
+Here $\alpha = \frac{e^2}{4\pi}$ is the fine-struture constant:
+
+The cross-section can be written as:
+\begin{equation}
+      \frac{d\sigma}{d\Omega_{Mott}} =   \frac{e^4}{4\pi*s} \frac{4M^2\sin^4{(\theta/2)}}{(E_1^2 - p_1^2\sin^2{\theta/2})^2}
+\end{equation}
+
+Where $E_1$ and $p_1$ are the energy and momentum of the incident electron. 
+
+
+For no-point-link particles, the Charge distribution of nuclei is measured by electron scattering. The cross-section can be written as
 \begin{equation}
     \frac{d\sigma}{d\Omega} = \frac{d\sigma}{d\Omega_{Mott}}|F_p(Q^2)|^2
 \end{equation}
@@ -42,13 +89,9 @@ In low $Q^2$ approximation, the form factor can be written as:
     F(Q^2) = \int{(1-i\Vec{Q}\Vec{r} - \frac{1}{2}(\Vec{Q}\Vec{r})^2)\rho(\Vec{r})}d^3r = Q_e - \frac{1}{6}Q^2<r^2> + ...
 \end{equation}
 
+[electro-weak interation]
 
 
-
-% \section{Electromagnetic electron scattering via $\gamma$ exchange}
-% \section{Proton density}
-% \subsection{form factor}
-% \section{electron scattering} 
 
 \section{Parity Violation Weak interaction}
 \subsection{Helicity and Chirality}
@@ -78,9 +121,6 @@ Unlike the photon and gluons, the weak force intermedia W and Z boson are extrem
 \begin{equation}
     M_z = 91.188 \pm 0.002 GeV/c^2
 \end{equation}
-
-Three of the fundamental forces result from the exchange of force-carrier particles, which belong to a broader group called “bosons”. Particles of matter transfer discrete amounts of energy by exchanging bosons with each other. Each fundamental force has its own corresponding boson – the strong force is carried by the “gluon”, the electromagnetic force is carried by the “photon”, and the “W and Z bosons” are responsible for the weak force. Although not yet found, the “graviton” should be the corresponding force-carrying particle of gravity. The Standard Model includes the electromagnetic, strong and weak forces and all their carrier particles, and explains well how these forces act on all of the matter particles. However, the most familiar force in our everyday lives, gravity, is not part of the Standard Model, as fitting gravity comfortably into this framework has proved to be a difficult challenge. The quantum theory used to describe the micro world, and the general theory of relativity used to describe the macro world, are difficult to fit into a single framework. No one has managed to make the two mathematically compatible in the context of the Standard Model. But luckily for particle physics, when it comes to the minuscule scale of particles, the effect of gravity is so weak as to be negligible. Only when matter is in bulk, at the scale of the human body or of the planets for example, does the effect of gravity dominate. So the Standard Model still works well despite its reluctant exclusion of one of the fundamental forces.
-
 
 \begin{table}[!h]
     \centering
