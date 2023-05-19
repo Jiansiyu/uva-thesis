@@ -20,6 +20,8 @@ The RMS radius of the  neutron distribution in a heavy nucleus  $R_N$ provides a
 \subsection{ Parity Violating Measurements of the Neutron Density, C.J. Horowitz, etc}
 
 \section{Theory background of the PRex experiment}
+
+\subsection{charge radius measurement}
 [to be optimized]
 The charge radius of nucleus can be measured by electron scattering. The cross-section of electrons scattered over charged particles by changing photons can be written as:
 
@@ -81,8 +83,6 @@ In low $Q^2$ approximation, the form factor can be written as:
 Through electron scattering, the charge radius of nuclei has been well measured. [add ref the 208Pb charge radius measurement]
 
 \subsection{concept}
-\subsubsection{Helicity}
-\subsubsection{Chirality}
 \subsubsection{Parity}
 In particle and nuclear physics, interactions are described by fundamental forces that are mediated by exchange particles, known as bosons. For a long time, it was believed that all fundamental interactions conserved parity, meaning that the laws of physics remained unchanged under spatial inversion. However, this assumption was challenged by the discovery of parity violation in weak interactions in the 1950s.
 
@@ -91,8 +91,50 @@ In particle and nuclear physics, interactions are described by fundamental force
 The groundbreaking experiments by Chien-Shiung Wu and collaborators in 1957 demonstrated that weak interactions, responsible for processes such as beta decay, do not conserve parity. This discovery led to the revised understanding that while electromagnetic and strong interactions conserve parity, weak interactions do not. The recognition of parity violation has had a profound impact on the development of the Standard Model of particle physics and continues to shape research in fundamental physics.
 
 Parity plays a significant role in the classification and understanding of particle and nuclear states. In particular, the determination of parity quantum numbers and their conservation (or violation) in various physical processes has provided important insights into the nature of interactions and symmetries.
+[change needed, add parity plot]
 
- [change needed, add parity plot]
+\subsubsection{spin (to be improved)}
+
+Spin is an intrinsic form of angular momentum carried by elementary particles. Spin obeys the principles of quantum mechanics, meaning it is quantized and can only take certain discrete values. The magnitude of spin for a particle is fixed and is usually represented by a non-negative integer or half-integer multiples of ħ (reduced Planck's constant). The z-component of spin (the component along an arbitrary chosen direction, conventionally taken as the z-axis), however, can take values from -s to +s in steps of one, where s is the spin quantum number of the particle.
+
+Fermions, which include particles like electrons, protons, and neutrons, are particles with half-integer spin (e.g., spin 1/2 for electrons and quarks). Their spin-statistics relation enforces the Pauli exclusion principle, which states that no two fermions can exist in the exact same quantum state simultaneously. This principle underpins the structure of atoms and hence much of chemistry and solid-state physics.
+
+Bosons, on the other hand, are particles with integer spin, such as the photon (spin 1), the mediator of electromagnetic interactions, and the Higgs boson (spin 0). Multiple bosons can occupy the same quantum state, leading to phenomena such as Bose-Einstein condensates.
+
+Spin plays a fundamental role in the behavior and interactions of quantum systems. For instance, the alignment or anti-alignment of spins in a system can drastically affect its properties, leading to the creation of ferromagnetic or antiferromagnetic materials. Spin is also critical in determining the characteristics of quantum states and their transformations under particle exchange and parity operations.
+
+In the context of particle interactions, the conservation of angular momentum, which includes both orbital and spin components, is a fundamental principle. The spin of a particle influences how it interacts with other particles and fields, most prominently in interactions mediated by the spin-dependent weak nuclear force.
+
+It's crucial to reiterate that despite the terminology, spin does not imply that particles are physically "spinning". Rather, it is a quantum mechanical property that shares mathematical similarities with the concept of angular momentum in classical physics, but doesn't have a direct classical analogue.
+
+\subsubsection{Helicity}
+
+In quantum physics, helicity is a key property of elementary particles that represents the projection of a particle's spin along its momentum vector. Consider a particle with a spin vector S and momentum vector p. The helicity h of the particle is defined as the projection of spin $\Vec{s}$ onto the direction of its momentum $\Vec{p}$
+
+\begin{equation}
+    H = \Vec{s}\frac{\Vec{p}}{|\Vec{p}|}
+\end{equation}
+
+The sign of helicity determines whether the particle is classified as right-handed or left-handed. A particle is said to have right-handed (or positive) helicity if its spin vector points in the same direction as its momentum vector. Conversely, a particle has left-handed (or negative) helicity if its spin vector points in the opposite direction to its momentum vector. 
+
+Helicity is not a Lorentz invariant quantity for massive particles. In other words, different observers moving at different velocities may measure different helicities for the same particle if that particle has mass. This is because the direction of the momentum vector can be reversed in another frame of reference, which would flip the helicity. For massless particles, however, such as photons, which always move at the speed of light, helicity is conserved and is indeed a Lorentz invariant quantity.
+
+
+\begin{figure}
+    \centering
+    \includegraphics{images/chap2/rl_handed_particles.png}
+    \caption{Left-handed and Right-handed Particles}
+    \label{fig:left_right_handed_particles}
+\end{figure}
+
+\subsubsection{Chirality}
+
+Chirality is a property of the particle's representation under the Poincaré group, and unlike helicity, it's a Lorentz-invariant quantity even for massive particles.
+
+
+
+\subsection{Weak interation}
+\subsection{Weak Current}
 \subsection{Electroweak Interaction}
 
 \section{Parity Violation Weak interaction}
@@ -104,7 +146,7 @@ There are four fundamental forces governing the universe: strong force, weak for
 
 The interaction of three of these fundamental forces—strong nuclear, weak nuclear, and electromagnetic—relies on the exchange of force-carrier particles, classified more broadly as bosons. These particles facilitate the transfer of discrete energy units between matter particles. Each fundamental force has a respective boson: the strong force is transmitted by gluons, photons carry the electromagnetic force, and W and Z bosons mediate the weak force. The corresponding boson for gravity, hypothetically, is the graviton, although its existence remains unconfirmed.
 
-Unlike the photon and gluons, the weak force intermedia W and Z boson are extremely heavy. 
+Unlike the photon and gluons, the weak force intermedia W and Z bosons are extremely heavy. 
 
 \begin{equation}
     M_w = 80.40 \pm 0.03 GeV/c^2
