@@ -1,10 +1,10 @@
 \chapter{Data Analysis}
 
-The PRex-II Experiment was conducted using the Jefferson Lab High-Resolution Spectrometer (JLab HRS). In this experiment, the kinematics of scattered electrons were measured using Vertical Drift Chambers (VDCs) positioned after the magnetic elements. It is crucial to transform these measurements back to the target coordinate system in order to obtain accurate results. This chapter delves into the details of JLab HRS calibration and the calculation of the squared four-momentum transfer.
+The PRex-II Experiment was conducted using  Jefferson Lab High-Resolution Spectrometer (JLab HRS) pair. In this experiment, the kinematics of scattered electrons were measured using Vertical Drift Chambers (VDCs) positioned after the magnetic elements. It is crucial to transform these measurements back to the target coordinate system in order to obtain accurate results. This chapter delves into the details of JLab HRS calibration and the calculation of the squared four-momentum transfer ($Q^2$).
 
 \section{High-Resolution Spectrometer Coordinate System}
 
-The Vertical Drift Chamber is essential for achieving the spatial resolution capability of the HRS. Each of the two HRS spectrometers is equipped with two VDCs, and each chamber contains two layers of VDC planes oriented in the UV direction. With 368 wires per chamber and a position resolution of 100 µm per plane, the four layers of VDC chamber wires can provide partial spatial location $x$, $y$, along with particle angles $\theta$ and $\phi$. The kinematic properties, such as scattered angle and momentum, must be derived from the four directly measurable parameters ($x_{det}$, $y_{det}$, $\theta_{det}$, and $\phi_{det}$). The calibration procedure can be divided into four steps:
+The Vertical Drift Chambers are essential for achieving the spatial resolution capability of the HRS pair. Each of the two HRS spectrometers is equipped with two VDCs, and each chamber contains two layers of wire planes oriented  +45$^{degrees}$ and -45$^{degrees}$ to the dispersive direction. With 368 wires per chamber and a position resolution of 100 µm per plane, the four layers of VDC  wires can provide partical spatial location $x$, $y$, along with particle angles $\theta$ and $\phi$. The kinematic properties at the interaction point, such as scattered angle and momentum, must be derived from these four directly measurable parameters ($x_{det}$, $y_{det}$, $\theta_{det}$, and $\phi_{det}$) at the detector. The calibration procedure carried out to accomplish this coordinate transformation can be divided into four steps:
 
 \begin{itemize}
 \item VDC Drift time constant calibration
@@ -13,15 +13,15 @@ The Vertical Drift Chamber is essential for achieving the spatial resolution cap
 \item HRS momentum calibration
 \end{itemize}
 
-The VDC measures the spatial position by recording the particle drift time. $T_0$ represents the starting time of the VDC counter. A carefully calibrated $T_0$ is critical to achieving optimal spatial and angular resolution of the VDC. To simplify the regression model and ensure easy convergence, the spatial, angular, and momentum models used to get the target parameter are calibrated from the focal plane. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. All parameters used in physics analysis must be in the target coordinate system. The spatial, angular, and momentum calibration of the HRS aims to construct a model that accurately projects the measurements on the focal plane coordinate system to the target system, which ultimately enables the extraction of physics results. Before delving into the calibration details, we introduce the coordinate systems used in the following sections.
+The VDC measures the spatial position by recording the particle drift time. $T_0$ represents the starting time of the Time to Digital Coun ter (TDC) counter used for the drift time measurement. A carefully calibrated $T_0$ is critical to achieving optimal spatial and angular resolution of the VDC. To simplify the regression model and ensure easy convergence, the spatial, angular, and momentum models used to get the target parameters are calibrated from the paramters at focal plane of the spectrometer. The VDC geometry constants are used to convert the direct measurements on the VDC plane to the focal plane. All parameters used in physics analysis must be in the target coordinate system. The spatial, angular, and momentum calibration of the HRS aims to construct a model that accurately projects the measurements on the focal plane coordinate system to the target system, which ultimately enables the extraction of physics results. Before delving into the calibration details, we introduce the coordinate systems used in the following sections.
 
-\subsection{coordinate system}
+\subsection{coordinate systems}
 
 
-To simplify the calculation, couples of different coordinate systems are used. In this section, five coordinate systems and their directive relations are briefly introduced. A more detailed coordinate system of Jefferson Lab Hall A can be found in the ESPACE User Manual\cite{espace2002manual}.  
+To simplify the calculation, couples of different coordinate systems are used. In this section, five coordinate systems and their directive relations are briefly introduced. A more detailed description of the coordinate systems of Jefferson Lab Hall A can be found in the ESPACE User Manual\cite{espace2002manual}.  
 
 \subsubsection{Hall Coordinate System}
-The center of the Hall Coordinate system is defined as the intersection of the electron beam and the vertical symmetry axis of the target system. $z$ is along the beam dump direction. $y$-axis is pointing vertically up against gravity.
+The center of the Hall Coordinate system is defined as the intersection of the ideal  electron beam line and the vertical symmetry axis of the target system. $z$ is along the beam dump direction. $y$-axis is pointing vertically up against gravity.
 
 \begin{figure}[!h]
     \centering
@@ -32,7 +32,7 @@ The center of the Hall Coordinate system is defined as the intersection of the e
 
 \subsubsection{Target Coordinate System}
 
-Each High-Resolution Spectrometer (HRS) has its own target coordinate system. Ideally, the center of the target coordinate system aligns with the center of the Hall A coordinate system. The $z$-axis is perpendicular to the center of the sieve slit plane, pointing in the beam direction. The $x$-axis is parallel to the sieve slit surface, with $x$ pointing vertically downward. The distance from the Hall A center to the midpoint of the center of the sieve slit hole is defined as $Z_0$. The $\theta$ and $\phi$ angles are defined as $\frac{dx_{tg}}{Z_0}$ and $\frac{dy_{tg}}{Z_0}$, respectively. During the HRS optics procedures, the direct measurements are transformed into variables in the Target Coordinate System. These variables in the Target coordinate system are then used to calculate the scattered angle, momentum, and reaction point.
+Each High-Resolution Spectrometer (HRS) has its own target coordinate system. Ideally, the center of the target coordinate system aligns with the center of the Hall A coordinate system. The $z$-axis is perpendicular to the center of the sieve slit plane, pointing in the beam direction. The $x$ and $y$ axes are   parallel to the sieve slit surface, with $x$ pointing vertically downward in the positive dispersive direction of the spectrometer. The distance from the Hall A center to the midpoint of the center of the sieve slit hole is defined as $Z_0$. The $\theta$ and $\phi$ angles are defined as $\frac{dx_{tg}}{Z_0}$ and $\frac{dy_{tg}}{Z_0}$, respectively. During the HRS optics procedures, the direct measurements are transformed into variables in the Target Coordinate System. These variables in the Target coordinate system are then used to calculate the scattered angle, momentum, and the reaction vertex.
 
 \begin{figure}[!h]
     \centering
@@ -44,9 +44,9 @@ Each High-Resolution Spectrometer (HRS) has its own target coordinate system. Id
 
 \subsubsection{Detector Coordinate System}
 
-Each of the VDC chambers has 368 wires placed at $\pm 45 ^{\circ}$ UV direction. The center of the detector coordinate system is defined as the intersection of wire 184 of the VDC1 U1 plane and the perpendicular projection of wire 184 in the VDC1 V1 plane onto the VDC1 U1 plane. $x$-axis is along the long edge of the VDC plane, while y is along the short edge of the VDC plane and $z$ is perpendicular to the VDC plane and pointing upwards. 
+Each of the VDC chambers has 368 wires placed at $\pm 45 ^{\circ}$  to the dispersive direction. The center of the detector coordinate system is defined as the intersection of wire 184 of the VDC1 U1 plane and the perpendicular projection of wire 184 in the VDC1 V1 plane onto the VDC1 U1 plane. The $x$-axis is along the long  mid-line  of the VDC plane, in the positive dispersive direction, while the y is along the short mid-line of the VDC plane and $z$ is perpendicular to the VDC plane and pointing upwards. 
 
-Let's take $p_{vdc,n}$ (where ${n=1-4}$)to be the cross position of a particle with each VDC plane. The vertex can be calculated with the following equation. 
+Let's take $p_{vdc,n}$ (where ${n=1-4}$)to be the  intersection point  of a particle track with each VDC plane. The vertex can be calculated with the following equation. 
 
 \begin{equation}
     \tan \eta_{1} = \frac{p_{vdc,3} - p_{vdc, 1}}{d1}    
@@ -83,9 +83,9 @@ In idea case, the trajectory position and vertex angles in the detector plane co
     y_{det} = \frac{-p_{vdc,1} + (p_{vdc,2} - d_1\tan{\eta_2})}{\sqrt{2}}
 \end{equation}
 
-Even though the VDC could not be ideal, the distortions would be very small and through HRS Optics, those un-idea errors could be corrected. 
+Even though the VDC could not be ideal, the distortions would be very small and through HRS Optics, those non ideal errors could be corrected. 
 
-In Hall A analyzer, the VDC result will be given in the detector plane coordinate system.
+In Hall A analyzer, the VDC results will be given in the detector  coordinate system.
 
 [add vdc, DCS plot]
 
