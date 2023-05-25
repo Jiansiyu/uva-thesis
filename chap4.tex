@@ -85,14 +85,14 @@ In idea case, the trajectory position and vertex angles in the detector plane co
 
 Even though the VDC could not be ideal, the distortions would be very small and through HRS Optics, those non ideal errors could be corrected. 
 
-In Hall A analyzer, the VDC results will be given in the detector  coordinate system.
+In Hall A analyzer, the VDC results  are  given in the detector  coordinate system.
 
 [add vdc, DCS plot]
 
-\subsubsection{Transport Rotation Coordinate System at the focal plane}
+\subsubsection{Transport  Coordinate System at the focal plane}
 The transport coordinate system at the focal plane is defined as rotating the detector coordinate system by $45^{\circ}$ along the y-axis. Ideally the z-axis along the central beam ray. 
 
-Given the particle position at the detector coordinate system, the transport rotation coordinate system can be derived as:
+Given the particle position at the detector coordinate system, the transport coordinate system can be derived as:
 
 \begin{equation}
     \theta_{tra}  = \frac{\theta_{det} + \tan{\rho_0}}{1 - \theta_{det}\tan{\rho_0}} 
@@ -110,20 +110,22 @@ Given the particle position at the detector coordinate system, the transport rot
     y_{tra} = y_{det} + \sin{\rho_0}\phi_{tra}x_{det}
 \end{equation}
 
+[ NL: you need to define $\rho_0$ etc.]
 
 [add the plot of the transport coordinate system plot]
 
 
 \subsubsection{Focal plane Coordinate System}
 
-The focal plane coordinate system used for HRS analysis is a rotated coordinate system, obtained by rotating the Detector Coordinate System (DCS) around its y-axis by an angle. This angle is determined by the angle between the local central ray and the z-axis of the DCS, and as a result, the z-axis of the Focal Plane Coordinate System (FCS) rotates as a function of the relative momentum p. Because of the focusing of HRS magnet system,  particle from different scattering angles with same momentum will be focused at the focal plane. therefore, the relative momentum to the central momentum of the spectrometer which defined as 
+The focal plane coordinate system used for HRS analysis is a rotated coordinate system, obtained by rotating the Detector Coordinate System (DCS) around its y-axis by an angle. This angle is determined by the angle between the local central ray and the z-axis of the DCS, and as a result, the z-axis of the Focal Plane Coordinate System (FCS) rotates as a function of the relative momentum $p$. Because of the focusing of HRS magnet system,  particles from different scattering angles with same momentum will be focused at the focal plane. Therefore, the relative momentum is related to the central momentum of the spectrometer  as 
 \begin{equation}
     \delta = \frac{p-p_0}{p_0}
 \end{equation}
 
 this factor approximately only depends on $x_{tra}$ and $p_0$.
 
-To ensure easy convergence, the HRS Optics Tensor is calibrated with respect to the angles $\theta$ and $\phi$, the vertical position $y$, and the relative momentum $dp$ on the Focal Plane Coordinate System.
+To ensure easy convergence, the HRS Optics Tensor is calibrated with respect to the angles $\theta$ and $\phi$, the transverse  position $y$, and the relative momentum $dp$ on the Focal Plane Coordinate System.
+[NL: this sentence is confusing, wrong and out of place]
 
 \begin{equation}
     x_{fp} = x_{tra}    \label{eq:cpt3_fps_1}
@@ -148,16 +150,17 @@ here  in the equation:
     \tan\rho  = \sum t_{i000}x^i_{fp} \label{eq:cpt3_fps_5}
 \end{equation}
 
+[NL: you need to define quantities such as $t_{i000}$]
 [add the Focal plane coordination system plot]
 
 
 \section{Vertical Drift Chamber $T_0$ calibration}
 
-Each High-Resolution Spectrometer (HRS) is outfitted with a set of four Vertical Drift Chambers (VDCs) arranged in the UV direction. These VDCs are filled with a mixture of Argon (Ar) and flammable ethane, which is bubbled through alcohol. The gas mixture is managed and supplied by the Hall A Gas System. Every wire within the VDCs is connected to a 3.5 kV high-voltage source.
+Each High-Resolution Spectrometer (HRS) is outfitted with a set of two Vertical Drift Chambers (VDCs). These VDCs are filled with a mixture of Argon (Ar) and ethane , which is bubbled through alcohol. The gas mixture is managed and supplied by the Hall A Gas System. Every wire within the VDCs is maintained at  ground potential, while the cathode planes are maintained at a negative  high voltage of  -3.5 kV.
 
 [Explain the VDC electronics and emphasize the importance of an accurate $T_0$]
 
-When a charged particle traverses the VDC chamber, it ionizes the gas atoms, generating a trail of ionized electrons along its trajectory. The ionized electrons drift along the electric field lines due to the high voltage applied between the high voltage plane and the signal wires. This ionization process produces a pulse on the signal wires. Each VDC chamber contains 368 wires, all connected to a pre-amplifier. The amplified pulse signal is subsequently passed through a discriminator and utilized to trigger the Time-Digital Converter (TDC). The TDC is stopped by the overall event trigger from Hall A.
+When a charged particle traverses a VDC, it ionizes the gas atoms, generating a trail of ionized electrons along its trajectory. The ionized electrons drift along the electric field lines due to the high voltage applied between the high voltage plane and the signal wires. This ionization process produces a pulse on the signal wires. Each VDC chamber contains 368 wires, all connected to a pre-amplifier. The amplified pulse signal is subsequently passed through a discriminator and utilized to trigger the Time-Digital Converter (TDC). The TDC is stopped by the overall event trigger from Hall A.
 
 As the particle passes through the chamber, it typically activates a cluster comprising 4-6 wires. The intersection between the particle's trajectory and the VDC plane can be determined by measuring the drift distance between each wire, as illustrated in Fig \ref{fig:vdc_wire_ionization_cluster}. The drift distance is calculated using the drift time obtained from the Time-Digital Converter. An accurate start time is crucial for determining the precise drift distance and, consequently, the exact position on the VDC. If the threshold is set too high or too low, the VDC drift distance will be biased. An example of an improper $T_0$ setting is depicted in the plot, where numerous 'wire shadows' can be seen. These shadows are the result of measurement biases. 
 
