@@ -158,18 +158,30 @@ For massless particles, such as photons or neutrinos, chirality becomes a partic
 
 For massive particles, the situation is a bit more complex. Because they can move at different speeds, the helicity of a massive particle is not a Lorentz invariant quantity. This means that while a particle may appear left-handed in one frame of reference, it could appear right-handed in another. Despite this, the internal weak interactions of a particle still distinguish between its left-chiral and right-chiral components.
 
-Chiral operator behave differently on left and right-handed helicity particles:
+Chiral operator behave differently on left and right-handed fermions. On left-handed fermion: 
 
 \begin{equation}
-    \gamma^5\mu_L = ..... = -\mu_L
+\begin{split}
+    \gamma^5u_L &= \gamma^5P_Lu \\
+     &= \gamma^5 \frac{1}{2}(1-\gamma^5)u \\
+     &= \frac{1}{2}(\gamma^5 - (\gamma^5)^2)u \\
+     &= - \frac{1}{2}(1 - \gamma^5)u \\
+     &= - u_L
+\end{split}
 \end{equation}
 
-
+for right-handed fermion, 
 \begin{equation}
-    \gamma^5\mu_R = ..... = \mu_R
+\begin{split}
+\gamma^5u_R &= \gamma^5P_R \\
+     &= \gamma^5 \frac{1}{2}(1+\gamma^5)u \\
+     &= \frac{1}{2}(\gamma^5 + (\gamma^5)^2)u \\
+     &= \frac{1}{2}(1 + \gamma^5)u \\
+     &= u_R
+\end{split}
 \end{equation}
 
-
+[maximum  parity violation]
 \subsection{Weak interation}
 \subsection{Weak Current}
 \subsection{Electroweak Interaction}
