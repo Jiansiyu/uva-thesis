@@ -129,7 +129,55 @@ Helicity is not a Lorentz invariant quantity for massive particles. In other wor
 
 \subsubsection{Chirality}
 
-Chirality is a property of the particle's representation under the Poincaré group, and unlike helicity, it's a Lorentz-invariant quantity even for massive particles.
+Chirality is a property of the particle's representation under the Poincaré group, and unlike helicity, it's a Lorentz-invariant quantity even for massive particles. In the Dirac equation, which describes spin-1/2 particles such as electrons and quarks, the chiral operator is represented by the $\gamma^5$ matrix which is defined as
+
+\begin{equation}
+ \gamma^5 = i\gamma^0\gamma^1\gamma^2\gamma^3 = \begin{pmatrix}
+    0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 1 \\
+    1 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 \\
+\end{pmatrix}   
+\end{equation}
+
+This operator has the property of commuting with the spatial part of the momentum operator but anticommuting with the Dirac Hamiltonian. Therefore, it serves as a tool to separate solutions of the Dirac equation into two distinct types, referred to as left-chiral and right-chiral solutions.
+
+
+The chiral projection operators, denoted by $P_L$ (left-handed) and $P_R$ (right-handed), are defined in terms of the $\gamma^5$ matrix as follows:
+\begin{center}
+$P_L = \frac{1}{2}(1 - \gamma^5)$
+
+$P_R = \frac{1}{2}(1 + \gamma^5)$    
+\end{center}
+
+These operators can be applied to a Dirac spinor to extract its left-chiral and right-chiral components. 
+
+[to be optimize]
+
+For massless particles, such as photons or neutrinos, chirality becomes a particularly meaningful concept because it corresponds exactly with helicity, the projection of spin onto the direction of motion. Because massless particles always move at the speed of light, no observer can outrun and "flip" the perceived helicity of the particle, making chirality a Lorentz invariant.
+
+For massive particles, the situation is a bit more complex. Because they can move at different speeds, the helicity of a massive particle is not a Lorentz invariant quantity. This means that while a particle may appear left-handed in one frame of reference, it could appear right-handed in another. Despite this, the internal weak interactions of a particle still distinguish between its left-chiral and right-chiral components.
+
+Chiral operator behave differently on left and right-handed helicity particles:
+
+\begin{equation}
+    \gamma^5\mu_L = ..... = -\mu_L
+\end{equation}
+
+
+\begin{equation}
+    \gamma^5\mu_R = ..... = \mu_R
+\end{equation}
+[to be continued]
+
+% The eigenstates of the chirality operator are $\pm1$, with $+1$ for ritght-handed chirality and $-1$ for left-handed chirality. 
+% $\gamma^5\mu_R = + \mu_R$, $\gamma^5\mu_L = -\mu_L$,
+% The left and right-handed chiral projection operator is defined as $P_{R,L} = \frac{1}{2}(1\pm + \gamma^5)$. 
+
+
+
+
+
 
 
 
