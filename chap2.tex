@@ -13,12 +13,6 @@ PRex experiment measures the neutron skin thickness with parity violation asymme
 The RMS radius of the  neutron distribution in a heavy nucleus  $R_N$ provides an important test of nuclear theory. Furthermore,   $R_N$ is used in the determination of  the density dependence of symmetry energy of neutron-rich matter; this dependence is an  essential input in   neutron star structure, heavy iron collision, and atomic parity violation experiment calculations. In the past hadron scattering experiments with pion, proton or anti-proton beams have been used to determine the neutron radii of heavy nuclei. However, these measurements suffer from uncertainties associated with the probe particle and the target nucleus. Electron scattering provides a model-independent probe of nuclear radii.  However, in electron scattering, the measurement of neutron distribution in a nucleus  is much harder than the measurement of the proton distribution  since the neutron is uncharged. 
 
 
-\section{Historical measurement[to be added, move to chapter 1]}
-\subsection{Pb charged radius measurement and its result }
-\subsection{calculate with Coulomb energy differences Phys. Lett 29B 396 (1969)}
-\subsection{L. Ray and G.W.Hoffmann Physics Rev C 31. 538 (1985)}
-\subsection{ Parity Violating Measurements of the Neutron Density, C.J. Horowitz, etc}
-
 \section{Theory background of the PRex experiment}
 
 \subsection{charge radius measurement}
@@ -80,7 +74,13 @@ In low $Q^2$ approximation, the form factor can be written as:
     F(Q^2) = \int{(1-i\Vec{Q}\Vec{r} - \frac{1}{2}(\Vec{Q}\Vec{r})^2)\rho(\Vec{r})}d^3r = Q_e - \frac{1}{6}Q^2<r^2> + ...
 \end{equation}
 
-Through electron scattering, the charge radius of nuclei has been well measured. [add ref the 208Pb charge radius measurement]
+At low four-momentum transfer approximation, the charge radius can be written as
+
+\begin{equation}
+    <r^2> = -6\hbar^2\frac{dF(Q^2)}{Q^2}|_{Q^2\simeq0}
+\end{equation}
+
+Through electron scattering, the charge radius of nuclei has been well measured. The charge radius of $^{208}Pb$ is measured as $R^{208}_{p} = 5.5012(13)fm$ with accuracy $0.02\%$\cite{ANGELI201369}.
 
 \subsection{concept}
 \subsubsection{Parity}
@@ -225,6 +225,7 @@ Unlike the photon and gluons, the weak force intermedia W and Z bosons are extre
     \item weak form factor derived from the Parity Violating Asymmetry  $A_{pv}$
     \item neutron weak Form factor and n-structure
     \item get the density and the neutron skin thickness from PRex measurement
+    \item the result from PRex-I experiment
     \item coulomb distortion
 \end{itemize}
 
@@ -250,6 +251,30 @@ This QED Lagrangian can be extended to include the weak nuclear force, providing
 Within this Lagrangian, the fermion mass term is not gauge invariant, leading us to the Higgs mechanism and the spontaneous symmetry breaking. The Higgs mechanism provides mass to the W and Z bosons, transforming them from massless gauge bosons into the massive particles observed in nature. 
 
 This concept of electroweak unification and spontaneous symmetry breaking not only formulates the foundation of the Standard Model of particle physics but also imparts profound implications on our understanding of the fundamental structure of the universe. 
+
+
+\subsection{Parity violation Electron Scattering}
+
+Elastic electron scattering has provided the most accurate and detailed picture of the distribution of protons in the atomic nucleus. As we can see from the above equations (to be added  $M_\gamma^2:M_\gamma*M_z: M_z^2$), the Amplitude of photon exchange is much larger than that of change $\Z$ boson. Direct measurement of the cross-section of electrons scattered over the Lead target would be impossible to extract the Neutron factors because of the limited measurement accuracy.
+
+
+Parity-violating electron scattering on the other hand can provide a accurate and model-independent approach to measure neutron densities. Parity-violating electron scattering is highly sensitive to the neutron density because the vector coupling of the neutron to the weak-neutral $Z^0$ boson is much larger than the corresponding weak charge of the protons. 
+
+For polarized electrons (can be flipped in time) scattered over the unpolarized target, the parity-violation asymmetry $A_{pv}$ can be written as
+
+\begin{equation}
+    A_{PV} = \frac{\sigma_R - \sigma_L}{\sigma_R + \sigma_L}
+\end{equation}
+
+In Born approximation
+
+\begin{equation}
+    A_{PV} = \frac{G_FQ^2}{4\sqrt{2}\pi\alpha}\frac{Q_wF_w(Q^2)}{ZF_{ch}(Q^2)}
+\end{equation}
+
+Here in the equation $Q_w = (1-4\sin^2(\theta_w))$ is the weak mix angle. $G_F$ is the Fermi structure constant and $\sigma$ is the fine structure constant. $F_{ch}(Q^2)$ is the charge form factor that has been measured to high accuracy across a large range of 4-momentum transfer. $F_w(Q^2)$ is the weak form factor that contains the information of neutron distributions.
+
+[add more detail derive of the equations]
 
 
 % \section{Measure neutron density with Parity Violating electron scattering}
