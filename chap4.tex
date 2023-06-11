@@ -150,7 +150,7 @@ here  in the equation:
     \tan\rho  = \sum t_{i000}x^i_{fp} \label{eq:cpt3_fps_5}
 \end{equation}
 
-[NL: you need to define quantities such as $t_{i000}$]
+{\bf NL: you need to define quantities such as $t_{i000}$; so I think you need to move these equations to section 4.3 where you define these parameters}
 [add the Focal plane coordination system plot]
 
 
@@ -158,13 +158,17 @@ here  in the equation:
 
 Each High-Resolution Spectrometer (HRS) is outfitted with a set of two Vertical Drift Chambers (VDCs). These VDCs are filled with a mixture of Argon (Ar) and ethane , which is bubbled through alcohol. The gas mixture is managed and supplied by the Hall A Gas System. Every wire within the VDCs is maintained at  ground potential, while the cathode planes are maintained at a negative  high voltage of  -3.5 kV.
 
+{\bf NL comment: I will send you the VDC NIM article, please read it and make sure all VDC details are correct, the same for the Hall A NIM article }
+
 [Explain the VDC electronics and emphasize the importance of an accurate $T_0$]
 
-When a charged particle traverses a VDC, it ionizes the gas atoms, generating a trail of ionized electrons along its trajectory. The ionized electrons drift along the electric field lines due to the high voltage applied between the high voltage plane and the signal wires. This ionization process produces a pulse on the signal wires. Each VDC chamber contains 368 wires, all connected to a pre-amplifier. The amplified pulse signal is subsequently passed through a discriminator and utilized to trigger the Time-Digital Converter (TDC). The TDC is stopped by the overall event trigger from Hall A.
+When a charged particle traverses a VDC, it ionizes the gas atoms, generating a trail of ionized electrons along its trajectory. The ionized electrons drift along the electric field lines due to the high voltage applied between the high voltage plane and the signal wires. In the strong electric field region around the very thin (25 $ \mu m$) sense wires, these electrons accelerate hard between collisions with ions and gain enough kinetic energy to ionize the next atom they hit generating another electron. This process leads to an avalanche like multiplication of electrons near the wire; the typical gain factors for wire chambers exceeds $ 10^5$.  This ionization process produces a pulse on the signal wires. Each VDC chamber contains 368 wires, each  connected to an analog  pre-amplifier {\bf NL: put a reference to the Nanometric amplifire-discriminator card used here} . The amplified pulse signal is subsequently passed through a discriminator and utilized to trigger the Time-Digital Converter (TDC). The TDC is stopped by the overall, scintillator based,  event trigger from the HRS.
 
-As the particle passes through the chamber, it typically activates a cluster comprising 4-6 wires. The intersection between the particle's trajectory and the VDC plane can be determined by measuring the drift distance between each wire, as illustrated in Fig \ref{fig:vdc_wire_ionization_cluster}. The drift distance is calculated using the drift time obtained from the Time-Digital Converter. An accurate start time is crucial for determining the precise drift distance and, consequently, the exact position on the VDC. If the threshold is set too high or too low, the VDC drift distance will be biased. An example of an improper $T_0$ setting is depicted in the plot, where numerous 'wire shadows' can be seen. These shadows are the result of measurement biases. 
+As the particle passes through the chamber, it typically activates a cluster comprising 4-6 wires. The intersection between the particle's trajectory and the VDC plane can be determined by measuring the drift distance from the track to  each wire, as illustrated in Fig \ref{fig:vdc_wire_ionization_cluster}. The drift distance is calculated using the drift time obtained from the Time-Digital Converter. An accurate start time is crucial for determining the precise drift distance and, consequently, the exact position on the VDC. If the threshold is set too high or too low, the VDC drift distance will be biased. An example of an improper $T_0$ setting is depicted in the plot of x versus y positions shown in Fig. {\bf add the ref.}, where numerous 'wire shadows', showing up in  diamond patterns (corresponding to the U-V orientation of wires) inside each sieve hole image,  can be seen. These shadows are the result of measurement biases. 
 
-Before the HRS Calibration, the VDC $T_0$ need to calibrate to get a reliable VDC data. 
+{\bf NL: You should put an arrow or two to a couple of such shadows and lable "wire shadows", also you need to label  axis of all your plots with asix labels and units }
+
+Before the HRS optics Calibration, the VDC $T_0$ needs to be calibrated to get an accurate VDC focal plane  data set. 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[scale = 0.25]{images/chap4/vdc_wire_ionize.png}
@@ -180,22 +184,24 @@ Before the HRS Calibration, the VDC $T_0$ need to calibrate to get a reliable VD
 \end{figure}
 \subsection{correction the initial drift time $T_0$}
 
-The spatial position of the VDC is determined by measuring the drift time. A typical data frame of a single VDC chamber signal channel is presented below. It features a peak followed by a flat tail, which is caused by the drift time of the ionized ions. In practice, the start time $T_0$ is chosen as the $1.4\sigma$ time of the ionized electron rising peak, and the VDC wires are grouped by 16 wires.
+The spatial position of the VDC is determined by measuring the drift time. A typical data frame of a single VDC chamber signal channel is presented below. It features a peak followed by a flat tail which is caused by the drift time of the ionized ions. The peak corresponds to the rapid acceleration region near the wire, while the flat region to the uniform drift before that.  In practice, the start time $T_0$ is chosen as the $1.4\sigma$ time of the ionized electron rising peak.
+
+Each  16-channel amplifier-discriminator card support a group of 16 wires. Since the  electronics and cables for these 16 channels are very similar to each other, $T_0$ for these wires are also nearly identical. As such, the VDC wires are grouped by 16 wires for the $\T_$ calibration. 
 
 \begin{figure}[!htbp]
 \centering
 \includegraphics[scale = 0.25]{images/chap4/vdc_signals.png}
 \caption{VDC Drift Time Spectrum}
-\label{fig:vdc_dift_time_spectrum}
+\label{fig:vdc_dift_time_spectrum {\bf NL: increase the figure size, the font is too small to see }}
 \end{figure}
 
-To calibrate the TDC for the entire VDC range, data from white spectrum runs covering the full focal plane range with high statistics are required. In the experiment, a carbon target without a sieve slide was used.
+To calibrate the TDC for the entire VDC range, data from white spectrum runs covering the full focal plane range with high statistics are required. In the experiment, a carbon foil target without the  sieve slit was used.
 
-The following is a calibration procedure for the TDC $T_0$: 
+The following is the  calibration procedure for  TDC $T_0$: 
 \begin{enumerate}
-\item Fit the falling tail of the spectrum.
-\item Identify the point 1.4 $\sigma$ before the peak time.
-\item Calculate the $1.4\sigma$ time for all events, and use the average as the final $T_0$ for the given channel.
+\item Fit the falling leading edge of the  spectrum .
+\item Identify the point 1.4 $\sigma$ before the peak time {\bf NL: used red arrows and lables to show where exactly is this location on your figure}.
+\item Calculate the $1.4\sigma$ time for all events, and use the average as the final $T_0$ for the given group of channels.
 \end{enumerate}
 
 Figure \ref{fig:vdc_t0_after_correction} shows the sieve slide pattern on the focal coordinate system. After correcting the $T_0$, the 'shadow pattern' is corrected.
@@ -214,7 +220,10 @@ The calibration code can be found in this \href{https://github.com/Jiansiyu/Gene
 
 \section{focal plane constant calibration}
 
-The HRS Spectrometer Focal Plane Coordinate System is a rotated system, with the Z-axis being the projection of the local central ray on the x-z plane. The origin of this coordinate system is shared with the detector coordinate system. To correct the coordinate system, we use a criterion based on the ideal case of the central beam passing through the central sieve hole, where the beam position is (0,0). Specifically, we look at the equation of the focal plane coordinate system, where a parameter is used to project the coordinate system. To achieve high accuracy, each parameter is optimized to the 3rd order.
+The HRS Spectrometer Focal Plane Coordinate System is a rotated system, with the Z-axis being the projection of the local central ray on the x-z plane. The origin of this coordinate system is shared with the detector coordinate system. To transfrom from the detector coordinate system to the  the rotated  coordinate system, we use a criterion based on the ideal case of the central beam passing through the central sieve hole, where the beam position is (0,0). Specifically, we look at the equation of the focal plane coordinate system, where a set of parameters is used to project the coordinate system. To achieve high accuracy, each parameter is optimized to the 3rd order.
+
+{\bf NL: You need to give the equations for the rotated variables in terms of these parameters here to first show how there parameters are used; so move equations 4.12-4.16 here}
+
 
 In the Hall A analyzer, the correction constant can be found in the first three rows of the x.vdc.matrixelem variable:
 
@@ -234,10 +243,10 @@ According to the focal plane coordinate system definition, for the central beam 
 To optimize the correction constant, we follow these steps:
 
 \begin{enumerate}
-    \item Gather as many runs as possible at any central P runs.
+    \item Gather as many different central momentum runs as possible.
     \item Select the events that pass through the central sieve hole.
     \item Calculate the detector plane parameters for all the events.
-    \item Define the loss function as the square residual of the focal plane calculated using the detector coordinate variables (given by equations \ref{eq:cpt3_fps_1} to \ref{eq:cpt3_fps_5}) and the theoretical value of 0.
+    \item Define the loss function as the square residual of the focal plane variables  calculated using the detector coordinate variables (given by equations \ref{eq:cpt3_fps_1} to \ref{eq:cpt3_fps_5}) and the theoretical value of 0.
     \item Optimize the loss using a linear regression model, and obtain the constants $t_{i000}$, $y_{i000}$, and $p_{i000}$.
 \end{enumerate}
 
@@ -264,18 +273,20 @@ To optimize the correction constant, we follow these steps:
     \label{fig:my_label}
 \end{figure}
 
-From the plot we could see, after the optimization, with the new constant $t_{i000}$,$y_{i000}$,$p_{i000}$, the central sieve $\theta_{focal}$,$\phi_{focal}$,$y_{focal}$ are set to $(0,0,0)$. the code used for calibration of the focal plane constant can be found on  \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{this GitHub repository}.
+From the plot we can see, after the optimization, with the new constants $t_{i000}$,$y_{i000}$,$p_{i000}$, the central sieve $\theta_{focal}$,$\phi_{focal}$,$y_{focal}$ are set to $(0,0,0)$. the code used for calibration of the focal plane constant can be found on  \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/vdcConstantOpt}{this GitHub repository}.
 
 
-\section{High-Resolution Spectrometer Calibration}
+\section{High-Resolution Spectrometer optics Calibration}
 
-In the preceding section, we introduced the calibration process used to map the detector coordinate system onto the focal plane coordinate system. In this section, we will delve into HRS Optics, specifically focusing on the transformation from the focal plane coordinate system to the target coordinate system.
+In the preceding section, we introduced the calibration process used to map the detector coordinate system on to the focal plane coordinate system. In this section, we will delve into HRS Optics, specifically focusing on the transformation from the focal plane coordinate system to the target coordinate system.
 
 \subsection{Approach}
 
-With the previous introduction, the direct measurement the position on the 4 vertical drift chambers $p_{vdc,i}$ together with the displacement of the chambers $d$ are converted to the focal plane coordinate system, $x_{fp}$,$y_{fp}$,$\theta_{fp}$,$\phi_{fp}$. Those observables are used to calculate $\theta_{tg}$,$\phi_{tg}$,$y_{tg}$, and $\delta_{tg}$ on the target which we used for further physics analysis. 
+With the previous introduction, the direct measurement the position on the 4 vertical drift chambers $p_{vdc,i}$ together with the displacement of the chambers $d$ are converted to the focal plane coordinate system, $x_{fp}$,$y_{fp}$,$\theta_{fp}$,$\phi_{fp}$. Those observables are used to calculate $\theta_{tg}$,$\phi_{tg}$,$y_{tg}$, and $\delta_{tg}$ at the target which we used for further physics analysis. 
 
-The conversion from the focal plane coordinate system to the target coordinate system is with the transport tensors. In first-order approximation, the relation between the two coordinate systems can be written as:
+The conversion from the focal plane coordinate system to the target coordinate system is done with the transport tensors. In first-order approximation, the relation between the two coordinate systems can be written as:
+
+{\bf NL: all  matrix elements are incorrect, should be tg|fp }
 
 \begin{equation}
 \begin{bmatrix}
@@ -296,9 +307,13 @@ y_{tg} \\
 \end{bmatrix}
 \end{equation}
 
-Because of the mid-plane symmetry of the spectrometer, 8 of the reverse corner element are $0$.'
+Because of the mid-plane symmetry of the spectrometer, 8 of the reverse diagonal  elements are expected to be  $0$.'
 
 % explain why it is to $$x^n$$ order? what is the physics meaning of 
+
+{\bf NL: the magnets, especially the dipole has up to sextapole magnetic elements and resulting fields, that is why we need up to the 6th order and not more}
+
+
 
 In practice, the expansion of the focal plane coordinates is performed up to the fifth order and use the polynomial production of the four observables as features in modeling the spectrum. 
 
@@ -321,7 +336,7 @@ In practice, the expansion of the focal plane coordinates is performed up to the
     \delta_{tg} = \sum_{jkl}D_{jkl}\theta^j_{fp}y^k_{fp}\phi^l_{fp}
 \end{equation}
 
-Where in the above equations, tensors $Y_{jkl}$, $T_{jkl}$, $P_{jkl}$, $D_{jkl}$ are are polynomial of $x_fp$ for example, $Y_{ijk}$ can be write as:
+Where in the above equations, tensors $Y_{jkl}$, $T_{jkl}$, $P_{jkl}$, $D_{jkl}$ are are polynomials of $x_fp$; for example, $Y_{ijk}$ can be write as:
 
 \begin{equation}
     Y_{jkl} = \sum^m_{i=1}C_i^{Y_{jkl}}x^i_{fp}
@@ -350,6 +365,8 @@ In the equation, $C^i_{jkl}$ is the $x^i$ correction constant for $Y_{jkl}$. The
 
 Here is an example of Y in the vertical drift chamber database:
 
+{\bf NL: what you have given here are the D elements, and not the Y elements}
+
 \begin{center}
     % \captionof{focal plane correction constant}
     \begin{tabular}{c c c c c c c }
@@ -361,15 +378,17 @@ Here is an example of Y in the vertical drift chamber database:
 In the first row, $D$ indicates this is the tensor for the $\delta_{tg}$, the following three integers is corresponding to the power of $\theta$,$y$,$\phi$, which is $jkl$ in the equation. The following float number is the $i=1$ constant, $i=2$ constant and etc. 
 
 
-To achieve high optics accuracy, each element is optimized up to the fifth order. Because of the overfitting issue if there are too many features present in the model, in the optimization practice, not all the orders are kept for each tensor. In the training process, each feature is carefully tested to make sure it will not cause serious overfitting and get the best test result on the holdout dataset. 
+To achieve high optics accuracy, each element is optimized up to the fifth order. In order to reduce the possiblity of overfitting if there are too many features present in the model, in the optimization practice, not all the orders are kept for each tensor. In the training process, each feature is carefully tested to make sure it will not cause serious overfitting and get the best test result on the holdout dataset. 
 
 [add how to select the features that most suitable for the model??]
 
 \subsection{Ground Truth data set}
 
-In order to construct a precise regression model for the HRS spectrometer, a highly accurate ground truth dataset is essential. This ground truth is derived from a meticulously crafted CNC-made sieve plate. It is a stainless steel plane with holes in the grid. Every hole is manufactured with a high accurate cnc machine. With the given position of each sieve hole, we can calculate the theoretical value for the scattering angle as well as the momentum for each sieve hole. Those sieve holes provide us with an accurate calibration point for the HRS. 
+In order to construct a precise regression model for the HRS spectrometer, a highly accurate ground truth dataset is essential. This ground truth is derived from a meticulously crafted CNC-made sieve plate. It is a non-magnetic stainless steel plate with holes in a precise  grid.  With the given position of each sieve hole, we can calculate the theoretical value for the scattering angle as well as the momentum for the beam of particles traveling through  that  sieve hole. Those sieve holes provide us with an accurate set of calibration points for the HRS. 
 
-The sieve plate is strategically positioned in front of the septum magnet, with its location carefully surveyed to ensure a positional accuracy of up to 100 micrometers. As electrons scatter from the target, only those that pass through the holes on the sieve plate are allowed to enter the spectrometer and ultimately reach the vertical drift chamber. All other electrons are effectively blocked by the sieve plate.
+{\bf NL: You need to quote the thickness of the plate, and may be the radiation lengths, to show that there will be very few punch through electrons }
+
+The sieve plate is strategically positioned in front of the septum magnet, with its location carefully surveyed to ensure a positional accuracy of down  to 100 micrometers. As electrons scatter from the target, only those that pass through the holes on the sieve plate are allowed to enter the spectrometer and ultimately reach the vertical drift chamber. All other electrons are effectively blocked by the sieve plate.
 
 Upon reaching the vertical drift chamber, particles that have passed through the same hole on the sieve plate will form a distinct cluster. By categorizing events based on these clusters and considering the relative positions of the clusters on the sieve plate, it is possible to determine which holes the particles have originated from. With this information, the ground truth values can be calculated for each sieve hole.
 
@@ -380,7 +399,7 @@ In the following sections, we will delve into the details of calculating the gro
 \begin{figure}
     \centering
     \includegraphics[width =\textwidth]{images/chap4/sieve_cnc_draw.png}
-    \caption{PRex-II sieve slit used for Optics Calibration, three big holes are used for identifying the orientation of the reconstructed data}
+    \caption{The machine darwing for the PRex-II sieve slit used for Optics Calibration, three big holes are used for identifying the orientation of the reconstructed data}
     \label{fig:sieve_cnc_draw}
 \end{figure}
 
@@ -388,10 +407,11 @@ In the following sections, we will delve into the details of calculating the gro
 \begin{figure}
     \centering
     \includegraphics[width =\textwidth]{images/chap4/sieve_in_hrs.jpg}
-    \caption{PRex-II/CRex Sieve slit in the High-resolution spectrometer}
+    \caption{PRex-II/CRex Sieve slits  mounted at the entrances to the septum magnets of the    High-resolution spectrometer  pair}
     \label{fig:labeled_sieve_in_hrs}
 \end{figure}
 
+{\bf NL: I do not remember if they were before or after the septa, please check}
 
 \begin{figure}
     \centering
@@ -400,7 +420,7 @@ In the following sections, we will delve into the details of calculating the gro
     \label{fig:target_coordinate_system_plot}
 \end{figure}
 
-Figure \ref{fig:sieve_cnc_draw} displays the schematic of the sieve plate. The Hall A survey is conducted in the Hall A coordinate system and measured relative to the center of the sieve plate. In the target coordinate system, the origins of both the target and hall coordinate systems are assumed to be identical. However, in practice, the center of the target coordinate system deviates from that of the hall coordinate system. These deviations in the horizontal and vertical directions are denoted by $D_y$ and $D_x$, respectively. The ground truth result in the target coordinate system can be computed using the following equations:
+Figure \ref{fig:sieve_cnc_draw} displays the schematics of the sieve plate.  A survey is conducted in the Hall A coordinate system and measured relative to the center of the sieve plate. In the target coordinate system, the origins of both the target and hall coordinate systems are assumed to be identical. However, in practice, the center of the target coordinate system deviates from that of the hall coordinate system. These deviations in the horizontal and vertical directions are denoted by $D_y$ and $D_x$, respectively, in the figure. The ground truth result in the target coordinate system can be computed using the following equations:
 
 \begin{equation}
 \phi_{tg} = \frac{y_{sieve} + D_y - x_{beam}\cos{\theta_0} + z_{react}\sin{\theta_0}}{L - z_{react}\cos{\theta_0 - x_{beam}\sin{\theta_0}}}
@@ -418,7 +438,7 @@ y_{tg} = y_{sieve} - L \phi_{tg}
 x_{tg} = x_{sieve} - L \theta_{tg}
 \end{equation}
 
-Where in the equation $\theta_0$ is the spectrometer central angle measured by the angle of the beam down direction and the central sieve hole. $L$ is the distance from the target location to the central sieve slit hole. Using these equations, the scattered angle and reaction point can be determined with the help of the beam variables measured in the hall coordinate system, as given by:
+Where in the equation $\theta_0$ is the spectrometer central angle defined as the angle between the ideal beam line looking downstream and the  the line going perpendicular to the sieve plate through the central sieve hole. $L$ is the distance from the ideal target  center  to the central sieve slit hole in the ideal case where the spectrometer offsets $D_y$ and $D_x$ are set to zero. Using these equations, the scattered angle and the reaction point can be determined with the help of the beam variables measured in the hall coordinate system, as given by:
 
 \begin{equation}
 \theta_{scatter} = \arccos\left(\frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}\right)
@@ -428,7 +448,7 @@ Where in the equation $\theta_0$ is the spectrometer central angle measured by t
 z_{react} = \frac{-(z_{tg} + D_y) + x_{beam}(\cos{\theta_0} - \phi_{tg}\sin{\theta_0})}{\cos{(\theta_0\phi_{tg} + \sin{\theta_0})}}
 \end{equation}
 
-For the PRex-II experiment, only one target foil was employed. As a result, $z_{react}$ and $x_{react}$ are both 0. The constant spectrometer length $L$ and the central sieve angle in the Hall Coordinate System (HCS) are calculated using the survey results. For PRex-II experiment, the equations can be rewritten as:
+For the PRex-II experiment, only one target foil was employed. As a result, $z_{react}$ and $x_{react}$ were both 0. The constant spectrometer length $L$ and the central sieve angle in the Hall Coordinate System (HCS) are calculated using the survey results. For PRex-II experiment, the equations can be rewritten as:
 
 \begin{equation}
     \theta_{tg} = \arctan{\frac{x_{sieve}}{L}}
@@ -442,23 +462,25 @@ For the PRex-II experiment, only one target foil was employed. As a result, $z_{
     y_{tg} = y_{sieve} - L \frac{y_{sieve}-x_{sieve}\cos{\theta_0} + D}{L - x_{sieve}\sin{\theta_0}}
 \end{equation}
 
-After getting the ground truth values, with the help of the spectrometer tensor, we can project the measurement from the focal plane coordinate system to the target system, which is considered to be the predicted value in the optimization procedure. The loss function takes L2 loss, which is the square error between the predicted value and the ground truth. 
+After getting the ground truth values, with the help of the spectrometer tensor, we can project the measurement from the focal plane coordinate system to the target system, which is considered to be the predicted value in the optimization procedure. The loss function takes L2 loss, which is the square of the  difference between the predicted value and the ground truth. 
 
 
 \subsubsection{Labeling the Ground Truth Dataset}
 
-Before computing the ground truth values on the target using the previously discussed equations, it is crucial to know which sieve hole the event originates from. This information is necessary because the calculation involves determining parameters based on the geometric position of the sieve hole from which the particle comes. To obtain this data, an initial calibration tensor should be provided, and all events should be plotted on the target coordinate system. In this system, events are manually selected based on their patterns, and identical labels are assigned to all events within the same cluster.
+Before computing the ground truth values on the target using the previously discussed equations, it is crucial to know which sieve hole an event originates from. This information is necessary because the calculation involves determining parameters based on the geometric position of the sieve hole from which the particle comes. To obtain this data, an initial calibration tensor should be provided, and all events should be plotted on the target coordinate system. In this system, events are manually selected based on their patterns, and identical labels are assigned to all events within the same cluster.
 
-The sample plot demonstrates the cut boundaries for the cluster on the target coordinate system, where the red circle represents the boundary. All events within this boundary are considered to have originated from the same sieve hole and, consequently, share similar properties such as scattered angle, $\theta_{tg}$, $\phi_{tg}$, four-momentum transfer, and so on.
+The sample plot demonstrates the cut boundaries for the cluster in the target coordinate system, where the red circle around each cluster represents the boundary. All events within this boundary are considered to have originated from the same sieve hole and, consequently, share similar properties such as scattered angle, $\theta_{tg}$, $\phi_{tg}$, four-momentum transfer, and so on.
 
-Determining the sieve pattern can be challenging, and different individuals may have varying boundary criteria. To minimize errors caused by inconsistent criteria, a newly developed method was employed in practice. After identifying the rough center of a given cluster, the code places a large circle around the clicked center. Within this circle, event density contour lines are drawn, and the chosen contour line serves as the cut boundary for the event. This approach helps ensure more accurate and consistent boundary determination. The code for labeling the ground truth dataset can be found in this \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/OptCut/CRexCut/cutPro.C}{GitHub repository}.
+Contouring  the initial sieve pattern could  be challenging, and different individuals may have varying boundary criteria. To minimize errors caused by inconsistent criteria, a newly developed method was employed in practice. After identifying the rough center of a given cluster, the code places a large circle around the clicked center. Within this circle, event density contour lines are drawn, and the chosen contour line serves as the cut boundary for the event. This approach helps ensure more accurate and consistent boundary determination. The code for labeling the ground truth dataset can be found in this \href{https://github.com/Jiansiyu/GeneralScripts/blob/master/OptCut/CRexCut/cutPro.C}{GitHub repository}.
 
 
 \subsection{Angular variable calibration}
 
-The ground truth dataset is obtained from various beam positions and central momenta to cover a larger area of the vertical drift chamber. Figure \ref{fig:lhrs_tg_theta_phi_postopt} and \ref{fig:rhrs_tg_theta_phi_postopt} display the sieve patterns after the optics optimization. Each circle represents a cluster of events, while the green grid indicates the expected position for the sieve pattern.
+The ground truth dataset is obtained from various beam positions and central momenta to cover a larger area of the vertical drift chamber than the area covered by the production data. Figure \ref{fig:lhrs_tg_theta_phi_postopt} and \ref{fig:rhrs_tg_theta_phi_postopt} display the sieve patterns after the optics optimization. Each circle represents a cluster of events, while the green grid indicates the expected positions for the sieve pattern.
 
-Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_residual} show the residuals of the sieve events, grouped by events that pass through the same sieve hole. The green line represents the ideal case, which is the residual between the predicted and theoretical values. In practice, the residual cannot equal zero. The error bars represent the standard error of all events passing through the same sieve hole. The following table shows the optimization error for the PRex-II experiment (here takes the largest residual as the error).
+Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_residual} show the residuals of the sieve events, grouped by events that pass through the same sieve hole. The green line represents the ideal case, which is the residual between the predicted and theoretical values.  The error bars represent the standard error of all events passing through the same sieve hole. The following table shows the optimization error for the PRex-II experiment (here takes the largest residual as the error).
+
+{\bf NL: You may want to add the two before optimization residual plots to show the improvement}
 
 \begin{figure}[h]
     \centering
@@ -505,7 +527,9 @@ Figures \ref{fig:lhrs_tg_theta_phi_residual} and \ref{fig:rhrs_tg_theta_phi_resi
 \subsection{Momentum Calibration}
 \subsubsection{Momentum Ground truth}
 
-The scattering angle represents the angle between the direction of the scattered electrons and the direction of the electron beam. Standard survey procedures do not directly measure the scattering angle; instead, they measure the spectrometer central angle and the geometric positions of the sieve plate. The scattering angle can be calculated using the spectrometer central angle and the $\theta_{tg}$ and $\phi_{tg}$, which are determined based on the geometric position of the sieve hole relative to the central sieve hole. Given these parameters, the scattering angle can be calculated as:
+{\bf NL: I guess this part is under the wrong heading}
+
+The scattering angle represents the angle between the direction of the scattered electrons and the direction of the electron beam. Standard survey procedures do not directly measure the scattering angle; instead, they measure the spectrometer central angle and the geometric positions of the sieve plate. The scattering angle can be calculated using the spectrometer central angle and the $\theta_{tg}$ and $\phi_{tg}$ variables, which are determined based on the geometric position of the sieve hole relative to the central sieve hole. Given these parameters, the scattering angle can be calculated as:
 
 \begin{equation} \label{eq:chapter4_scattered_angle_from_central_angle}
 \theta = \frac{\cos{\theta_0} - \phi_{tg}\sin{\theta_0}}{\sqrt{1 + \theta^2_{tg} + \phi^2_{tg}}}
@@ -519,9 +543,9 @@ With the scattering angle, the ground truth scattered electron momentum can be c
 
 
 \subsubsection{Momentum Calibration result}
-As stated in the equations, to simplify the complexity and facilitate model conversion, the momentum calibration is optimized using $\delta = \frac{p - p_0}{p_0}$. Similar to $\theta$ and $\phi$, the optimization needs to be performed separately for the LHRS and RHRS. The ground truth value incorporates the central sieve angle and the angle of the sieve hole in the target coordinate system within the sieve plate. The L2 loss function is employed, which calculates the sum of squared residuals between the ground truth $\delta p$ and the $\delta p$ computed using the projected momentum with the HRS tensor.
+As stated in the equations, to simplify the complexity and facilitate model conversion, the momentum calibration is optimized using the fractional momentum,  $\delta = \frac{p - p_0}{p_0}$. Similar to $\theta$ and $\phi$, the optimization needs to be performed separately for  LHRS and RHRS. The ground truth value incorporates the central sieve angle and the angle of the sieve hole in the target coordinate system within the sieve plate. The L2 loss function is employed, which calculates the sum of squared residuals between the ground truth $\delta p$ and the $\delta p$ computed using the projected momentum with the HRS tensor.
 
-To cover a broader momentum range, data are taken with central momenta at $-1\%$, $0\%$, and $1\%$ of the standard central sieve momentum. Figures \ref{fig:lhrs_dp_residual} and \ref{fig:rhrs_dp_residual} display the residuals for LHRS and RHRS. Similar to the sieve $\theta$ and $\phi$ residual plots, data are grouped by the sieve hole. The beam energy of the accelerator is $952.9 MeV$.
+To cover a broader momentum range wider than the range of the production data, data are taken with central momenta at $-1\%$, $0\%$, and $1\%$ of the central momentum of the spectrometer. Figures \ref{fig:lhrs_dp_residual} and \ref{fig:rhrs_dp_residual} display the residuals for LHRS and RHRS. Similar to the sieve $\theta$ and $\phi$ residual plots, data are grouped by the sieve hole. The beam energy of the accelerator was  $952.9 MeV$.
 
 The table below presents the error bars for the momentum optimization. The error is considered to be the largest residual difference compared to the theoretical value.
 
@@ -557,9 +581,9 @@ The table below presents the error bars for the momentum optimization. The error
 
 \section{Spectrometer central angle $\theta_0$ measurement }
 
-The spectrometer central angle, $\theta_0$, is defined as the angle between the beam down direction and the central spectrometer axis. As shown in equation \ref{eq:chapter4_scattered_angle_from_central_angle}, the spectrometer's central angle serves as a fundamental input for calculating the particle scattered angle. The laser survey provides the spectrometer's central angle. $\theta_0$ can be measured using a survey that measures the angle between two imaginary lines: the first line runs along the ideal spectrometer axis, and the second line runs along the ideal electron beam direction.
+The spectrometer central angle, $\theta_0$, is defined as the angle between the ideal beamline downstream  direction and the central spectrometer axis. As shown in equation \ref{eq:chapter4_scattered_angle_from_central_angle}, the spectrometer's central angle serves as a fundamental input for calculating the particle scattered angle. The laser survey provides the spectrometer's central angle. $\theta_0$ can be measured using a survey that measures the angle between two imaginary lines: the first line runs along the ideal spectrometer axis, and the second line runs along the ideal electron beam direction.
 
-However, multiple transformations are required to relate the ideal spectrometer angle to the actual spectrometer angle, which could increase the uncertainty of the $\theta_0$ measurement to as much as 0.06 or approximately $1\%$. This could, in turn, lead to a $2\%$ uncertainty in Q2 measurement in the case of the PREX experiment. In PRex Experiment, the measurement is through pointing measurement. This technique utilizes the concept of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. Pointing measurements are generally more accurate than surveys, as they do not require multiple transformations like surveys. Furthermore, the accuracy of pointing measurements can be significantly improved by considering differential nuclear recoils off different target nuclei present in the same target, such as water (H2O). This method has the advantages of suppressing uncertainties from estimating energy losses occurring before and after scattering and eliminating the issue of potential beam position shifting during the run. The primary uncertainty that contributes to the pointing measurement uncertainty arises from the ability to measure the energy difference between two different peaks. In the case of PREX, the accuracy was at the level of ~30 keV. [change needed]
+However, the actual spectrometer central angle is defined between the actual beam direction and the line going perpendicular to the sieve plate through the central sieve hole. Multiple transformations are required to relate the ideal spectrometer central angle to the actual spectrometer central angle, which could increase the uncertainty of the $\theta_0$ measurement by  as much as 0.06 or approximately $1\%$. This could, in turn, lead to a $2\%$ uncertainty in Q2 measurement in the case of the PREX-II experiment. In this  Experiment, the measurement is done through pointing measurement. This technique utilizes the concept of differential nuclear recoil for elastic electron scattering off target nuclei of different masses. Pointing measurements are generally more accurate than surveys, as they do not require multiple transformations like surveys. Furthermore, the accuracy of pointing measurements can be significantly improved by considering differential nuclear recoils off different target nuclei present in the same target, such as water (H$_2$O). This method has the advantages of suppressing uncertainties from estimating energy losses occurring before and after scattering and eliminating the issue of potential beam position shifting during the run. The primary uncertainty that contributes to the pointing measurement uncertainty arises from the ability to measure the energy difference between two different peaks. In the case of PREX-II, the accuracy was at the level of ~30 keV. [change needed]
 
 Consider an electron scattered on a target with mass $M$. The scattered electron momentum can be written as:
 
@@ -569,21 +593,22 @@ E' = \frac{E - E_{loss1}}{1 + \frac{2(E-E_{loss1})\sin^2{\frac{\theta}{2}}}{M}} 
 
 In this equation, $E$ represents the initial energy of the electrons, $\theta$ is the scattered angle, $E_{loss1}$ is the energy loss occurring before scattering, and $E_{loss2}$ is the energy loss occurring after scattering.
 
-The water target contains both $^{1}H$ and $^{16}O$, enabling the scattering of two targets with precisely the same beam energy, scattered angle, and energy loss. The energy loss is canceled out, thus increasing the measurement accuracy. The scattered electron energy difference between oxygen and hydrogen can be given by:
+The water target contains both $^{1}H$ and $^{16}O$ nuclei, enabling the scattering off the  two targets with precisely the same beam energy, scattered angle, and energy loss. The energy loss is canceled out, thus increasing the measurement accuracy. The scattered electron energy difference between oxygen and hydrogen can be given by:
 
 \begin{equation}
 \Delta{E'} = E'_O - E'_H = E (\frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_O}} - \frac{1}{1 + \frac{2E\sin^2{\frac{\theta}{2}}}{M_H}}) + corrections
+\label{diff-recoil}
 \end{equation}
 
 In this equation, the corrections are negligible. Both the beam energy and the masses of oxygen and hydrogen are measured with high accuracy. With the scattered momentum reconstructed from the vertical drift chamber and the above equation, the scattered angle can be measured.
 
-The CRex experiment uses the exact same spectrometer configuration, but with a beam energy of 2.18 GeV, yielding a much cleaner energy spectrum. In data analysis, CRex data is used instead of PREX data to achieve higher accuracy measurements.
+The energy resolution for the elastic peaks goes up with the incoming beam energy due to reduced multiple scattering and the increase separation between different nuclear peaks per equation~\ref{diff-recoil}. CRex experiment used the exactly the  same spectrometer configuration with the same angles, but with a beam energy of 2.18 GeV, yielding a much cleaner energy spectrum. In pointing data analysis, CRex data were  used instead of PREX data to achieve higher accuracy measurements.
 
-The pointing measurement was conducted with a sieve in place, and events passing through the central sieve hole were used in the pointing calculation with the beam position along the center of the Hall A Coordinate System. This approach eliminates errors caused by HRS optics reconstruction errors. Figure \ref{fig:pointing_h2o_spectrum} displays an example of the waterfall target spectrum for CRex RHRS run 21737. The first peaks on the left and right represent the ground state energies of $^{1}H$ and $^{16}O$, respectively. The energy difference is $\Delta E = 16.126 \pm 0.024 MeV$. In order to obtain a highly accurate central angle, the pointing measurements were performed with different central momenta. The scattered electrons will end up in different VDC areas with different central momenta. Each central momentum run can provide independent energy differences between the hydrogen and oxygen spectra. Accurate optics reconstruction allows different central momenta to yield different energy differences between the hydrogen and oxygen targets while maintaining the same scattering angles. This helps verify the calibration accuracy.
+The pointing measurement was conducted with the  sieve in place, and events passing through the central sieve hole were used in the pointing calculation with the beam position  measured in the Hall A Coordinate System. This approach eliminates errors caused by HRS optics reconstruction errors in the pointing result. Figure \ref{fig:pointing_h2o_spectrum} displays an example of the waterfall target spectrum for CRex RHRS run 21737. The two  peaks on the left and the right represent the electrons scattered elastically off  $^{1}H$ and $^{16}O$ nuclei, respectively. The energy difference between the two peaks  is $\Delta E = 16.126 \pm 0.024 MeV$. In order to obtain a highly accurate central angle, the pointing measurements were performed with different central momenta, thus moving the two peaks along the focal plane. The scattered electrons  end up in different VDC areas for different central momenta. Each central momentum run can provide an  independent energy differences between the hydrogen and oxygen spectra. Accurate optics reconstruction  of momentum allows different central momenta to yield different energy differences between the hydrogen and oxygen targets while maintaining the same scattering angles. This helps verify the calibration accuracy.
 
-To avoid drift during the experiment, pointing measurements were conducted three times: once at the beginning, once during the experiment, and a final verification pointing measurement after the experiment. The final pointing measurement is the average of these runs. A table listing all the runs used in the pointing measurement is provided.
+To account for any possible  drift in the angles during the experiment, for example, due to the structural setting of the spectrometers, pointing measurements were conducted three times: once at the beginning, once during the experiment, and a final verification pointing measurement after the experiment. The final pointing measurement is the average of these runs. A table listing all the runs used in the pointing measurement is provided {\bf NL: ref ?}.
 
-During the pointing process, although the beam position is set to (0,0), it cannot perfectly reach $(0,0)$ due to control errors. To account for errors caused by beam position, the final angle is corrected by $\frac{X_{bpm}}{Z_0}$, where $Z_0$ represents the distance from the target center to the sieve slide along the spectrometer central ray (verification required), and $X_{bpm}$ is the beam position in the $X$ direction in the Hall A coordinate system.  
+During the pointing process, although the beam position is set to (0,0), it cannot perfectly reach $(0,0)$ due to control errors. To account for errors caused by  non-zero beam position, the final angle is corrected by $\frac{X_{bpm}}{Z_0}$, where $Z_0$ represents the distance from the target center to the sieve slide along the spectrometer central ray (verification required), and $X_{bpm}$ is the beam position in the $X$ direction in the Hall A coordinate system.  
 
 \begin{table}[!ht]
     \caption{LHRS Dec-16-2019 Pointing measurement}
