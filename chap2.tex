@@ -258,7 +258,32 @@ This concept of electroweak unification and spontaneous symmetry breaking not on
 
 \subsection{Parity violation Electron Scattering}
 
-Elastic electron scattering has provided the most accurate and detailed picture of the distribution of protons in the atomic nucleus. As we can see from the above equations (to be added  $M_\gamma^2:M_\gamma*M_z: M_z^2$), the Amplitude of photon exchange is much larger than that of change $\Z$ boson. Direct measurement of the cross-section of electrons scattered over the Lead target would be impossible to extract the Neutron factors because of the limited measurement accuracy.
+[probably need to move to a better place]
+
+The interaction of elestic elestron scattered over the nucleus involves electromagnetic interaction with exchange of photon $\gamma$ and weak interaction with the exchange of boson $Z^0$. The Feynman diagram can be written as:
+
+
+The scattering amplitude matrix can be write as
+
+\begin{equation}
+    \mathcal{M} = \mathcal{M}_{\gamma} + \mathcal{M}_z
+\end{equation}
+
+
+Here in the equation $\mathcal{M}_{\sigma}$ is the scattering amplitude by exchange photon, and $\mathcal{M}_z$ is the scattering amplitude in weak interaction by exchange $Z$ mediator.  The cross-section of the elastic electrons over the nucleus can be written as, 
+
+\begin{equation}
+\begin{split}
+        \frac{d\sigma}{d\Omega} &= \frac{dQ}{F} |  \mathcal{M}_z|^2 \\
+        &= \frac{dQ}{F}|\mathcal{M}_{\gamma} + \mathcal{M}_z|^2 \\ 
+        &= \frac{dQ}{F}(|\mathcal{M}_{\gamma}|^2 + 2*\mathcal{M}_{\gamma}\mathcal{M}_z + |\mathcal{M}_z|^2)
+\end{split}
+\end{equation}
+
+Here in the equation, $F$ is the flux, and Q is the four-momentum transfer. The ratio of $|\mathcal{M}_{\gamma}|^2 : \mathcal{M}_{\gamma}\mathcal{M}_z : |\mathcal{M}_z|^2 = 1 : 10^{-4} : 10^{-9}$. The electromagnetic cross-section part is much larger than that of the weak interactions. Direct measurement would be impossible because of measurement errors. 
+
+
+Elastic electron scattering has provided the most accurate and detailed picture of the distribution of protons in the atomic nucleus. As we can see from the above equations, the Amplitude of photon exchange is much larger than that of change $\Z$ boson. Direct measurement of the cross-section of electrons scattered over the Lead target would be impossible to extract the Neutron factors because of the limited measurement accuracy.
 
 
 Parity-violating electron scattering on the other hand can provide a accurate and model-independent approach to measure neutron densities. Parity-violating electron scattering is highly sensitive to the neutron density because the vector coupling of the neutron to the weak-neutral $Z^0$ boson is much larger than the corresponding weak charge of the protons. 
@@ -266,7 +291,11 @@ Parity-violating electron scattering on the other hand can provide a accurate an
 For polarized electrons (can be flipped in time) scattered over the unpolarized target, the parity-violation asymmetry $A_{pv}$ can be written as
 
 \begin{equation}
-    A_{PV} = \frac{\sigma_R - \sigma_L}{\sigma_R + \sigma_L}
+\begin{split}
+    A_{PV} &= \frac{\frac{d\sigma_R}{d\Omega} - \frac{d\sigma_L}{d\Omega}}{\frac{d\sigma_R}{d\Omega} + \frac{d\sigma_L}{d\Omega}} \\
+    & \simeq \frac{[|\mathcal{M}_{\gamma}|^2 + 2*\mathcal{M}_{\gamma}\mathcal{M}_z + |\mathcal{M}_z|^2] - [|\mathcal{M}_{\gamma}|^2 - 2*\mathcal{M}_{\gamma}\mathcal{M}_z + |\mathcal{M}_z|^2]}{[|\mathcal{M}_{\gamma}|^2 + 2*\mathcal{M}_{\gamma}\mathcal{M}_z + |\mathcal{M}_z|^2] + [|\mathcal{M}_{\gamma}|^2 + 2*\mathcal{M}_{\gamma}\mathcal{M}_z + |\mathcal{M}_z|^2]} \\
+    & = \frac{2\mathcal{M}_{\gamma}\mathcal{M}_z}{\mathcal{M}_{\gamma}^2}
+\end{split}
 \end{equation}
 
 In Born approximation [add more detail derive of the equations]
