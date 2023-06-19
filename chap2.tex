@@ -228,11 +228,11 @@ Unlike the photon and gluons, the weak force intermedia W and Z bosons are extre
 \subsection{Electroweak Interaction}
 
 [need to optimize]
-The electroweak interaction represents a profound unification in the world of particle physics. Initially proposed in the mid-20th century, it describes two of the four known fundamental forces - the weak nuclear force and the electromagnetic force - as distinct manifestations of a more fundamental electroweak force. This paradigm-shifting idea, posited by Sheldon Glashow, Abdus Salam, and Steven Weinberg, eventually earned them the Nobel Prize in Physics.
+The electroweak interaction represents a profound unification in the world of particle physics. Initially proposed in the mid-20th century, it describes two known fundamental forces - the weak nuclear force and the electromagnetic force - as distinct manifestations of a more fundamental electroweak force. This paradigm-shifting idea, posited by Sheldon Glashow, Abdus Salam, and Steven Weinberg, eventually earned them the Nobel Prize in Physics.
 
-At its core, the electroweak theory is a quantum field theory (QFT), where particles are the quantized excitations of underlying fields, and their interactions are mediated by force-carrying particles. The electromagnetic force is mediated by photons, while the weak nuclear force is mediated by W and Z bosons.
+At its core, the electroweak theory is a quantum field theory (QFT), where particles are the quantized excitations of underlying fields, and force-carrying particles mediate their interactions. The electromagnetic force is mediated by photons, while the weak nuclear force is mediated by W and Z bosons.
 
-To commence our exploration of the electroweak theory, let's first take a glance at quantum electrodynamics (QED), which describes the electromagnetic interaction. The Lagrangian density that encapsulates this interaction can be represented as:
+To commence our exploration of the electroweak theory, let's first take a glance at quantum electrodynamics (QED), which describes electromagnetic interaction. The Lagrangian density that encapsulates this interaction can be represented as:
 
 \begin{equation}
 \mathcal{L}_{\text{QED}} = \bar{\psi} (i\gamma ^\mu D _\mu - m)\psi - \frac{1}{4} F _{\mu \nu} F ^{\mu \nu}
@@ -253,10 +253,10 @@ This concept of electroweak unification and spontaneous symmetry breaking not on
 
 [probably need to move to a better place]
 
-The interaction of elestic elestron scattered over the nucleus involves electromagnetic interaction with exchange of photon $\gamma$ and weak interaction with the exchange of boson $Z^0$. The Feynman diagram can be written as:
+The interaction of elastic electron scattered over the nucleus involves electromagnetic interaction with the exchange of photon $\gamma$ and weak interaction with the exchange of boson $Z^0$. The Feynman diagram can be written as:
 
 
-The scattering amplitude matrix can be write as
+The scattering amplitude matrix can be written as
 
 \begin{equation}
     \mathcal{M} = \mathcal{M}_{\gamma} + \mathcal{M}_z
@@ -298,14 +298,74 @@ In Born approximation [add more detail derive of the equations]
 \end{equation}
 
 
-In the equation, $G_F = 1.166 \times 10^{-5} (GeV)^{-2}$ is the Fermi structure constant, and $\sigma$ is the fine structure constant. $Q^2$ is the four-momentum transfer square. $\theta_w$ is the weak mix angle.   $\alpha$ is the fine structure constant. $F_p(Q^2)$ is the nuclear form factor for proton that has been very well measured in a large range $Q^2$ four-momentum transfer range [ref to 208Pb measurement result]. $F_n(Q^2)$ is the form factor for neutrons which contains the neutron distribution information. 
+In the equation, $G_F = 1.166 \times 10^{-5} (GeV)^{-2}$ is the Fermi structure constant, and $\sigma$ is the fine structure constant. $Q^2$ is the four-momentum transfer square. $\theta_w$ is the weak mix angle.   $\alpha$ is the fine structure constant. $F_p(Q^2)$ is the form factor of the protons can be written as:
+
+\begin{equation}
+    F_n(Q^2) = \frac{1}{4\pi}\int j_0(Qr)\rho_n(r)d^3r
+\end{equation}
+
+Here in the equation, $j_0$ is the zeroth spherical Bessel function. The protons form factor has been well measured in an extensive range $Q^2$ four-momentum transfer range [ref to 208Pb measurement result]. Similarly, the form factor of the neutrons can be written as
+
+\begin{equation}
+    F_n(Q^2) = \frac{1}{4\pi}\int j_0(Qr)\rho_n(r)d^3r
+\end{equation}
 
 
-\subsection{Weak form factor \& neutron radius}
+By measuring the parity-violating asymmetry, and given the well-measured protons form factor. The form factor of the neutron can be calculated. With that, $R_n$ can be calculated. 
 
-Weak form factor
+\subsection{neutron radius (need to polish, ref to c.j horowitz's paper)}
 
-\subsection{coulomb distortion}
+[ coulomb distortion to be added ]
+
+Given that the charge density is a known entity, we postulate that the Coulomb distortions can be 'inverted' to deduce the value of a Born approximation equivalent weak form factor. This is achievable through the examination of the measured asymmetry corresponding to the experiment's momentum transfer $Q^2$. Consequently, the primary outcome of this measurement is the weak form factor $F_w(Q^2)$, which serves as the Fourier transform of the weak charge density, denoted as $\rho_w(r)$.
+
+Expressed mathematically:
+
+\begin{equation}
+F_w(Q^2) = \frac{1}{4\pi}\int j_0(qr)\rho_w(r)d^3r
+\end{equation}
+
+This result provides a valuable point of comparison to mean field and other relevant theoretical computations, facilitating a more nuanced understanding of the underlying physics.
+
+The weak charge density, denoted as $\rho_w(r)$, can be formulated as:
+
+\begin{equation}\label{eq:weak_charge_density_ch2_1}
+\rho_w(r) = 4\intd^3r'[G_n^Z(r')N\rho_n(|r-r'|) + G^z_p(r')Z\rho_p(|r-r'|)]
+\end{equation}
+
+In the above equation, $\rho_p$ and $\rho_n$ represent the proton and neutron densities, respectively, both of which are normalized to 1. We normalize the weak charge density, $\rho_W$, to $Q_w$, which can be articulated as $Q_W = -N + (1-4\sin^2(\theta))Z$.
+
+We define the radii of the proton, neutron, and weak charge as:
+
+\begin{equation}
+R^2_p = \int d^3rr^2\rho_p(r)
+\end{equation}
+
+\begin{equation}
+R^2_n = \int d^3rr^2\rho_n(r)
+\end{equation}
+
+\begin{equation}
+R^2_w = \frac{1}{Q_w}\int d^3rr^2\rho_w(r)
+\end{equation}
+
+Substituting these definitions into equation \ref{eq:weak_charge_density_ch2_1}, it can be further streamlined as:
+
+\begin{equation}
+\begin{split}
+R_w & \approx R_n + \frac{Z(1-4\sin^2{\theta})}{N + (4\sin^2{\theta} -1)Z}(R_n - R_p) + \
+& \frac{1}{2R_n}{r_p^2 + \frac{Z + (4\sin^2{\theta} - 1)N}{N + (4\sin^2{\theta})}Z + \frac{N + Z}{N + (4\sin^2{\theta} -1 )Z}r_s^2}
+\end{split}
+\end{equation}
+
+\begin{itemize}
+    \item get the $R_n$ from the weak charge radius
+    \item the PRex-II experiment result 
+    
+\end{itemize}
+
+
+[to do, add the measurement result of PRex]
 \subsection{Energy \& Angle Selection}
 
 
