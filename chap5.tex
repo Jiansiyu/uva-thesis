@@ -1,18 +1,18 @@
 \chapter{GEM Detector Data Analysis}
-Gas Electron Multiplier (GEM) detector technology invented by F.~Sauli~\cite{Sauli} in 1997 allows  high resolution track reconstruction under high rate conditions over a large area.  At the heart of these detectors is a 50 $\mu$m polyamide foil, sandwitched between two layers of 5 µm copper.  This foil is punctured with 70 µm circular holes in a regular hexagonal pattern, spaced 140 µm apart. The GEM detector  features a cathode on top, while a readout board is situated  at the bottom of the detector  for collecting the electrons generated during the ionization process. The space between the cathode and the readout is occupied by three GEM foils 
- in a triple GEM detector. The 3 mm gap between the cathode and the top GEM foils forms the primary  ionization region of the detector. When a high energy particles travels through the detector it produces a trail of ionization in this region. The electrons created in this ionization drift down towards the readout layer through the GEM holes. When a potential difference of about  350 V is applied between the two layers of copper on either side of the polyamide layers of a GEM foil,    a strong  electric field is created  within the holes.  The electrons accerating in this field create secondary ionizations  resulting  in an electron avalanche. This avalanche electron travels along the electric field and are  eventually collected by the finely spaced strips of the readout layer. To enhance the amplification, multiple GEM detector layers are stacked together, allowing ionized electrons to be amplified multiple times before reaching the readout board.
+Gas Electron Multiplier (GEM) detector technology invented by F.~Sauli~\cite{Sauli} in 1997 allows  high resolution track reconstruction under high rate conditions over a large area.  At the heart of these detectors is a 50 $\mu$m polyamide foil, sandwiched between two layers of 5 µm copper.  This foil is punctured with 70 µm circular holes, in a regular hexagonal pattern, spaced 140 µm apart. The GEM detector  features a cathode on top, while a readout board is situated  at the bottom of the detector  for collecting the electrons generated during the ionization process. The space between the cathode and the readout is occupied by three GEM foils 
+ in a triple GEM detector. The 3 mm gap between the cathode and the top GEM foils forms the primary  ionization region of the detector. When a high energy particle travels through the detector it produces a trail of ionization in this region. The electrons created in this ionization drift down towards the readout layer through the GEM holes. When a potential difference of about  350 V is applied between the two layers of copper on either side of the polyamide layer of a GEM foil,    a strong  electric field is created  within the holes.  The electrons accelerating in this field gain enough energy between collisions to  create secondary ionizations  resulting  in an electron avalanche. These avalanche electrons travel along the electric field and are  eventually collected by the finely spaced strips of the readout layer. To enhance the amplification, multiple GEM detector layers are stacked together, allowing ionized electrons to be amplified multiple times before reaching the readout board.
 
-The GEM detectors utilized in the PRex/CRex experiment were  designed  and built for Jefferson Lab Super BigBite Spectrometer (SBS) {\bf NL: add a reference} and span an active area of 50 cm x 60 cm each.  The PRex/CRex experiment offered an excellent opportunity to test the GEM detector in a real experimental environment before initiating the SBS experiment. PRex/CRex experiments benefited from this because the GEM detectors served as a valuable supplement to the existing detectors in situations where the event rate is very high, as the VDC efficiency declines or even fails under such conditions. This chapter delves into the apparatus and the analysis results of the GEM detectors.
+The GEM detectors utilized in the PRex/CRex experiment were  designed  and built for Jefferson Lab Super BigBite Spectrometer (SBS) {\bf NL: add a reference for SBS} and span an active area of 50 cm x 60 cm each.  The PRex/CRex experiment offered an excellent opportunity to test the GEM detector in a real experimental environment before  the start of  the SBS experiments. PRex/CRex experiments benefited from this because the set of GEM detectors served as a valuable supplement to the existing VDC tracking detectors in situations where the event rate is very high, as the VDC efficiency declines or even fails under such conditions. This chapter delves into the apparatus and the analysis results of the GEM detectors.
 
 \section{GEM Detector Configuration}
 
-The SBS GEM detector used in the PRex/CRex experiment  had  triple GEM structure as described above. The cathode foil  featured a similar hole structure as the GEM foils  but  with only the bottom side coated with copper. A 6 micron   aluminized mylar layer located 3 mm above the cathode foil was used as the outer gas window of the chamber. The Aluminum coated side was facing outwards to prevent Aluminum flakes from entering the gas volume of the detector. The positive ions migrating upwards through GEM holes can also go through the holes in the cathode foil and deposit on the polyamide top side of the cathode. Since polyamide is a very good insulator, these charges do not dissipate easily and accumulate on that surface; this could lead to  charge polarization of the mylar gas  window causing  that window to get electrostatically attracted to the cathode . This strong attraction could make the gas window to attach itself on to the top side of the cathode foil blocking the holes of the cathode foil and leading to malfunction of the detector. In order to avoid  this from happening, the outer aluminium surface of the gas window was maintained at the same high voltage as the cathode, forcing the electric field between the gas window and the cathode to be zero. This prevented the charge prolarization of the gas window and the above scenario from taking place. The outer Aluminum surface was connected the to the cathode potential through a  10 G$\Ohm$ resistor to ensure electrical safety. This resistor limits the electric current to less than 400 nA if someone accidentally touches that outer Aluminum window while the detector is energized. 
+The SBS GEM detectors used in the PRex/CRex experiment  had  triple GEM structure as described above. The cathode foil  featured a similar hole structure as the GEM foils  but  with only the bottom side coated with copper. A 6 micron   aluminized mylar layer located 3 mm above the cathode foil was used as the outer gas window of the chamber. The Aluminum coated side was facing outwards to prevent Aluminum flakes from entering the gas volume of the detector. The positive ions migrating upwards through GEM holes can also go through the holes in the cathode foil and deposit on the polyamide top side of the cathode. Since polyamide is a very good insulator, these charges do not dissipate easily and accumulate on that surface; this could lead to  charge polarization of the mylar gas  window causing  that window to get electrostatically attracted to the cathode . This strong attraction could make the gas window to attach itself on to the top side of the cathode foil blocking the holes of the cathode foil, upsetting the gas flow  and leading to malfunction of the detector. In order to avoid  this from happening, the outer aluminium surface of the gas window was maintained at the same high voltage as the cathode, forcing the electric field between the gas window and the cathode to be zero. This prevented the charge prolarization of the gas window and the above scenario from taking place. The outer Aluminum surface was connected the to the cathode potential through a  10 G$\Ohm$ resistor to ensure electrical safety. This resistor limits the electric current to less than 400 nA if someone accidentally touches that outer Aluminum window while the detector is energized. 
 
-A premixed gas containing $75\%$ Argon and $25\%$ Carbon Dioxide was  supplied by the Hall A gas system for use in the GEM detectors. This mixed gas first enters a  chamber between the entrance window and the cathode, then passes through the holes in the cathode and GEM foils, ensuring a uniform gas distribution  throughout the entire chamber. Exhaust gas exits through exhaust holes located on the frame at the bottom of the GEM chamber.
+A premixed gas containing $75\%$ Argon and $25\%$ Carbon Dioxide was  supplied by the Hall A gas system for use in the GEM detectors. This mixed gas first enters the  chamber between the entrance window and the cathode, then passes through the holes in the cathode and GEM foils, ensuring a uniform gas distribution  throughout the entire chamber. Exhaust gas exits through exhaust holes located on the frame at the bottom of the GEM chamber.
 
 Below the last  GEM foil, avalanche electrons are collected by the 2D grid of  readout strips. Each readout strip is connected to a charge-sensitive pre-amplifier electronics channel of the APV-25 readout chip {\bf NL: please add a reference to APV here}. 
 
-The chamber is operated with a slight over-pressure of about 2 Torr with respct the atmosphere.  To counteract any deformation  of the readout board due to this  over-pressure , a 3 mm gas volume is added below the readout plane, this volume is connected to the chmber volume to equalize  the pressures. 
+The chamber is operated with a slight over-pressure of about 2 Torr with respct the atmosphere.  To counteract any deformation  of the readout board due to this  over-pressure , a 3 mm gas volume is added below the readout plane, this volume is connected to the chamber volume to equalize  the pressures. 
 
 
 \begin{figure}[!tbp]
@@ -48,7 +48,7 @@ For PRex/CRex experiments, Each HRS was  equipped with three large SBS GEM detec
 \end{figure}
 
 
-\subsection{Add a more detailed introduction of GEM detector supplement electronics??}
+\subsection{Add a more detailed introduction of GEM detector supplement electronics?? [MOVE TO CHAPTER 3]}
 \begin{enumerate}
     \item readout electronics (APV, MPD, CPU, coda)
     \item low voltage for the APV (modular LV, cable selection, LV regulator, cooling fan) 
@@ -106,6 +106,66 @@ The first 18 APV cards are utilized in the Idaho GEM detectors. As the area of t
     \label{fig:rhrs_pedestal_distribution}
 \end{figure}
 
+{\bf NL: Siyu:  I edited the following section while offline flying on the plane; please replace your material with that I have here }
+
+
+\subsection{GEM Pedestal Measurement}
+
+A pedestal run involves setting the high voltage to 2000 V for a dry run. At this high voltage, the electric field is insufficient to trigger an avalanche, meaning no signal should be detected on the readout strips. By applying a 2000 V high voltage, the noise from the high voltage modules can be considered when estimating the pedestal, as opposed to having no high voltage applied. The pedestal of each channel of the 128 APV channels is calculated by subtracting the ADC value from the common mode, defined as the average of the 128-channel ADC values. Subsequently, the Root Mean Square (RMS) and mean of each channel's pedestal are computed across all  events that have been recorded.
+
+Figure \ref{fig:lhrs_pedestal_distribution} and \ref{fig:rhrs_pedestal_distribution} show the pedestal distributions of all the channels used in the PRex experiment. The x-axis represents the index of the APV card, and the y-axis corresponds to the RMS value of the pedestal. Each data point in the plot represents one GEM readout channel.
+
+The first 18 APV cards are utilized in the Idaho GEM detectors. As the area of these detectors is $10 cm \times 20 cm$, their pedestal RMS values are also smaller than those of the SBS GEM detectors. The LHRS GEM detectors have larger pedestal RMS values than those of the RHRS, with RMS values of around 20 ADC, which equates to approximately $0.02 V$ voltage fluctuation. A few channels in each APV card exhibit much higher pedestals, and these are considered dead channels due to issues in the Printed Circuit Board (PCB) manufacturing process.
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/LHRS_pedestal.png}
+    \caption{LHRS GEM Readout RMS of Pedestal Distribution}
+    \label{fig:lhrs_pedestal_distribution}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap5/rhrs_pedestal.png}
+    \caption{RHRS GEM Readout RMS of Pedestal Distribution}
+    \label{fig:rhrs_pedestal_distribution}
+\end{figure}
+
+
+\subsubsection{GEM detector false positive rate}
+
+When the GEM detector works at Normal working voltage. When a particle passes through  
+the GEM detectors and ionized the gases inside the GEM chambers. The ionized electrons 
+will travel along the Electric field and get amplified within the holes in GEM detectors, 
+and then the avalanche electrons will be collected by the readout strips and readout with the electronics. 
+
+The common mode correction of raw signal ADC values is done using the same algorightm as
+ in the case of pedestal ADCs. After that, the pedestal corrected ADC value for each strip is
+calculated by  subtracting  the mean of the pedestal for that strip from the common mode 
+corrected ADC value. The determination of fired  GEM  strips is achieved  
+by comparing the corrected ADC  values with the pedestal thresholds. Different channels may have different 
+noise performances, for example,  due to different strip capacitances.  To get a consistent criterion,
+ the threshold for a  given channel is chosen to be N $\times$ (RMS of the pedestal).  
+If the value is larger than the threshold, then the  given strip is  considered to have fired,
+ and the strip number along with  its corrected ADC value are written into the fired strip array.  
+If the corrected ADC value is lower than the threshold, then the correctd ADC value for that strip 
+is set to zero, and the strip is marked as non-fired. The constant N was typically set to 5 for 
+SBS GEM modules used in PRex/CRex exeperiments. 
+
+Setting the threshold   too high with a high value of N increases the probability of  actualy  fired 
+good signal  strips to  be categorized as  non-signal  (False Negative), leading to artificial reduction 
+of detection efficiency.  On the other hand, if the threshold is set too low, it increases the the 
+ chance that pedestal  noise is categorized as good signals from fired strips (False Positive). 
+
+To measure the false positive rate, the GEM signal selection algorithm was applied on a 2000 V voltage 
+dry run, other than the dry run used for the pedestal calculation. Since there are no real signals  at 
+2000 V,  any fired strips in this run are false positive signals. By measuring the ratio of the fired 
+strips in the dry run total number of triggers, we can estimate the False Positive Rate of the algorithm. 
+In fig \ref{fig:lhrs_fake_hit_rate} and \ref{fig:rhrs_fake_hit_rate} are the false positive  hit rate 
+for the SBS GEM detectors on LHRS and RHRS. At the $5\sigma$ threshold, the false hit rate for LHRS 
+was $0.16\%$ and $0.01\%$.
+
+{\bf NL: end of offline edited section}
 
 \subsubsection{GEM detector false positive rate}
 
@@ -125,14 +185,14 @@ To measure the false positive rate, the GEM signal selection algorithm is applie
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/lhrs_fake_hit_rate.png}
-    \caption{LHRS SBS GEM Fake Hit Rate}
+    \caption{LHRS SBS GEM False Hit Rate}
     \label{fig:lhrs_fake_hit_rate}
 \end{figure}
 
 \begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap5/rhrs_fake_hit_rate.png}
-    \caption{RHRS SBS GEM Fake Hit Rate}
+    \caption{RHRS SBS GEM False Hit Rate}
     \label{fig:rhrs_fake_hit_rate}
 \end{figure}
 
@@ -142,7 +202,7 @@ To measure the false positive rate, the GEM signal selection algorithm is applie
 \subsubsection{Multiple GEM detectors alignment algorithm }
 \subsection{GEM detector performance}
 
-The GEM detectors in the spectrometer serve as an excellent supplement to the VDC detector employed for tracking scattered electrons. The efficiency of the detector is crucial for its performance. Both the VDC and GEM detectors can provide scattered electron tracks, enabling us to use the reconstructed track of the scattered electrons to project the track onto a given detector and measure the GEM detector's efficiency.
+The GEM detectors in the spectrometer serve as an excellent supplement to the VDC detectors employed for tracking scattered electrons. The efficiency of the detector is crucial for its performance. Both the VDC and GEM detectors can provide scattered electron tracks, enabling us to use the reconstructed track of the scattered electrons to project the track onto a given detector and measure the GEM detector's efficiency.
 
 The GEM foil is a two-layer copper-coated structure, with avalanches occurring only inside the holes of the GEM foil. Ionized ions are absorbed by the copper layers, reducing the travel distance to at most 70 µm. This is a significant reduction compared to the drift chamber, which is limited in its maximum event rate due to drift time. The maximum working rate for the drift chamber is limited to approximately 100 kHz, whereas the GEM detector's event rate can reach MHz per square centimeter. In this section, we will discuss the detailed measurement of GEM efficiency using the tracking method and compare the high-rate performance of the GEM and VDC detectors.
 
