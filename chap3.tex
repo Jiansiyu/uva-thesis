@@ -4,9 +4,7 @@
 
 The PRex and CREx experiments are conducted at the Continuous Electron Beam Accelerator Facility (CEBAF) housed within Jefferson Lab. Since its inception in the early 1990s, CEBAF has been a global pioneer, forging paths in nuclear physics research.
 
-The heart of CEBAF is its linear accelerators (linacs), specifically the North and South linacs. These linacs serve as the key elements where electrons amass energy, essential for the facility's experimental proceedings.
-
-Connecting these two linacs are the Recirculation Arcs, which are magnetic systems designed to curve the electron beam, redirecting it back into the linacs for additional energy enhancement during successive passes. An added function of the Recirculation Arcs is to facilitate the separation of electron beams of varying energy levels, post their multiple circulations through the linacs. This structural alignment and the operational interplay between the components ensure precision and efficacy in executing complex nuclear physics experiments like PRex and CRex.
+The heart of CEBAF is its linear accelerators (linacs), specifically the North and South linacs. These linacs serve as the key elements where electrons amass energy, essential for the facility's experimental proceedings. Connecting these two linacs are the Recirculation Arcs, which are magnetic systems designed to curve the electron beam, redirecting it back into the linacs for additional energy enhancement during successive passes. An added function of the Recirculation Arcs is to facilitate the separation of electron beams of varying energy levels, post their multiple circulations through the linacs. This structural alignment and the operational interplay between the components ensure precision and efficacy in executing complex nuclear physics experiments like PRex and CRex.
 
 
 % Para. 2
@@ -27,9 +25,7 @@ The Jefferson Lab's CEBAF upgrade project, completed in 2014, introduced a numbe
 
 Each of these upgraded linacs can now facilitate an energy gain of 1.1 GeV, enabling the electron beam to achieve 2.2 GeV during each circulation. Post traversing the south linac, the electron beam can be partitioned into three distinct 499 MHz beams.
 
-The facility's design allows for the electron beam to be accelerated up to five times through both linacs, producing a nominal energy output of 10.9 GeV. Experimental Halls A, B, and C each can receive a beam carrying energy that is one-fifth of the full 5-pass energy.
-
-Additionally, the beam directed to Hall D can be re-accelerated in the north linac, reaching energy levels as high as 12 GeV. This upgrade has elevated the capacity and flexibility of the CEBAF, further enhancing its research potential.
+The facility's design allows for the electron beam to be accelerated up to five times through both linacs, producing a nominal energy output of 10.9 GeV. Experimental Halls A, B, and C each can receive a beam carrying energy that is one-fifth of the full 5-pass energy. Additionally, the beam directed to Hall D can be re-accelerated in the north linac, reaching energy levels as high as 12 GeV. This upgrade has elevated the capacity and flexibility of the CEBAF, further enhancing its research potential.
 
 % Para. 3
 % \begin{itemize}
@@ -61,16 +57,59 @@ The PRex-II and CREx experiments aim to quantify the thickness of the neutron sk
 \end{figure}
 
 \section{Beam injection}
+% Para. 1 & 2
+% \begin{itemize}
+%     \item key componet to generate polarized beam
+%     \item GaAs photocathode
+%     \item three different structure $30-40\%$, $50\%$, $100\%$ which is using now. Engy band plot
+%     \item plot/structure of the GaAs photocathode
+% \end{itemize}
 
+The polarized electron source at Jefferson Lab comprises a specialized polarized laser system and gallium arsenide (GaAs) photocathodes. This integral apparatus permits the generation of a polarized, or spin-aligned, electron beam. This feature is indispensable for a broad range of experiments conducted at our facility, particularly those probing spin-dependent phenomena.
 
+The GaAs photocathode is irradiated with circularly polarized laser light possessing energy exceeding the bandgap energy. This triggers the emission of electrons that exhibit specific spin polarization, a process attributable to the photoelectric effect.
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
     \includegraphics[width=\textwidth]{images/chap3/jlab_polarized_source.png}
-    \caption{Caption}
-    \label{fig:enter-label}
+    \caption{Schema of the Polarized Laser system in the injector. add REF}
+    \label{fig:cebaf_polarize_laser_system}
 \end{figure}
-\subsection{Polarized Beam}
+\subsection{Polarized Beam Source}
+
+The polarization of the electron beam is quantified by the following equation:
+
+\begin{equation}
+p = \frac{N{\uparrow} - N{\downarrow}}{N{\uparrow} + N{\downarrow}}
+\end{equation}
+
+Here, $N$ represents the number of electrons in the conduction band of each corresponding spin state. 
+
+The generation of polarized electrons in our source is underpinned by the photoemission process from negative-electron-affinity III-V semiconductor materials, notably Gallium Arsenide (GaAs). The electron spin polarization observed arises from the unique crystal symmetry of GaAs, which governs transitions from the fully occupied valence band to the normally vacant conduction band, akin to transitions from a state with total angular momentum j=3/2 to one with j=1/2. For bulk GaAs as showed in the plot [todo ADD THE energy plot], permits two transitions between the valence band and the conduction band. For every given excitation, three times as many electron spins are anti-parallel to the photon spin than parallel to it. as a result, in theory the maximum polarization can achieve is $50\%$. But in practice, the polarization is around $30-40\%$. 
+
+
+Addressing this limitation, T. Maruyama and colleagues at the Stanford Linear Accelerator (SLAC) pioneered the use of strained GaAs to increase the polarization rate, \cite{PhysRevLett.66.2376}. This approach achieved an enhanced polarization rate of approximately $70\%$. The technique of strained GaAs involves the epitaxial growth of an InGaAs surface layer on GaAs. The resulting crystal-lattice mismatch between these two compounds introduces an axial strain. This strain effectively breaks the degeneracy of the $P_{3/2}$ valence band energy levels, thereby providing a mechanism to restrict optical excitation from the undesired valence-band spin state. This advancement represents a significant stride in the optimization of electron beam polarization. However, strained GaAs has its own challenges, notably a lower quantum efficiency (QE), which is typically on the order of $0.1\%$. Efforts to augment the QE, for instance, by increasing the thickness of the strained layer, tend to result in a concomitant decrease in polarization, presenting a trade-off that must be carefully managed in practical applications.
+
+
+
+
+[Add energy-level and bulk GaAs, strained GaAs, superlattice GaAs plot]
+
+
+Para. 3
+\begin{itemize}
+    \item IA
+    \item pockel cell used for flip the polarization
+\end{itemize}
+
+
+
+
+\begin{itemize}
+    \item the structure of the polarized beam
+    \item GaAs polarized beam (\cite{PhysRevB.13.5484}, \cite{ADDERLEY2023167710})
+    \item beam requirement of the PRex and CRex experiment
+\end{itemize}
 
 \subsection{Helicity Control}
 
