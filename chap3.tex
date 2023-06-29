@@ -90,37 +90,86 @@ The generation of polarized electrons in our source is underpinned by the photoe
 
 Addressing this limitation, T. Maruyama and colleagues at the Stanford Linear Accelerator (SLAC) pioneered the use of strained GaAs to increase the polarization rate, \cite{PhysRevLett.66.2376}. This approach achieved an enhanced polarization rate of approximately $70\%$. The technique of strained GaAs involves the epitaxial growth of an InGaAs surface layer on GaAs. The resulting crystal-lattice mismatch between these two compounds introduces an axial strain. This strain effectively breaks the degeneracy of the $P_{3/2}$ valence band energy levels, thereby providing a mechanism to restrict optical excitation from the undesired valence-band spin state. This advancement represents a significant stride in the optimization of electron beam polarization. However, strained GaAs has its own challenges, notably a lower quantum efficiency (QE), which is typically on the order of $0.1\%$. Efforts to augment the QE, for instance, by increasing the thickness of the strained layer, tend to result in a concomitant decrease in polarization, presenting a trade-off that must be carefully managed in practical applications.
 
+The modern photocathodes employ a superlattice structure, composed of numerous thin-layer pairs of lattice-mismatched materials. This design amalgamates the advantages of numerous thin strained layers to simultaneously achieve high polarization and high QE. The photocathode uses in Jefferson Lab achieves approximately $90\%$ polarization while maintaining a quantum efficiency of about $1\%$. \cite{PhysRevB.13.5484}, \cite{ADDERLEY2023167710}
 
 
+[bulk GaAs figure]
 
-[Add energy-level and bulk GaAs, strained GaAs, superlattice GaAs plot]
+[strain GaAs figure]
 
+[super-lattice GaAs figure]
 
-Para. 3
-\begin{itemize}
-    \item IA
-    \item pockel cell used for flip the polarization
-\end{itemize}
-
-
-
-
-\begin{itemize}
-    \item the structure of the polarized beam
-    \item GaAs polarized beam (\cite{PhysRevB.13.5484}, \cite{ADDERLEY2023167710})
-    \item beam requirement of the PRex and CRex experiment
-\end{itemize}
+[add energy level figure]
 
 \subsection{Helicity Control}
+Helicity plays a pivotal role in the PRex/CRex experiments. For the minimization of systematic errors, it is imperative to quickly and consistently flip the helicity, or spin direction, of the electron beam. The Pockels Cell (PC) is instrumental in facilitating this helicity reversal. This device is indeed crucial for the PRex experiment as it enables rapid, precise control over the electron beam's helicity, a vital requirement for measuring neutron distribution.
+
+The heart of the Pockels cell consists of two piezoelectric crystals made of Rubidium Titanyl Phosphate. When voltage is applied to these crystals, they can transform linearly polarized laser light into either left or right circularly polarized light. This polarization alteration directly affects the helicity of the electron beam. By modulating the voltage applied to the crystals, the beam's helicity can be swiftly adjusted. For the PRex-II experiment, the helicity flip rate was set at 240Hz.[REF pockels cell board paper] 
 
 \section{Beam monitor}
-\subsection{Polorimeter}
-\subsection{Compton}
+
+Numerous beam monitors operate within CEBAF (Continuous Electron Beam Accelerator Facility) to ensure its functionality aligns with the experimental requirements. Among these monitors, the polarimeter, beam position monitor, and beam current monitor play significant roles in the success of the PRex/CRex experiments. This section provides a concise introduction to these vital monitoring systems, offering an insight into their operations and their importance in maintaining the integrity of the experiment.
+
+\subsection{polarimeters}
+
+\subsubsection{Mott Polarimeter}
+
+
+
+\subsubsection{Compton Polarimeter}
+
+[need polish together]
+
+The Compton polarimeter in Jefferson Lab's Continuous Electron Beam Accelerator Facility (CEBAF) Hall A is another essential instrument used to measure the polarization of the electron beam. Unlike the Møller polarimeter, which relies on electron-electron interactions, the Compton polarimeter operates based on the principle of Compton scattering.
+
+Compton scattering involves the interaction between a beam of electrons and a photon, typically originating from a laser. The electrons scatter off the photons and experience a change in energy and direction depending on the incident photon's energy and the scattering angle. The change in energy of the scattered electrons (or alternatively, the scattered photons) is directly related to the polarization of the incident electron beam.
+
+
+In the Compton polarimeter in Hall A, the beam is directed into the optical cavity by two dipole magnets. Inside the cavity, a high-powered, circularly polarized laser is strategically positioned to intersect the electron beam. This encounter leads to Compton scattering, thereby generating scattered photons and electrons. However, only a minute fraction of the electron beam interacts with the polarized photons. Post-scattering, the beam is deflected back to the beam line. The scattered electrons are detected using electron detectors, which comprise plates of synthetic diamond developed through chemical vapor deposition. Compton-scattered photons are identified within an array of lead tungstate (PbWO4) crystals.
+
+A unique advantage of the Compton polarimeter is its capacity to assess the beam's polarization without disrupting the beam's operation. This feature facilitates uninterrupted, real-time monitoring of the beam's polarization during experiments. The disparity in count rates between the two helicity states serves as an indicator of the beam's polarization, thereby enhancing the accuracy and reliability of the measurements.
+
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/compton.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+
+% \begin{equation}
+%     A_{exp} = \frac{n^+-n^-}{n^++n^-} = P_{\gamma}P_e<A_{th}>
+% \end{equation}
+
+\subsubsection{Moller Polarimeter}
+
+The Møller polarimeter operates by detecting the electrons scattered from a polarized target, leveraging the phenomenon known as Møller scattering. This type of electron-electron scattering happens when two electrons interact, and the outcome of this interaction is measured. Significantly, the probability of scattering is deeply influenced by the relative spin orientations of the interacting electrons. This property makes Møller scattering particularly beneficial for gauging beam polarization. Unlike the Compton polarimeter, however, the Møller polarimeter cannot operate simultaneously with the production run.
+
+In the ultra-relativistic limit, the Møller asymmetry can be expressed as:
+
+\begin{equation}
+A_{exp} = P_{beam}P_{targ}<A_{zz}>
+\end{equation}
+
+In this equation, $<A_{zz}>$ represents the average analysis power over the captured cross-section, given by:
+
+\begin{equation}
+A_{zz} = \frac{\sin^2{\theta(7 + \cos^2{\theta})}}{(3 + \cos^2{\theta})^2}
+\end{equation}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/moller.png}
+    \caption{moller, need to re-plot}
+    \label{fig:enter-label}
+\end{figure}
+
 \subsection{Beam Position Monitor}
 \subsection{Beam current monitor}
+\subsection{Beam energy monitor, Tiefenhach measurement}
 
 \section{Target System}
-
 
 \begin{itemize}
     \item target chamber
