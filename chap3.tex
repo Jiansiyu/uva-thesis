@@ -307,38 +307,102 @@ When the sieve slits are in place, only the electrons passing through these hole
 \subsection{GEM detector}
 
 \section{GEM detector for the PRex/CRex experiment}
-\begin{itemize}
-    \item GEM foil
-    \item GEM foil structure, microscope image
-    \item GEM foil magnetic field simulation (Garfield simulation)
-\end{itemize}
+
+Gas Electron Multiplier (GEM) detectors are an important type of detector used in high-energy physics and various other fields for detecting charged particles, X-rays, and other ionizing radiation. The GEM detector was invented by Fabio Sauli at CERN in 1997 and has since become a crucial tool in the field of particle physics.
+
+The GEM detector operates based on the principle of gas ionization and subsequent avalanche multiplication. It is essentially a thin, metal-clad polymer foil chemically pierced by a high density of holes. This foil is typically sandwiched between two electrode plates. When a voltage is applied across the electrodes, an electric field is generated in the holes, resulting in strong gas amplification of the ionization electrons produced in the detector gas by the traversing radiation.
+
+When a charged particle passes through the detector, it ionizes the gas atoms, generating primary ion-electron pairs. These electrons are then drifted towards the GEM foils due to the electric field. When they enter the high-field region within the holes of the GEM foil, they trigger an avalanche multiplication, leading to a significant increase in the number of electrons.
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/gem_foil_photo.png}
+         \caption{Photo of GEM}
+         \label{Photo of CEBAF}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/gem_foil_micro.png}
+         \caption{JLAB GEM to be replaced}
+         \label{gem_structure}
+     \end{subfigure}
+\end{figure}
+
+[ plot ..... GEM detector Garfield Simulation EM field plot, my master thesis]
+
+This multiplication process occurs in a confined geometry, reducing the likelihood of photon-mediated feedback and increasing the detector's gain, rate capability, and stability. The resulting electron avalanche then induces a signal on the readout electrode, which can be processed to give the position and amount of ionizing radiation.
+
+GEM detectors are known for their high spatial resolution, good time resolution, and capability of handling high particle rates, making them an ideal choice for many experiments. Furthermore, they are robust, non-ageing, and relatively easy to construct and operate, making them a practical choice for many applications.
+
+In the PRex-II experiment, each HRS have 6 GEM detectors, three of them are UVa GEM detector made for Super bigBite Experiment with active area of $60\times 50$ centimeter, the rest three GEM detector are made in Idohle University with area of $20 \times 10$ centimeters. All the 6 GEM detector can detector particle separately and with the 6 GEM detectors it could pride high accurate tracking of the particles in the spectrometer.  
+
+[ plot, GEM detector installation in the detector hub]
+\begin{figure}
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/chap3/gem_in_hrs.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{GEM detector Structure}
+
+The GEM detectors are constructed with a layered design to ensure sufficient electron amplification. As illustrated in Figure [ref], Below the three layers of GEM foil, readout strips are secured to a honeycomb board. The use of a honeycomb structure minimizes the material present in the beamline, thus reducing its influence on scattered electrons and lessening potential noise.
+
+Underneath the honeycomb board, there exists an additional chamber circulating air to prevent the board from warping. Above the three layers of GEM foil, a cathode is installed. This cathode is covered with a single layer of copper-coated polyimide that connects it to the high-voltage power supply.
+
+The cathode layer is covered by a polyimide window. Positioned above it, an aluminum-coated layer is installed. This layer is connected to the same high voltage as the cathode. This design will depolarize the polyimide window. Through this detailed structure, the GEM detectors ensure efficient detection and measurement of charged particles.
 
 
-\begin{itemize}
-    \item GEM detector structure
-    \item AI window used de-polarized the window
-    \item Window 
-    \item 3 GEM layers
-    \item Read out strips 
-    \item backbone 
-    \item back chamber used for balance the pressure, prevent the readout board bend
-\end{itemize}
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.2\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/gem_structure.png}
+         \caption{Photo of GEM}
+         \label{Photo of CEBAF}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/gem_chamber.png}
+         \caption{JLAB GEM to be replaced}
+         \label{gem_structure}
+     \end{subfigure}
+\end{figure}
+
+\subsection{GEM detector High Voltage}
+
+The voltages applied to the GEM foils are regulated by resistor chains. Figure [ref] depicts the specific resistors utilized in the PRex/CRex experiment. The depolarizing window at the top of the GEM chamber shares the same high voltage as the cathode layer. The voltage at the top of the GEM detector is slightly higher than that at the bottom because there are fewer avalanche electrons at the top. This voltage distribution helps to protect the GEMs from potential damage.
+
+Each of the GEM detectors is safeguarded by resistors of $10M\Omega$ to limit the current passing through the GEM. This precautionary measure helps to prevent short circuits or the occurrence of a large drift current within the GEM, ensuring the overall safety and performance of the detector.
 
 
-\begin{itemize}
-    \item How GEM works
-    \item Garfild simulation 
-\end{itemize}
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/GEM_register_chain.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
 
-\section{GEM detector}
-\subsection{HV}
 
-\begin{itemize}
-    \item High Voltage Regestor chain 
-    \item HV models 
-    \item High Voltage Scan
-    \item the lowest voltage that meets the requirements
-\end{itemize}
+The high voltage is powered with two CEAN high voltage modules. Each module has 8 channels, 6 of which are used to power the GEM detectors, each GEM detector is connected to one high voltage channel.  Both of the modules can be controlled remotely in the counting-house. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\textwidth]{images/chap3/gem_hv_connector.png}
+    \caption{Caption}
+    \label{fig:enter-label}
+\end{figure}
+
+[GEM .... GEM detector HV module]
+[GEM detector efficiency scan]
+
+The operational voltage of the GEM detector is selected as the lowest possible voltage that still fulfills the experimental efficiency requirements. When the high voltage is elevated, the potential within the GEM holes increases, which leads to a larger number of avalanche electrons and subsequently higher detection efficiency. However, a higher voltage also elevates the risk of GEM trips, which can potentially damage the GEM detector.
+
+On the contrary, a lower high voltage leads to diminished efficiency. The operational voltage is thus chosen based on the results of a high voltage scan. This scan evaluates the efficiency of the GEM detector across a range of high voltages to identify the optimal operating condition that balances efficiency and the safety of the device.
 
 \subsection{LV}
 
