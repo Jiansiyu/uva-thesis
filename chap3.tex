@@ -270,21 +270,32 @@ In the context of the PRex and CRex experiments, both spectrometers are adjusted
 
 Positioned within a shield house, the detector package is composed of a range of detectors, each designed for a specific role in measuring the attributes of scattered particles. The detectors are equipped to assess position, angle, and timing of incoming particles. This trio of information is pivotal in determining their momentum and classification, thus forming a comprehensive overview of the particle's properties.
 
-[.... to be added, the HRS schema]
+[.... to be added, the HRS plot]
 
-\subsection{Sieve plane}
+\subsection{Sieve slit Collimators}
 
-\begin{itemize}
-    \item provides the ground truth dataset for the calibration. (Regression model)
-    \item CAD structure of the sieve 
-    \item location of the sieve. sieve in / out
-    \item merge some of the plots from next chapter
-    \item  will give a detailed introduction of how to leverage the sieve to calibrate the spectrometer
-\end{itemize}
+The sieve slit collimators used in Jefferson Lab's Hall A High Resolution Spectrometers (HRS) are 0.2-inch-thick tungsten plates, precisely drilled with a regular pattern of holes. Each hole measures 0.05 inches in diameter, except for three larger holes that are 0.106 inches across, which are utilized to aid in the accurate location of the collimator holes.
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/chap3/sive_slit.png}
+    \caption{Sieve slit used for PRex-II/CRex experiment [need to redraw]}
+    \label{fig:enter-label}
+\end{figure}
+Each side of the HRS beamline is equipped with one sieve slit positioned at the beamline's entrance. The manufacture of these sieve slits involves high-precision Computer Numerical Control (CNC) machining and a thorough surveying process using laser technology, ensuring the utmost accuracy before the commencement of any experiment. The momentum of electrons passing through each sieve hole can be computed precisely, providing a robust reference for spectrometer calibration. Further details regarding the HRS calibration with sieve slits will be discussed in the subsequent chapter.
+
+When the sieve slits are in place, only the electrons passing through these holes can reach the HRS. Each sieve slit is linked to a control unit, enabling manual placement or removal of the slit. During the production runs, the sieve is typically removed and only reinserted during optics runs. To ascertain the accuracy of this system, multiple optics runs were carried out throughout the experiment. 
+
+
+
 
 \subsection{collimeter}
 
+[... merge with the sieve slit?]
+
+
 \subsection{Magnet Chain of the HRS}
+
+
 \subsubsection{Septum Magnet}
 \subsubsection{QQDQ magnet package}
 
