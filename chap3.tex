@@ -248,7 +248,7 @@ Each target ladder is independently affixed to a motion system and can be contro
 
 The production target ladder comprises ten 208Pb-D targets, a Carbon target at $1\%$ density, a Carbon hole target designed for alignment purposes, and a Ca48 target. To maintain their performance under high-intensity beam conditions, the targets on the production ladder are cooled with liquid helium at 15K. Of particular note for the PRex experiment are the 208Pb targets. These targets are approximately 0.5mm thick and sandwiched with diamond foils to enhance thermal conductivity, thereby helping to dissipate the power deposited by the beam.
 
-The optics ladder, on the other hand, houses five targets used for High-Resolution Spectrometer (HRS) optics calibrations. These targets, cooled by water, include a natural Pb target, tungsten target, carbon foil target, carbon hole target, and a falling water target developed by INFN. Among them, the Carbon foil is employed for HRS optics calibration and the water target for pointing measurements. These measurements enable the accurate determination of the HRS angles. The detailed procedures related to these calibration processes will be thoroughly discussed in Chapter 5.
+The optics ladder, on the other hand, houses five targets used for High-Resolution Spectrometer (HRS) optics calibrations. These targets, cooled by water, include a natural Pb target, tungsten target, carbon foil target, carbon hole target, and a falling water target developed by INFN. Among them, the Carbon foil is employed for HRS optics calibration and the water target is for pointing measurements. These measurements enable the accurate determination of the HRS angles. The detailed procedures related to these calibration processes will be thoroughly discussed in Chapter 5.
 
 [... more]
 
@@ -256,8 +256,6 @@ The optics ladder, on the other hand, houses five targets used for High-Resoluti
     \item Ca target
     \item carbon hole 
 \end{itemize}
-
-
 
 
 \section{High Resolution Spectrometer}
@@ -361,7 +359,7 @@ The cathode layer is covered by a polyimide window. Positioned above it, an alum
      \begin{subfigure}[b]{0.2\textwidth}
          \centering
          \includegraphics[width=\textwidth]{images/chap3/gem_structure.png}
-         \caption{Photo of GEM}
+         \caption{Photo of GEM [to be replaced]}
          \label{Photo of CEBAF}
      \end{subfigure}
      \hfill
@@ -390,57 +388,76 @@ Each of the GEM detectors is safeguarded by resistors of $10M\Omega$ to limit th
 
 The high voltage is powered with two CEAN high voltage modules. Each module has 8 channels, 6 of which are used to power the GEM detectors, each GEM detector is connected to one high voltage channel.  Both of the modules can be controlled remotely in the counting-house. 
 
-\begin{figure}
+\begin{figure}[!htbp]
     \centering
-    \includegraphics[width=\textwidth]{images/chap3/gem_hv_connector.png}
+    \includegraphics[width=0.45\textwidth]{images/chap3/gem_hv_connector.png}
     \caption{Caption}
     \label{fig:enter-label}
 \end{figure}
 
 [GEM .... GEM detector HV module]
-[GEM detector efficiency scan]
+
 
 The operational voltage of the GEM detector is selected as the lowest possible voltage that still fulfills the experimental efficiency requirements. When the high voltage is elevated, the potential within the GEM holes increases, which leads to a larger number of avalanche electrons and subsequently higher detection efficiency. However, a higher voltage also elevates the risk of GEM trips, which can potentially damage the GEM detector.
 
-On the contrary, a lower high voltage leads to diminished efficiency. The operational voltage is thus chosen based on the results of a high voltage scan. This scan evaluates the efficiency of the GEM detector across a range of high voltages to identify the optimal operating condition that balances efficiency and the safety of the device.
+On the contrary, a lower high voltage leads to diminished efficiency. The operational voltage is thus chosen based on the results of a high-voltage scan. This scan evaluates the efficiency of the GEM detector across a range of high voltages to identify the optimal operating condition that balances efficiency and the safety of the device.
 
-\subsection{LV}
-
-\begin{itemize}
-    \item The Low voltage power supply
-    \item current consideration 
-    \item images of the low voltage
-    \item cooling 
-\end{itemize}
+[GEM detector efficiency scan]
 
 \subsection{Gas Flow}
 
-    \begin{itemize}
-        \item The Gas flow system
-        \item bubbler
-        \item how to distribute to the chamber 
-        \item gas flow in the chamber
-    \end{itemize}
+In the Gas Electron Multiplier (GEM) detector, the working gas is a mixture of Argon (Ar) and Carbon Dioxide (CO2) in a proportion of 75:25. The primary component, Argon, serves as the ionization medium. Incident radiation interacts with the Argon atoms upon entering the detector, ionizing them and liberating electrons. To prevent the formation of Argon ions after the initial ionization process, which could cause distortions in the electric field, Carbon Dioxide is included in the mixture. As an electronegative gas, CO2 captures and neutralizes these ions, mitigating potential field distortions.
 
-\subsection{DAQ system of the GEM detector}
+The gas supply is managed via the Hall A gas system. After passing through the gauge valve, the gas is divided into six channels and directed to a bubbler. Post-bubbler, the gas proceeds through a dehumidifier valve before being fed into the GEM chambers. This process ensures an optimal, controlled gas environment within the detectors for precise experimental conditions.
 
-\subsubsection{APV}
+\subsection{GEM detector Readout Electronics}
+
+
+The 
+
+[... to be added, add the readout electronics diagram]
+
+\subsubsection{Front End}
+
 \begin{itemize}
-    \item APV 25, charge sensitive pre-amplifier
-    \item HDMI cable
-    \item Noise Reduction technics (the fifth channel of the HDMI is not good)
+    \item APV
+    \item power 
+    \item cooling
 \end{itemize}
 
 \subsubsection{MPD}
 
-\begin{itemize}
-    \item analog to digital converter
-    \item CPU 
-    \item event rate limitations
-\end{itemize}
+\subsubsection{CPU}
+
+\section{production DAQ system}
+
+% \subsection{GEM detector LV used for APV and cooling}
+
+% \subsection{LV}
+
+% \begin{itemize}
+%     \item The Low voltage power supply
+%     \item current consideration 
+%     \item images of the low voltage
+%     \item cooling 
+% \end{itemize}
 
 
 
-\subsection{QUATZ / AT}
-\subsection{trigger system}
+% \subsection{DAQ system of the GEM detector}
+
+% \subsubsection{APV}
+% \begin{itemize}
+%     \item APV 25, charge sensitive pre-amplifier
+%     \item HDMI cable
+%     \item Noise Reduction technics (the fifth channel of the HDMI is not good)
+% \end{itemize}
+
+% \subsubsection{MPD}
+
+% \begin{itemize}
+%     \item analog to digital converter
+%     \item CPU 
+%     \item event rate limitations
+% \end{itemize}
 
