@@ -270,12 +270,52 @@ Positioned within a shield house, the detector package is composed of a range of
 
 [.... to be added, the HRS plot]
 
+\subsection{collimeter}
+[... merge with the sieve slit collimator]
+
+The collimator, a crucial component in the PREx-II and CREx experiments, is strategically positioned between the target chamber and the septum magnet. It is designed with three holes: the central hole permits the unscattered beam to proceed toward the beam dump, while the two uniquely curved holes on the left and right guide and shape the spectrometer's acceptance.
+
+The design of these spectrometer holes is meticulously optimized to enhance the High-Resolution Spectrometer's (HRS) acceptance for the figure of merit. Another significant part of the collimator is the Sieve slit, as depicted in the plot, which plays a critical role in calibrating the optics.
+
+The collimator features a remote actuation capability, which allows for positioning the Sieve optics collimator between the 'beam out' and 'beam in' positions as required. This design allows for precise adjustments in real time during experiments, providing great control and flexibility in achieving optimal results.
+
+[... add the detailed structure of the collimator]
+
+[figure .... collimator in the beamline]
+
+[figure .... sieve in the beamline]
+
+
+\begin{figure}
+     \centering
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/beam_line_target_pivot.png}
+         \caption{beam target pivot}
+         \label{Photo of CEBAF}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.45\textwidth}
+         \centering
+         \includegraphics[width=\textwidth]{images/chap3/hrs_colli_corss_diag.png}
+         \caption{disagr[from slides]}
+         \label{gem_structure}
+     \end{subfigure}
+\end{figure}
+
+\begin{figure}[!htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/chap3/hrs_pivot_detailed.png}
+    \caption{detailed, need to add the labels}
+    \label{fig:enter-label}
+\end{figure}
+
 \subsection{Sieve slit Collimators}
 
 The sieve slit collimators used in Jefferson Lab's Hall A High Resolution Spectrometers (HRS) are 0.2-inch-thick tungsten plates, precisely drilled with a regular pattern of holes. Each hole measures 0.05 inches in diameter, except for three larger holes that are 0.106 inches across, which are utilized to aid in the accurate location of the collimator holes.
 \begin{figure}[!htbp]
     \centering
-    \includegraphics[width=0.5\textwidth]{images/chap3/sive_slit.png}
+    \includegraphics[width=0.8\textwidth]{images/chap3/sive_slit.png}
     \caption{Sieve slit used for PRex-II/CRex experiment [need to redraw]}
     \label{fig:enter-label}
 \end{figure}
@@ -283,16 +323,9 @@ Each side of the HRS beamline is equipped with one sieve slit positioned at the 
 
 When the sieve slits are in place, only the electrons passing through these holes can reach the HRS. Each sieve slit is linked to a control unit, enabling manual placement or removal of the slit. During the production runs, the sieve is typically removed and only reinserted during optics runs. To ascertain the accuracy of this system, multiple optics runs were carried out throughout the experiment. 
 
-
-
-
-\subsection{collimeter}
-
-[... merge with the sieve slit?]
-
-
 \subsection{Magnet Chain of the HRS}
 
+[ intro to be added]
 
 \subsubsection{Septum Magnet}
 \subsubsection{QQDQ magnet package}
@@ -300,6 +333,12 @@ When the sieve slits are in place, only the electrons passing through these hole
 \subsection{detector package}
 
 \subsection{Vertical Drift Chamber}
+
+\begin{itemize}
+    \item structure of the VDC 
+    \item readout electronics
+\end{itemize}
+
 \subsection{S0, S3 scintillator as trigger}
 \subsection{Quartz, AT}
 \subsection{GEM detector}
@@ -412,52 +451,29 @@ The gas supply is managed via the Hall A gas system. After passing through the g
 
 \subsection{GEM detector Readout Electronics}
 
-
-The 
+The GEM detector used in the PRex-II/CRex experiment utilizes a strip readout method. Following the amplification cascade, the electrons are collected by readout strips. Each of these strips is directly linked to a charge-sensitive frontend amplifier. Subsequently, the signals are transformed into LVDS (Low-Voltage Differential Signaling) format and dispatched to a digitizer, where they are converted into digital signals. A schematic diagram of the readout electronics is shown in Figure [ref]. The upcoming sections will offer an in-depth description of each part of the electronics system.
 
 [... to be added, add the readout electronics diagram]
 
 \subsubsection{Front End}
 
-\begin{itemize}
-    \item APV
-    \item power 
-    \item cooling
-\end{itemize}
+[... to be added, GEM detector with APV]
 
-\subsubsection{MPD}
+The GEM detector utilizes APV25, a low-noise charge-sensitive preamplifier for readout operations\cite{Jones:1069892,Jones:432224}. Initially designed for reading silicon microstrip detectors in the CMS tracker at the LHC, APV25 is a 128-channel analogue pipeline chip. Each channel consists of a low-noise amplifier, a 192-cell analogue pipeline, and a deconvolution readout circuit. Data output is transmitted via a single differential current output through an analogue multiplexer.
 
-\subsubsection{CPU}
+The dimensions of the GEM detectors are 60 cm by 50 cm. The longer side, equipped with 1536 channels, is read out by twelve APV25 cards. All twelve cards are connected to a single 12-slot backplane that provides power, control, and readout functionality to the APV25. On the other hand, the shorter side, with 1280 channels, is read out by ten APV25 cards. These cards are linked to two 5-slot backplanes. The APV25 is powered by a low voltage regulator that can provide 2.5V and 1.25V to energize the APV25 frontend cards.
+
+Two distinct patch panels are utilized within the data acquisition (DAQ) system. The digital patch panel serves the purpose of distributing digital signals to two different backplanes. On the other hand, the analog patch panel is specifically designed to convert a 5-channel HDMI signal into a 4-channel HDMI signal. This conversion is essential to facilitate the signal's compatibility with the MPD.
+
+
+[... fig, cooling] \\
+
+[... fif, GEM with APV]
+
+
+\subsubsection{MPD and Data Transfer}
+
+The Multi-Purpose Digitizer (MPD) board is designed to seamlessly manage up to 16 APV front-end cards. It reads out the associated analog data streams and transmits both the control and configuration signals. Each MPD comes with 4 analog HDMI input ports, each capable of digitizing 4 APV front-end cards (128 channels). The MPD can sample the signal at a rate of 40MHz. After digitization, the signals are forwarded to [??? figure name?] before being transferred to the database. (This needs to be double-checked.)
 
 \section{production DAQ system}
-
-% \subsection{GEM detector LV used for APV and cooling}
-
-% \subsection{LV}
-
-% \begin{itemize}
-%     \item The Low voltage power supply
-%     \item current consideration 
-%     \item images of the low voltage
-%     \item cooling 
-% \end{itemize}
-
-
-
-% \subsection{DAQ system of the GEM detector}
-
-% \subsubsection{APV}
-% \begin{itemize}
-%     \item APV 25, charge sensitive pre-amplifier
-%     \item HDMI cable
-%     \item Noise Reduction technics (the fifth channel of the HDMI is not good)
-% \end{itemize}
-
-% \subsubsection{MPD}
-
-% \begin{itemize}
-%     \item analog to digital converter
-%     \item CPU 
-%     \item event rate limitations
-% \end{itemize}
 
