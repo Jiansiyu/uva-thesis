@@ -368,20 +368,42 @@ The unique combination of the quadrupoles and dipole in the QQDQ configuration g
 
 \subsection{detector package}
 
-This detector package is an integral part of the spectrometer's functionality, designed for efficient particle detection, identification, and momentum analysis. The HRS detector package includes a collection of detector devices, each offering distinct functionalities, which together enable comprehensive particle detection and analysis. The PRex-II/CRex experiment detector package includes S0, S3 scintillators which provide triggers for counting mode Data Acquisition, Vertical Drift Chambers for particle tracking, Quartz integrating detectors, and GEM detectors which provide supplemental tracking capabilities.  
+The detector package serves as a fundamental component of the spectrometer, specifically engineered for proficient particle detection, identification, and momentum assessment. It comprises an array of detection devices, each imparting unique capabilities, that collectively facilitate a thorough particle detection and analysis.
 
+In the context of the PRex-II/CRex experiment, the detector package incorporates S0 and S3 scintillators. These provide trigger mechanisms for the counting mode of Data Acquisition, enabling efficient event recording. The Vertical Drift Chambers are included for precise particle tracking, facilitating the determination of particle trajectories within the spectrometer. Quartz integrating detectors is the main detector used in production mode to measure the parity violation asymmetry. Gas Electron Multiplier (GEM) detectors are integrated into the package, supplementing the tracking capacities of the detector assembly. 
 
 \subsection{Vertical Drift Chamber}
 
-The Vertical Drift Chamber(VDC) are key components in determining the trajectory of particles detected in the spectrometer. The VDCs are multi-wire proportional chambers that provide precise measurements of the positions and angles of charged particles. Each VDC in the HRS typically consists of two wire planes, with the wires in each plane oriented at an angle with respect to each other. This configuration allows for the determination of the two-dimensional position of a charged particle as it passes through the chamber. With two chambers, the VDCs can provide two dimension position x,y together with the oritation of the particle $\theta$, $\phi$. With those information, the kinematic measurement of the scattered electrons are made possible. In the Chapter 4, we will introduce more details about the VDC, and how to reconstructe the kenematic information with the VDC measurement. 
+The Vertical Drift Chambers (VDCs) play a pivotal role in discerning the trajectory of particles observed within the spectrometer. Constructed as multi-wire proportional chambers, these VDCs offer meticulous assessments of both the position and angles of the charged particles traversing them. Each VDC within the HRS is generally composed of two wire planes, set at an angle relative to one another. This strategic arrangement facilitates the accurate determination of a charged particle's two-dimensional position as it moves through the chamber.
+
+Additionally, the use of two chambers enables the VDCs to deliver comprehensive spatial data, including the position $(x,y)$ and orientation $(\theta, \phi)$ of the particle. This wealth of information makes possible the intricate measurement of the kinematics of the scattered electrons.
+
+A more in-depth exploration of the VDC, and the process of reconstructing kinematic data based on VDC measurements, will be provided in Chapter 4. This elaboration will further illuminate the essential role these devices play within the experimental apparatus.
+
 \begin{itemize}
     \item structure of the VDC 
-    \item readout electronics
+    \item readout electronics (to be added, move to chapter 4)
 \end{itemize}
 
-\subsection{S0, S3 scintillator as trigger}
+\subsection{S0, S3 scintillator}
+
+The PRex-II/CRex experiment incorporates two scintillator packages, labeled S0 and S3, in each High-Resolution Spectrometer (HRS). These packages furnish triggers for the counting mode of Data Acquisition (DAQ), a critical function in optics calibration, $Q^2$ measurements, and Spot++ routines.
+
+The first scintillator package contains two scintillators, S0, is strategically positioned between the Vertical Drift Chambers (VDC) and the Gas Electron Multiplier (GEM) detectors, enabling the initial phase of particle detection.
+
+The second scintillator package, S3, comprises three plastic scintillator paddles. It is situated above the GEM detectors and is oriented at a $45^\circ$ angle. This placement is perpendicular to the scattered beamline. 
+
+
 \subsection{Quartz integrating detectors}
+
+
+
 \subsection{GEM detector}
+
+In the PRex-II experiment, 6 GEM detectors are installed in each HRS to provide supplemental tracking capability. 12 GEM detectors are used in total in the experiment. Half of them are GEM detectors with size of $20\times 10$ centimeter manufactured in IDU, and half of the GEM detectors with the size of $60\times 50$ centimeters are manufactured in the University of Virginia design for Super BigBite Experiment which performance in 2022. The PRex experiment provides a unique opportunity to test the GEM detectors in the real experimental environment before the SBS experiment. In the next section, we will introduce more about the GEM detectors and their DAQ systems. 
+
+In the CRex experiment, to reduce the scattering caused by the GEM detector, two(check check??) of the IDU GEM detector are removed from the data acquisition. 
+
 
 \section{GEM detector for the PRex/CRex experiment}
 
@@ -389,7 +411,7 @@ Gas Electron Multiplier (GEM) detectors are an important type of detector used i
 
 The GEM detector operates based on the principle of gas ionization and subsequent avalanche multiplication. It is essentially a thin, metal-clad polymer foil chemically pierced by a high density of holes. This foil is typically sandwiched between two electrode plates. When a voltage is applied across the electrodes, an electric field is generated in the holes, resulting in strong gas amplification of the ionization electrons produced in the detector gas by the traversing radiation.
 
-When a charged particle passes through the detector, it ionizes the gas atoms, generating primary ion-electron pairs. These electrons are then drifted towards the GEM foils due to the electric field. When they enter the high-field region within the holes of the GEM foil, they trigger an avalanche multiplication, leading to a significant increase in the number of electrons.
+When a charged particle passes through the detector, it ionizes the gas atoms, generating primary ion-electron pairs. These electrons are then drifted toward the GEM foils due to the electric field. When they enter the high-field region within the holes of the GEM foil, they trigger an avalanche multiplication, leading to a significant increase in the number of electrons.
 
 \begin{figure}
      \centering
