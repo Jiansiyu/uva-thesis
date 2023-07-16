@@ -152,7 +152,7 @@ If the corrected ADC value is lower than the threshold, then the correctd ADC va
 is set to zero, and the strip is marked as non-fired. The constant N was typically set to 5 for 
 SBS GEM modules used in PRex/CRex exeperiments. 
 
-Setting the threshold   too high with a high value of N increases the probability of  actualy  fired 
+Setting the threshold   too high with a high value of N increases the probability of  actually  fired 
 good signal  strips to  be categorized as  non-signal  (False Negative), leading to artificial reduction 
 of detection efficiency.  On the other hand, if the threshold is set too low, it increases the the 
  chance that pedestal  noise is categorized as good signals from fired strips (False Positive). 
@@ -202,9 +202,9 @@ To measure the false positive rate, the GEM signal selection algorithm is applie
 \subsubsection{Multiple GEM detectors alignment algorithm }
 \subsection{GEM detector performance}
 
-The GEM detectors in the spectrometer serve as an excellent supplement to the VDC detectors employed for tracking scattered electrons. The efficiency of the detector is crucial for its performance. Both the VDC and GEM detectors can provide scattered electron tracks, enabling us to use the reconstructed track of the scattered electrons to project the track onto a given detector and measure the GEM detector's efficiency.
+The GEM detectors in the spectrometer serve as an excellent supplement to the VDC detectors employed for tracking scattered electrons. An accurate measurement of the position dependant efficiency profile of the tracking detectors is crucial for evaluating the average Q$2$ for the Pb or Ca elastic peak.  Both the VDC and GEM detectors can provide scattered electron tracks, enabling us to use the reconstructed VDC tracks  to project onto a given GEM detector and measure that  GEM detector's efficiency.
 
-The GEM foil is a two-layer copper-coated structure, with avalanches occurring only inside the holes of the GEM foil. Ionized ions are absorbed by the copper layers, reducing the travel distance to at most 70 µm. This is a significant reduction compared to the drift chamber, which is limited in its maximum event rate due to drift time. The maximum working rate for the drift chamber is limited to approximately 100 kHz, whereas the GEM detector's event rate can reach MHz per square centimeter. In this section, we will discuss the detailed measurement of GEM efficiency using the tracking method and compare the high-rate performance of the GEM and VDC detectors.
+In this section, we will discuss the detailed measurement of GEM efficiency using the tracking method and compare the high-rate performance of the GEM and VDC detectors.
 
 \subsubsection{GEM Detector Efficiency with Tracking}
 
@@ -254,11 +254,17 @@ To get a better understanding of the efficiency difference by each area, the GEM
 
 GEM detector efficiency increase with time [TO BE ADDED]. 
 
+%
+% NL: edits on 07/14
+%
 \subsubsection{GEM detector High Rate Performance and compare with VDC}
+In a gas ionization detector, while the ionized electrons drift the the anode strips or wires, the created positive ions drift in the opposite direction along the electric field. Given their much heavier mass, the drift velocity of the positive ions is significantly less than that of the electrons. As such, the time it takes the positive ions to drift back and get removed from the detector volume act as the limiting factor on the detector rate. 
+
+The GEM foil is a two-layer copper-coated structure, with avalanches occurring only inside the holes of the GEM foil. Most Ionized ions are absorbed by the copper layers, reducing the travel distance  for the ions to at most 70 µm. This is a significant reduction compared to the drift chamber, which is limited in its maximum event rate due to the much longer drift time of the ions over many mm. The maximum working rate for the drift chamber is limited to approximately few kHz.cm$^2$, whereas the GEM detector's event rate can reach MHz per square centimeter. 
 
 The GEM detector can achieve a higher event rate than the drift chamber due to its smaller drift time for ions. In the event rate measurement, both GEM and VDC detectors are used for tracking. However, for safety concerns, when the event rate exceeds 500 kHz, only the GEM detector is employed.
 
-Since the VDC detector is not used when the event rate is greater than 500 kHz, a consistent efficiency is obtained by reconstructing the track with six layers of GEM detectors for the efficiency measurement. The VDC efficiency is measured by projecting the GEM track back to the VDC plane and searching for fired events on the VDC detector. Similarly, the GEM efficiency calculation is performed by projecting the track to each GEM detector and searching for fired events in each GEM detector plane.
+Since the VDC detectors are  not used when the event rate is greater than 500 kHz, a consistent efficiency is obtained by reconstructing the track with six layers of GEM detectors for the efficiency measurement. The VDC efficiency is measured by projecting the GEM track back to the VDC plane and searching for fired events on the VDC detector. Similarly, the GEM efficiency calculation is performed by projecting the track to each GEM detector and searching for fired events in each GEM detector plane.
 
 Figure \ref{fig:apv_25_pedestal_plot} shows the comparison of the GEM detector and VDC detectors at different event rates. The blue points represent the efficiency of the VDC detectors, while the red points represent the efficiency of the GEM detectors. Within the test range from 20 kHz(?) to 1.5 MHz(?), the efficiency of the GEM detector remains consistent. On the other hand, the efficiency of the VDC detector decreases as the event rate increases, dropping to around $60\%(?)$ when the event rate reaches 500 kHz. 
 
